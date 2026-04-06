@@ -1,0 +1,20 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+
+# 数据不入库（公开数据集，用脚本拉取）
+data/raw/
+data/*.db
+data/models/
+
+# 运行记录：默认不入库；演示样本收录
+runs/*
+!runs/samples/
+
+# 派生数据（脚本可重建）
+data/index/
+data/scale/
+
+# KDD 公测任务库（1.4GB，eval/kdd_prepare.py 可重建；预测与报告仍入库）
+eval/kdd_work/

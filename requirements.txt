@@ -1,0 +1,27 @@
+# 复现环境基线（Python 3.12；版本为 2026-05-12 实测通过版本）
+pandas==3.0.6
+numpy==2.5.4
+openpyxl==3.1.5
+sqlglot==30.22.0
+openai==3.30.0
+PyYAML==6.0.3
+python-dotenv==1.2.4
+langgraph==1.2.15
+requests==2.34.2
+
+# —— 检索真实语义后端（可选；体积较大，含 torch。不装则 config/settings.yaml 的 embed.backend 用 mock 干跑）——
+# sentence-transformers==6.1.0
+# torch==2.14.1
+# transformers==5.19.0
+
+# —— 服务化外壳与规模实验室（可选）——
+fastapi==0.143.2
+uvicorn==0.54.0
+duckdb==1.5.6
+
+# —— KDD DataSpace 公测轨适配（eval/kdd_prepare.py 的 PDF 文本抽取）——
+pypdf==6.20.1
+
+# —— 单元测试 ——
+pytest==9.1.1
+streamlit==1.66.0
