@@ -1,0 +1,22 @@
+version: 0.2
+# 同义词 / 别名映射：供 Schema Linking 加权与生成提示
+synonyms:
+  - term: 州
+    maps_to: [customers.customer_state, sellers.seller_state]
+    note: 未指明买卖方时默认客户所在州
+  - term: 省份
+    maps_to: [customers.customer_state]
+  - term: 客户
+    maps_to: [customers.customer_id, customers.customer_unique_id]
+    note: 去重统计用 customer_unique_id
+  - term: 卖家 / 商家
+    maps_to: [sellers.seller_id]
+  - term: 评论 / 评分
+    maps_to: [order_reviews.review_score]
+  - term: 品类
+    maps_to: [products.product_category_name, category_translation.product_category_name_english]
+    note: 默认输出英文品类名（关联翻译表）；统计品类数量用原字段去重
+  - term: 支付方式
+    maps_to: [order_payments.payment_type]
+  - term: 运费
+    maps_to: [order_items.freight_value]

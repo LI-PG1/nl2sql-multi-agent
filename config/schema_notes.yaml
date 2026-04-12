@@ -1,0 +1,69 @@
+version: 0.2
+# 表 / 字段中文说明（人工维护）：构建索引时与库结构合并生成 schema 块
+tables:
+  orders:
+    note: 订单主表（每行一个订单）
+    fields:
+      order_id: 订单 ID
+      customer_id: 客户 ID（外键 → customers）
+      order_status: "订单状态：delivered / shipped / canceled / unavailable / processing 等"
+      order_purchase_timestamp: 下单时间
+      order_approved_at: 支付时间
+      order_delivered_customer_date: 客户签收时间（空 = 未送达）
+      order_estimated_delivery_date: 预计送达时间
+  order_items:
+    note: 订单商品明细（商品金额与运费分开）
+    fields:
+      order_id: 订单 ID（外键 → orders）
+      order_item_id: 订单内商品序号
+      product_id: 商品 ID（外键 → products）
+      seller_id: 卖家 ID（外键 → sellers）
+      price: 商品金额
+      freight_value: 运费
+  order_payments:
+    note: 订单支付表（一个订单可有多条支付记录）
+    fields:
+      order_id: 订单 ID（外键 → orders）
+      payment_type: 支付方式（credit_card / boleto / voucher / debit_card）
+      payment_installments: 分期数
+      payment_value: 支付金额（销售额默认口径字段）
+  order_reviews:
+    note: 订单评价表
+    fields:
+      order_id: 订单 ID（外键 → orders）
+      review_score: 评分（1-5）
+      review_comment_message: 评论文本
+      review_creation_date: 评价发起时间
+  customers:
+    note: 客户表（每行对应一个订单的客户快照）
+    fields:
+      customer_id: 客户 ID（订单粒度）
+      customer_unique_id: 客户唯一 ID（跨订单去重统计用）
+      customer_state: 客户所在州
+      customer_city: 客户所在城市
+      customer_zip_code_prefix: 邮编前缀
+  products:
+    note: 商品表
+    fields:
+      product_id: 商品 ID（表内无商品名称字段，商品标识即此字段）
+      product_category_name: 品类名（葡语原值）
+      product_weight_g: 商品重量（克）
+      product_photos_qty: 图片数量
+  sellers:
+    note: 卖家表
+    fields:
+      seller_id: 卖家 ID
+      seller_state: 卖家所在州
+      seller_city: 卖家所在城市
+  geolocation:
+    note: 邮编地理表（邮编前缀 → 州 / 城市 / 经纬度）
+    fields:
+      geolocation_zip_code_prefix: 邮编前缀
+      geolocation_state: 州
+      geolocation_lat: 纬度
+      geolocation_lng: 经度
+  category_translation:
+    note: 品类名翻译表（葡语 → 英语）；品类输出默认经此表转英文
+    fields:
+      product_category_name: 品类名（葡语）
+      product_category_name_english: 品类名（英语）

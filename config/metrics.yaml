@@ -1,0 +1,81 @@
+version: 0.4
+# 口径层：指标定义与歧义组（澄清追问 / 口径消解的依据）
+# 迭代方式：修改本文件 → 回归评测（代码不动），见 docs/详细设计.md §8
+
+ambiguity_groups:
+  - id: amount_scope
+    name: 金额范围
+    triggers: ["销售额", "营收", "GMV", "交易额", "营业额"]
+    default_variant: payment_total
+    clarify_question: "销售额有几种口径：① 支付总额（默认）② 商品金额（不含运费）③ 仅已送达订单，按哪一种统计？"
+    variants:
+      - id: payment_total
+        name: 支付总额
+        keywords: ["支付总额", "支付口径", "支付金额", "默认"]
+        definition: order_payments.payment_value 合计
+        sql_hint: SUM(order_payments.payment_value)
+      - id: goods_only
+        name: 商品金额
+        keywords: ["商品金额", "不含运费", "商品口径", "货款"]
+        definition: order_items.price 合计（不含运费）
+        sql_hint: SUM(order_items.price)
+      - id: delivered_only
+        name: 仅已送达订单
+        keywords: ["已送达", "送达", "delivered", "完成订单"]
+        definition: payment_value 合计且订单状态为 delivered
+        sql_hint: SUM(payment_value) WHERE order_status = 'delivered'
+
+  - id: cancel_handling
+    name: 取消订单处理
+    triggers: ["净销售额", "实际成交", "有效订单", "成交额"]
+    default_variant: exclude_canceled
+    clarify_question: "是否剔除已取消 / 不可用订单？① 剔除（默认净口径）② 全部计入"
+    variants:
+      - id: exclude_canceled
+        name: 剔除取消
+        keywords: ["剔除", "净口径", "排除取消"]
+        definition: 仅统计有效状态订单（剔除 canceled / unavailable）
+      - id: include_all
+        name: 全部计入
+        keywords: ["全部计入", "不剔除", "含取消"]
+        definition: 不按订单状态过滤
+
+  - id: time_field
+    name: 时间口径
+    triggers: ["月度", "趋势", "按月", "每月"]
+    default_variant: purchase_time
+    clarify_question: "按哪个时间统计：① 下单时间（默认）② 支付时间 ③ 送达时间"
+    variants:
+      - id: purchase_time
+        name: 下单时间
+        keywords: ["下单时间", "下单"]
+        definition: orders.order_purchase_timestamp
+      - id: approved_time
+        name: 支付时间
+        keywords: ["支付时间", "支付"]
+        definition: orders.order_approved_at
+      - id: delivered_time
+        name: 送达时间
+        keywords: ["送达时间", "签收"]
+        definition: orders.order_delivered_customer_date
+
+metrics:
+  - id: gmv
+    name: 销售额
+    ambiguity_group: amount_scope
+    definition: 平台交易金额（口径见 amount_scope）
+  - id: order_count
+    name: 订单量
+    definition: COUNT(DISTINCT orders.order_id)
+  - id: avg_order_value
+    name: 客单价
+    definition: 销售额（默认 payment_value 合计）÷ 订单量（COUNT(DISTINCT order_id)）（金额口径联动 amount_scope）
+  - id: order_avg_item_amount
+    name: 订单平均商品金额
+    definition: SUM(order_items.price) ÷ 订单量（COUNT(DISTINCT orders.order_id)）
+  - id: delivery_days
+    name: 配送时长（配送天数）
+    definition: julianday(order_delivered_customer_date) − julianday(order_purchase_timestamp)；样本为订单状态 delivered 且签收时间非空的订单
+  - id: customer_count
+    name: 客户数
+    definition: COUNT(DISTINCT customers.customer_unique_id)（一个客户跨订单只计一次）
