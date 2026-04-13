@@ -1,0 +1,117 @@
+{
+  "task": "先查询 2018 年各月订单评价的平均评分（按全部评价统计、按订单下单时间归月，不做订单状态过滤），再找出平均评分最低的月份及其评分。",
+  "mode": "eval",
+  "plan": [
+    {
+      "id": "s1",
+      "skill": "search_doc",
+      "input": "检索评价评分字段定义、评分表名、评分与订单关联方式；确认评分是否来自 order_reviews 表、字段名是否为 review_score",
+      "depends_on": [],
+      "expect": "确认评分数据源为 order_reviews 表，字段为 review_score；评分与订单通过 order_id 关联；评分范围 1–5"
+    },
+    {
+      "id": "s2",
+      "skill": "query_data",
+      "input": "查询 2018 年各月订单评价的平均评分；按订单下单时间归月（使用 orders.order_purchase_timestamp 的年月）；按全部评价统计、不做订单状态过滤；返回：年月（格式 YYYY-MM）、平均评分（review_score 的 AVG）、评价数量（COUNT）",
+      "depends_on": [],
+      "expect": "得到 12 行数据（2018 年 1–12 月），每行含 month、avg_score、review_count；评分来自 order_reviews，关联 orders.order_id；时间范围严格为 2018 年"
+    },
+    {
+      "id": "s3",
+      "skill": "compute",
+      "input": "用 s2 的结果数据（data）找出平均评分最低的月份及其评分；返回：最低评分值、对应月份（YYYY-MM 格式）",
+      "depends_on": [
+        "s2"
+      ],
+      "expect": "返回单行结果：min_month（如 '2018-01'）、min_score（如 3.8）"
+    }
+  ],
+  "plan_fallback": false,
+  "layers": [
+    [
+      "s1",
+      "s2"
+    ],
+    [
+      "s3"
+    ]
+  ],
+  "steps": [
+    {
+      "step_id": "s1",
+      "skill": "search_doc",
+      "input": "检索评价评分字段定义、评分表名、评分与订单关联方式；确认评分是否来自 order_reviews 表、字段名是否为 review_score",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "hits": [
+        {
+          "title": "表：order_reviews",
+          "source": "数据字典",
+          "score": 0.745,
+          "text": "## 表：order_reviews\n- 说明：订单评价表\n  - order_id：订单 ID（外键 → orders）\n  - review_score：评分（1-5）\n  - review_comment_message：评论文本\n  - review_creation_date：评价发起时间"
+        },
+        {
+          "title": "表：order_payments",
+          "source": "数据字典",
+          "score": 0.52,
+          "text": "## 表：order_payments\n- 说明：订单支付表（一个订单可有多条支付记录）\n  - order_id：订单 ID（外键 → orders）\n  - payment_type：支付方式（credit_card / boleto / voucher / debit_card）\n  - payment_installments：分期数\n  - payment_value：支付金额（销售额默认口径字段）"
+        },
+        {
+          "title": "表：orders",
+          "source": "数据字典",
+          "score": 0.4933,
+          "text": "## 表：orders\n- 说明：订单主表（每行一个订单）\n  - order_id：订单 ID\n  - customer_id：客户 ID（外键 → customers）\n  - order_status：订单状态：delivered / shipped / canceled / unavailable / processing 等\n  - order_purchase_timestamp：下单时间\n  - order_approved_at：支付时间\n  - order_delivered_customer_date：客户签收时间（空 = 未送达）\n  - order_estimated_delivery_date：预计送达时间"
+        }
+      ],
+      "hits_n": 3,
+      "ms": 293.7
+    },
+    {
+      "step_id": "s2",
+      "skill": "query_data",
+      "input": "查询 2018 年各月订单评价的平均评分；按订单下单时间归月（使用 orders.order_purchase_timestamp 的年月）；按全部评价统计、不做订单状态过滤；返回：年月（格式 YYYY-MM）、平均评分（review_score 的 AVG）、评价数量（COUNT）",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT STRFTIME('%Y-%m', o.order_purchase_timestamp) AS month, ROUND(AVG(r.review_score), 2) AS avg_score, COUNT(*) AS review_count FROM order_reviews AS r JOIN orders AS o ON o.order_id = r.order_id WHERE o.order_purchase_timestamp LIKE '2018%' GROUP BY month ORDER BY month LIMIT 1000",
+      "rows_n": 10,
+      "rows_preview": "('2018-01', 4.04, 7245); ('2018-02', 3.83, 6758); ('2018-03', 3.75, 7187); ('2018-04', 4.16, 6894); ('2018-05', 4.19, 6848)",
+      "answer": "2018年各月订单评价平均分在1.8至4.28之间波动，前8个月评分相对稳定（3.75–4.28），但9月、10月因样本量骤减（仅15和4条评价），平均分显著偏低。  \n所用口径：按订单下单时间（orders.order_purchase_timestamp）归月，统计全部评价（不限订单状态），计算每月评价数量（COUNT）及平均评分（AVG(review_score)），结果保留两位小数。",
+      "trace_file": "runs\\20260526_005213_87f564.json",
+      "ms": 2798.9
+    },
+    {
+      "step_id": "s3",
+      "skill": "compute",
+      "input": "用 s2 的结果数据（data）找出平均评分最低的月份及其评分；返回：最低评分值、对应月份（YYYY-MM 格式）",
+      "depends_on": [
+        "s2"
+      ],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "code": "# 从 data['s2'] 中提取月份和评分（第二列为评分）\nscores = [(row[0], row[1]) for row in data['s2']]\n# 找出评分最低的月份及评分\nmin_entry = min(scores, key=lambda x: x[1])\nresult = [min_entry[1], min_entry[0]]",
+      "result_text": "[1.8, '2018-09']",
+      "ms": 1509.2
+    }
+  ],
+  "synthesize": {
+    "answer": "结论：2018年各月订单评价平均评分最低的月份是**2018年9月**，平均评分为**1.8**。\n\n关键数字来源：\n- 平均评分最低值：**1.8**（来自 s2 结果中 `['2018-09', 1.8, 15]`）\n- 对应月份：**2018-09**（同上）\n\n口径说明：\n- 评分数据源为 `order_reviews` 表，字段为 `review_score`（范围 1–5）；\n- 按订单下单时间（`orders.order_purchase_timestamp`）归月；\n- 统计全部评价，不做订单状态过滤；\n- 2018年9月仅有15条评价，样本量显著偏小，导致平均分异常偏低。",
+    "unverified_numbers": [],
+    "failed": ""
+  },
+  "final": {
+    "path": "normal",
+    "answer": "结论：2018年各月订单评价平均评分最低的月份是**2018年9月**，平均评分为**1.8**。\n\n关键数字来源：\n- 平均评分最低值：**1.8**（来自 s2 结果中 `['2018-09', 1.8, 15]`）\n- 对应月份：**2018-09**（同上）\n\n口径说明：\n- 评分数据源为 `order_reviews` 表，字段为 `review_score`（范围 1–5）；\n- 按订单下单时间（`orders.order_purchase_timestamp`）归月；\n- 统计全部评价，不做订单状态过滤；\n- 2018年9月仅有15条评价，样本量显著偏小，导致平均分异常偏低。"
+  },
+  "timings": {
+    "total_ms": 8982.9
+  }
+}

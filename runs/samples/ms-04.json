@@ -1,0 +1,90 @@
+{
+  "task": "对比 2018 年信用卡（credit_card）与 boleto 两种支付方式的支付总额。",
+  "mode": "eval",
+  "plan": [
+    {
+      "id": "s1",
+      "skill": "search_doc",
+      "input": "检索 payment_type 字段取值说明、payment_value 字段定义、订单状态 order_status 常用取值及含义",
+      "depends_on": [],
+      "expect": "确认 payment_type 包含 'credit_card' 和 'boleto'，payment_value 为支付金额字段，order_status='delivered' 表示已完成订单"
+    },
+    {
+      "id": "s2",
+      "skill": "query_data",
+      "input": "2018年已完成订单（order_status='delivered'）中，按 payment_type 分组统计 payment_value 合计，仅保留 credit_card 和 boleto 两类",
+      "depends_on": [],
+      "expect": "返回两行数据：credit_card 和 boleto 的 payment_value 总额，含口径说明"
+    }
+  ],
+  "plan_fallback": false,
+  "layers": [
+    [
+      "s1",
+      "s2"
+    ]
+  ],
+  "steps": [
+    {
+      "step_id": "s1",
+      "skill": "search_doc",
+      "input": "检索 payment_type 字段取值说明、payment_value 字段定义、订单状态 order_status 常用取值及含义",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "hits": [
+        {
+          "title": "表：order_payments",
+          "source": "数据字典",
+          "score": 0.6851,
+          "text": "## 表：order_payments\n- 说明：订单支付表（一个订单可有多条支付记录）\n  - order_id：订单 ID（外键 → orders）\n  - payment_type：支付方式（credit_card / boleto / voucher / debit_card）\n  - payment_installments：分期数\n  - payment_value：支付金额（销售额默认口径字段）"
+        },
+        {
+          "title": "口径组：金额范围（amount_scope）",
+          "source": "口径手册",
+          "score": 0.682,
+          "text": "## 口径组：金额范围（amount_scope）\n- 触发词：销售额、营收、GMV、交易额、营业额\n- 默认口径：payment_total\n- 澄清追问：销售额有几种口径：① 支付总额（默认）② 商品金额（不含运费）③ 仅已送达订单，按哪一种统计？\n- 口径变体：\n  - 支付总额（payment_total）：order_payments.payment_value 合计\n  - 商品金额（goods_only）：order_items.price 合计（不含运费）\n  - 仅已送达订单（delivered_only）：payment_value 合计且订单状态为 delivered"
+        },
+        {
+          "title": "口径组：时间口径（time_field）",
+          "source": "口径手册",
+          "score": 0.6362,
+          "text": "## 口径组：时间口径（time_field）\n- 触发词：月度、趋势、按月、每月\n- 默认口径：purchase_time\n- 澄清追问：按哪个时间统计：① 下单时间（默认）② 支付时间 ③ 送达时间\n- 口径变体：\n  - 下单时间（purchase_time）：orders.order_purchase_timestamp\n  - 支付时间（approved_time）：orders.order_approved_at\n  - 送达时间（delivered_time）：orders.order_delivered_customer_date"
+        }
+      ],
+      "hits_n": 3,
+      "ms": 379.4
+    },
+    {
+      "step_id": "s2",
+      "skill": "query_data",
+      "input": "2018年已完成订单（order_status='delivered'）中，按 payment_type 分组统计 payment_value 合计，仅保留 credit_card 和 boleto 两类",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT payment_type, SUM(payment_value) AS total_payment FROM order_payments AS op JOIN orders AS o ON op.order_id = o.order_id WHERE o.order_status = 'delivered' AND o.order_purchase_timestamp LIKE '2018%' AND op.payment_type IN ('credit_card', 'boleto') GROUP BY payment_type LIMIT 1000",
+      "rows_n": 2,
+      "rows_preview": "('boleto', 1432274.41); ('credit_card', 6676846.6)",
+      "answer": "2018年已完成订单中，使用信用卡（credit_card）支付的总金额为667.68万元，使用支票（boleto）支付的总金额为143.23万元。  \n所用口径：仅统计订单状态为“已送达”（delivered）且支付方式为“credit_card”或“boleto”的2018年订单支付金额合计。",
+      "trace_file": "runs\\20260526_004854_8678f9.json",
+      "ms": 2511.5
+    }
+  ],
+  "synthesize": {
+    "answer": "结论：2018年已完成订单中，信用卡（credit_card）支付总额显著高于boleto。  \n关键数字：  \n- credit_card 支付总额：6,676,846.60 元（约 667.68 万元）  \n- boleto 支付总额：1,432,274.41 元（约 143.23 万元）  \n\n口径说明：仅统计2018年订单状态为“已送达”（order_status='delivered'）且支付方式为 credit_card 或 boleto 的订单支付金额合计，数据来源于 order_payments 表的 payment_value 字段（即支付总额）。",
+    "unverified_numbers": [],
+    "failed": ""
+  },
+  "final": {
+    "path": "normal",
+    "answer": "结论：2018年已完成订单中，信用卡（credit_card）支付总额显著高于boleto。  \n关键数字：  \n- credit_card 支付总额：6,676,846.60 元（约 667.68 万元）  \n- boleto 支付总额：1,432,274.41 元（约 143.23 万元）  \n\n口径说明：仅统计2018年订单状态为“已送达”（order_status='delivered'）且支付方式为 credit_card 或 boleto 的订单支付金额合计，数据来源于 order_payments 表的 payment_value 字段（即支付总额）。"
+  },
+  "timings": {
+    "total_ms": 5672.3
+  }
+}

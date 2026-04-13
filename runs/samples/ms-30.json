@@ -1,0 +1,117 @@
+{
+  "task": "2018 年销售额最高的三个州，它们的合计销售额是多少？",
+  "mode": "eval",
+  "plan": [
+    {
+      "id": "s1",
+      "skill": "search_doc",
+      "input": "查找销售额口径定义，确认是否使用 order_payments.payment_value 合计；查找州字段名（如 customer_state）及订单状态筛选条件",
+      "depends_on": [],
+      "expect": "确认销售额 = SUM(order_payments.payment_value)，州字段为 customers.customer_state，订单状态需为 delivered"
+    },
+    {
+      "id": "s2",
+      "skill": "query_data",
+      "input": "2018年已完成（order_status='delivered'）订单的各州销售额（SUM(order_payments.payment_value)），按州降序排列，取前3名；数据源：orders / order_items / order_payments / customers；时间范围：order_purchase_timestamp 在 2018-01-01 至 2018-12-31；金额口径：order_payments.payment_value 合计；订单状态：order_status='delivered'",
+      "depends_on": [],
+      "expect": "返回3行：州名（customer_state）和对应销售额（payment_value_sum），按销售额降序"
+    },
+    {
+      "id": "s3",
+      "skill": "compute",
+      "input": "用 s2 的结果中三行的销售额（payment_value_sum）字段求和，得到合计销售额",
+      "depends_on": [
+        "s2"
+      ],
+      "expect": "一个数值：三个州的销售额总和"
+    }
+  ],
+  "plan_fallback": false,
+  "layers": [
+    [
+      "s1",
+      "s2"
+    ],
+    [
+      "s3"
+    ]
+  ],
+  "steps": [
+    {
+      "step_id": "s1",
+      "skill": "search_doc",
+      "input": "查找销售额口径定义，确认是否使用 order_payments.payment_value 合计；查找州字段名（如 customer_state）及订单状态筛选条件",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "hits": [
+        {
+          "title": "口径组：金额范围（amount_scope）",
+          "source": "口径手册",
+          "score": 0.7771,
+          "text": "## 口径组：金额范围（amount_scope）\n- 触发词：销售额、营收、GMV、交易额、营业额\n- 默认口径：payment_total\n- 澄清追问：销售额有几种口径：① 支付总额（默认）② 商品金额（不含运费）③ 仅已送达订单，按哪一种统计？\n- 口径变体：\n  - 支付总额（payment_total）：order_payments.payment_value 合计\n  - 商品金额（goods_only）：order_items.price 合计（不含运费）\n  - 仅已送达订单（delivered_only）：payment_value 合计且订单状态为 delivered"
+        },
+        {
+          "title": "指标：客单价（avg_order_value）",
+          "source": "口径手册",
+          "score": 0.7252,
+          "text": "## 指标：客单价（avg_order_value）\n- 定义：销售额（默认 payment_value 合计）÷ 订单量（COUNT(DISTINCT order_id)）（金额口径联动 amount_scope）"
+        },
+        {
+          "title": "口径组：取消订单处理（cancel_handling）",
+          "source": "口径手册",
+          "score": 0.6661,
+          "text": "## 口径组：取消订单处理（cancel_handling）\n- 触发词：净销售额、实际成交、有效订单、成交额\n- 默认口径：exclude_canceled\n- 澄清追问：是否剔除已取消 / 不可用订单？① 剔除（默认净口径）② 全部计入\n- 口径变体：\n  - 剔除取消（exclude_canceled）：仅统计有效状态订单（剔除 canceled / unavailable）\n  - 全部计入（include_all）：不按订单状态过滤"
+        }
+      ],
+      "hits_n": 3,
+      "ms": 407.1
+    },
+    {
+      "step_id": "s2",
+      "skill": "query_data",
+      "input": "2018年已完成（order_status='delivered'）订单的各州销售额（SUM(order_payments.payment_value)），按州降序排列，取前3名；数据源：orders / order_items / order_payments / customers；时间范围：order_purchase_timestamp 在 2018-01-01 至 2018-12-31；金额口径：order_payments.payment_value 合计；订单状态：order_status='delivered'",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT c.customer_state, ROUND(SUM(p.payment_value), 2) AS gmv FROM order_payments AS p JOIN orders AS o ON o.order_id = p.order_id JOIN customers AS c ON c.customer_id = o.customer_id WHERE o.order_status = 'delivered' AND o.order_purchase_timestamp LIKE '2018%' GROUP BY c.customer_state ORDER BY gmv DESC LIMIT 3",
+      "rows_n": 3,
+      "rows_preview": "('SP', 3328290.18); ('RJ', 1033511.02); ('MG', 989191.5)",
+      "answer": "2018年已送达订单中，销售额前三的州为：圣保罗州（SP）332.83万元、里约热内卢州（RJ）103.35万元、米纳斯吉拉斯州（MG）98.92万元。  \n口径说明：仅统计2018年订单状态为“已送达”（delivered）的订单，金额为各订单对应支付金额（payment_value）的合计值。",
+      "trace_file": "runs\\20260526_005305_2fdf79.json",
+      "ms": 3219.8
+    },
+    {
+      "step_id": "s3",
+      "skill": "compute",
+      "input": "用 s2 的结果中三行的销售额（payment_value_sum）字段求和，得到合计销售额",
+      "depends_on": [
+        "s2"
+      ],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "code": "result = sum(row[1] for row in data['s2'][:3])",
+      "result_text": "5350992.7",
+      "ms": 1186.5
+    }
+  ],
+  "synthesize": {
+    "answer": "结论：2018年销售额最高的三个州合计销售额为 **5,350,992.70**。\n\n关键数字：\n- 圣保罗州（SP）：3,328,290.18  \n- 里约热内卢州（RJ）：1,033,511.02  \n- 米纳斯吉拉斯州（MG）：989,191.50  \n- 合计：5,350,992.70  \n\n口径说明：仅统计2018年订单状态为“已送达”（delivered）的订单，销售额 = SUM(order_payments.payment_value)。",
+    "unverified_numbers": [],
+    "failed": ""
+  },
+  "final": {
+    "path": "normal",
+    "answer": "结论：2018年销售额最高的三个州合计销售额为 **5,350,992.70**。\n\n关键数字：\n- 圣保罗州（SP）：3,328,290.18  \n- 里约热内卢州（RJ）：1,033,511.02  \n- 米纳斯吉拉斯州（MG）：989,191.50  \n- 合计：5,350,992.70  \n\n口径说明：仅统计2018年订单状态为“已送达”（delivered）的订单，销售额 = SUM(order_payments.payment_value)。"
+  },
+  "timings": {
+    "total_ms": 8522.5
+  }
+}

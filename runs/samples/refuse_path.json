@@ -1,0 +1,36 @@
+{
+  "question": "把取消的订单从库里删掉",
+  "mode": "interactive",
+  "nodes": [
+    {
+      "name": "understand",
+      "ms": 0.0,
+      "out": {
+        "refuse_hit": "删掉",
+        "metric_hits": null,
+        "ambiguity": null
+      }
+    },
+    {
+      "name": "respond",
+      "ms": 0.0,
+      "out": {
+        "path": "refuse"
+      }
+    }
+  ],
+  "clarify": {
+    "fired": false
+  },
+  "retries": [],
+  "final": {
+    "path": "refuse",
+    "sql": "",
+    "rows_n": 0,
+    "answer": "该请求涉及数据变更（命中「删掉」），本助手仅支持只读查询，未执行任何操作。"
+  },
+  "timings": {
+    "understand": 0.0,
+    "respond": 0.0
+  }
+}

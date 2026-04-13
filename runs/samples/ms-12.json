@@ -1,0 +1,144 @@
+{
+  "task": "2018 年订单的平均商品件数（总件数 ÷ 订单数）是多少？",
+  "mode": "eval",
+  "plan": [
+    {
+      "id": "s1",
+      "skill": "search_doc",
+      "input": "检索 '商品件数' 的定义口径，确认是否等于 order_items.order_item_id 的计数或 COUNT(*) per order；同时检索 '订单量' 的标准口径（是否 COUNT(DISTINCT orders.order_id)）",
+      "depends_on": [],
+      "expect": "确认商品件数口径为 SUM(order_items.order_item_id) 或 COUNT(order_items.*) per order；订单量为 COUNT(DISTINCT orders.order_id)"
+    },
+    {
+      "id": "s2",
+      "skill": "query_data",
+      "input": "2018 年已完成（order_status='delivered'）订单的订单数，按 orders.order_id 去重计数",
+      "depends_on": [],
+      "expect": "返回单值：2018 年 delivered 订单的 COUNT(DISTINCT orders.order_id)"
+    },
+    {
+      "id": "s3",
+      "skill": "query_data",
+      "input": "2018 年已完成（order_status='delivered'）订单的总商品件数，即 SUM(order_items.order_item_id) 或 COUNT(*) of order_items（需确保每件商品计为 1 行）",
+      "depends_on": [],
+      "expect": "返回单值：2018 年 delivered 订单的总商品件数（order_items 行数，因每行代表一件商品）"
+    },
+    {
+      "id": "s4",
+      "skill": "compute",
+      "input": "用 s3 的总商品件数除以 s2 的订单数，计算 2018 年已完成订单的平均商品件数",
+      "depends_on": [
+        "s2",
+        "s3"
+      ],
+      "expect": "返回单个浮点数：平均商品件数（总件数 / 订单数）"
+    }
+  ],
+  "plan_fallback": false,
+  "layers": [
+    [
+      "s1",
+      "s2",
+      "s3"
+    ],
+    [
+      "s4"
+    ]
+  ],
+  "steps": [
+    {
+      "step_id": "s1",
+      "skill": "search_doc",
+      "input": "检索 '商品件数' 的定义口径，确认是否等于 order_items.order_item_id 的计数或 COUNT(*) per order；同时检索 '订单量' 的标准口径（是否 COUNT(DISTINCT orders.order_id)）",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "hits": [
+        {
+          "title": "指标：订单量（order_count）",
+          "source": "口径手册",
+          "score": 0.809,
+          "text": "## 指标：订单量（order_count）\n- 定义：COUNT(DISTINCT orders.order_id)"
+        },
+        {
+          "title": "指标：订单平均商品金额（order_avg_item_amount）",
+          "source": "口径手册",
+          "score": 0.7028,
+          "text": "## 指标：订单平均商品金额（order_avg_item_amount）\n- 定义：SUM(order_items.price) ÷ 订单量（COUNT(DISTINCT orders.order_id)）"
+        },
+        {
+          "title": "指标：客户数（customer_count）",
+          "source": "口径手册",
+          "score": 0.6914,
+          "text": "## 指标：客户数（customer_count）\n- 定义：COUNT(DISTINCT customers.customer_unique_id)（一个客户跨订单只计一次）"
+        }
+      ],
+      "hits_n": 3,
+      "ms": 432.0
+    },
+    {
+      "step_id": "s2",
+      "skill": "query_data",
+      "input": "2018 年已完成（order_status='delivered'）订单的订单数，按 orders.order_id 去重计数",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT COUNT(DISTINCT order_id) AS cnt FROM orders WHERE order_status = 'delivered' AND order_purchase_timestamp LIKE '2018%' LIMIT 1000",
+      "rows_n": 1,
+      "rows_preview": "(52783,)",
+      "answer": "2018年已完成（订单状态为“delivered”）的订单共有52,783单，按订单ID去重计数。  \n所用口径为：仅统计订单状态为“delivered”且下单年份为2018年的订单，以order_id为唯一标识进行去重计数。",
+      "trace_file": "runs\\20260526_005041_bba77b.json",
+      "ms": 2408.9
+    },
+    {
+      "step_id": "s3",
+      "skill": "query_data",
+      "input": "2018 年已完成（order_status='delivered'）订单的总商品件数，即 SUM(order_items.order_item_id) 或 COUNT(*) of order_items（需确保每件商品计为 1 行）",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT COUNT(*) AS total_items FROM order_items AS oi JOIN orders AS o ON oi.order_id = o.order_id WHERE o.order_status = 'delivered' AND o.order_purchase_timestamp LIKE '2018%' LIMIT 1000",
+      "rows_n": 1,
+      "rows_preview": "(60324,)",
+      "answer": "2018 年已完成（订单状态为“delivered”）的订单共包含 60,324 件商品。  \n所用口径为：对满足条件的订单关联的所有订单商品记录进行 COUNT(*) 统计，确保每件商品计为 1 行。",
+      "trace_file": "runs\\20260526_005041_25fc0e.json",
+      "ms": 2284.5
+    },
+    {
+      "step_id": "s4",
+      "skill": "compute",
+      "input": "用 s3 的总商品件数除以 s2 的订单数，计算 2018 年已完成订单的平均商品件数",
+      "depends_on": [
+        "s2",
+        "s3"
+      ],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "code": "result = data['s3'][0][0] / data['s2'][0][0]",
+      "result_text": "1.142867968853608",
+      "ms": 1121.3
+    }
+  ],
+  "synthesize": {
+    "answer": "结论：2018 年已完成（订单状态为“delivered”）订单的平均商品件数为 **1.14**（保留两位小数）。  \n\n关键数字：  \n- 订单数：**52,783**（来源：s2，COUNT(DISTINCT orders.order_id)）  \n- 总商品件数：**60,324**（来源：s3，COUNT(*) of order_items，每行代表一件商品）  \n\n口径说明：  \n- 订单量口径：COUNT(DISTINCT orders.order_id)，仅统计 2018 年且 order_status = 'delivered' 的订单；  \n- 商品件数口径：对上述订单关联的 order_items 表进行 COUNT(*)，每行代表一件商品，即每件商品计为 1 行；  \n- 平均商品件数 = 总商品件数 ÷ 订单数 = 60,324 ÷ 52,783 ≈ 1.1429。",
+    "unverified_numbers": [],
+    "failed": ""
+  },
+  "final": {
+    "path": "normal",
+    "answer": "结论：2018 年已完成（订单状态为“delivered”）订单的平均商品件数为 **1.14**（保留两位小数）。  \n\n关键数字：  \n- 订单数：**52,783**（来源：s2，COUNT(DISTINCT orders.order_id)）  \n- 总商品件数：**60,324**（来源：s3，COUNT(*) of order_items，每行代表一件商品）  \n\n口径说明：  \n- 订单量口径：COUNT(DISTINCT orders.order_id)，仅统计 2018 年且 order_status = 'delivered' 的订单；  \n- 商品件数口径：对上述订单关联的 order_items 表进行 COUNT(*)，每行代表一件商品，即每件商品计为 1 行；  \n- 平均商品件数 = 总商品件数 ÷ 订单数 = 60,324 ÷ 52,783 ≈ 1.1429。"
+  },
+  "timings": {
+    "total_ms": 8967.1
+  }
+}

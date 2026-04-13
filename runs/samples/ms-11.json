@@ -1,0 +1,144 @@
+{
+  "task": "2018 年上半年（1–6 月）与下半年（7–12 月）的销售额差额是多少？",
+  "mode": "eval",
+  "plan": [
+    {
+      "id": "s1",
+      "skill": "search_doc",
+      "input": "查找销售额口径定义，确认是否使用 order_payments.payment_value 合计作为销售额；确认时间字段是否按 order_purchase_timestamp；确认订单状态过滤条件中 'delivered' 的定义",
+      "depends_on": [],
+      "expect": "返回销售额口径说明：销售额 = SUM(order_payments.payment_value)，时间范围基于 order_purchase_timestamp，已完成订单 = order_status = 'delivered'"
+    },
+    {
+      "id": "s2",
+      "skill": "query_data",
+      "input": "2018年上半年（1-6月）已完成（order_status='delivered'）订单的销售额，金额口径=SUM(order_payments.payment_value)，时间范围=order_purchase_timestamp在2018-01-01至2018-06-30之间",
+      "depends_on": [],
+      "expect": "返回一个数值：2018年上半年已完成订单的总销售额（SUM(payment_value)）"
+    },
+    {
+      "id": "s3",
+      "skill": "query_data",
+      "input": "2018年下半年（7-12月）已完成（order_status='delivered'）订单的销售额，金额口径=SUM(order_payments.payment_value)，时间范围=order_purchase_timestamp在2018-07-01至2018-12-31之间",
+      "depends_on": [],
+      "expect": "返回一个数值：2018年下半年已完成订单的总销售额（SUM(payment_value)）"
+    },
+    {
+      "id": "s4",
+      "skill": "compute",
+      "input": "用 s3 的销售额减去 s2 的销售额，计算差额（下半年 - 上半年）",
+      "depends_on": [
+        "s2",
+        "s3"
+      ],
+      "expect": "返回一个数值：2018年下半年与上半年的销售额差额（负值表示下半年少于上半年）"
+    }
+  ],
+  "plan_fallback": false,
+  "layers": [
+    [
+      "s1",
+      "s2",
+      "s3"
+    ],
+    [
+      "s4"
+    ]
+  ],
+  "steps": [
+    {
+      "step_id": "s1",
+      "skill": "search_doc",
+      "input": "查找销售额口径定义，确认是否使用 order_payments.payment_value 合计作为销售额；确认时间字段是否按 order_purchase_timestamp；确认订单状态过滤条件中 'delivered' 的定义",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "hits": [
+        {
+          "title": "口径组：金额范围（amount_scope）",
+          "source": "口径手册",
+          "score": 0.7977,
+          "text": "## 口径组：金额范围（amount_scope）\n- 触发词：销售额、营收、GMV、交易额、营业额\n- 默认口径：payment_total\n- 澄清追问：销售额有几种口径：① 支付总额（默认）② 商品金额（不含运费）③ 仅已送达订单，按哪一种统计？\n- 口径变体：\n  - 支付总额（payment_total）：order_payments.payment_value 合计\n  - 商品金额（goods_only）：order_items.price 合计（不含运费）\n  - 仅已送达订单（delivered_only）：payment_value 合计且订单状态为 delivered"
+        },
+        {
+          "title": "口径组：时间口径（time_field）",
+          "source": "口径手册",
+          "score": 0.7356,
+          "text": "## 口径组：时间口径（time_field）\n- 触发词：月度、趋势、按月、每月\n- 默认口径：purchase_time\n- 澄清追问：按哪个时间统计：① 下单时间（默认）② 支付时间 ③ 送达时间\n- 口径变体：\n  - 下单时间（purchase_time）：orders.order_purchase_timestamp\n  - 支付时间（approved_time）：orders.order_approved_at\n  - 送达时间（delivered_time）：orders.order_delivered_customer_date"
+        },
+        {
+          "title": "指标：客单价（avg_order_value）",
+          "source": "口径手册",
+          "score": 0.6928,
+          "text": "## 指标：客单价（avg_order_value）\n- 定义：销售额（默认 payment_value 合计）÷ 订单量（COUNT(DISTINCT order_id)）（金额口径联动 amount_scope）"
+        }
+      ],
+      "hits_n": 3,
+      "ms": 410.4
+    },
+    {
+      "step_id": "s2",
+      "skill": "query_data",
+      "input": "2018年上半年（1-6月）已完成（order_status='delivered'）订单的销售额，金额口径=SUM(order_payments.payment_value)，时间范围=order_purchase_timestamp在2018-01-01至2018-06-30之间",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 2,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT ROUND(SUM(p.payment_value), 2) AS gmv FROM order_payments AS p JOIN orders AS o ON o.order_id = p.order_id WHERE o.order_status = 'delivered' AND o.order_purchase_timestamp >= '2018-01-01' AND o.order_purchase_timestamp <= '2018-06-30' LIMIT 1000",
+      "rows_n": 1,
+      "rows_preview": "(6421154.55,)",
+      "answer": "2018年上半年（1-6月）已完成（已送达）订单的销售额为642.12万元，金额口径为已送达订单的payment_value总和。  \n所用口径：仅统计order_status='delivered'且order_purchase_timestamp在2018-01-01至2018-06-30之间的订单，金额为SUM(payment_value)并四舍五入至小数点后两位。",
+      "trace_file": "runs\\20260526_005031_6d8b52.json",
+      "ms": 4930.6
+    },
+    {
+      "step_id": "s3",
+      "skill": "query_data",
+      "input": "2018年下半年（7-12月）已完成（order_status='delivered'）订单的销售额，金额口径=SUM(order_payments.payment_value)，时间范围=order_purchase_timestamp在2018-07-01至2018-12-31之间",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT ROUND(SUM(p.payment_value), 2) AS gmv FROM order_payments AS p JOIN orders AS o ON o.order_id = p.order_id WHERE o.order_status = 'delivered' AND o.order_purchase_timestamp LIKE '2018-07%' OR o.order_purchase_timestamp LIKE '2018-08%' OR o.order_purchase_timestamp LIKE '2018-09%' OR o.order_purchase_timestamp LIKE '2018-10%' OR o.order_purchase_timestamp LIKE '2018-11%' OR o.order_purchase_timestamp LIKE '2018-12%' LIMIT 1000",
+      "rows_n": 1,
+      "rows_preview": "(2055358.39,)",
+      "answer": "2018年下半年（7-12月）已完成（已送达）订单的销售额为2,055,358.39元。  \n所用口径：仅统计订单状态为“delivered”且购买时间在2018年7月1日至12月31日之间的订单，金额为对应订单的payment_value总和。",
+      "trace_file": "runs\\20260526_005030_18f10f.json",
+      "ms": 3731.5
+    },
+    {
+      "step_id": "s4",
+      "skill": "compute",
+      "input": "用 s3 的销售额减去 s2 的销售额，计算差额（下半年 - 上半年）",
+      "depends_on": [
+        "s2",
+        "s3"
+      ],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "code": "result = data['s3'][0][0] - data['s2'][0][0]",
+      "result_text": "-4365796.16",
+      "ms": 1184.8
+    }
+  ],
+  "synthesize": {
+    "answer": "结论：2018年下半年（7–12月）与上半年（1–6月）的销售额差额为 **-4,365,796.16 元**，即下半年销售额比上半年少约 436.58 万元。\n\n关键数字：\n- 上半年（1–6月）已完成订单销售额：**6,421,154.55 元**（来自 s2 结果）  \n- 下半年（7–12月）已完成订单销售额：**2,055,358.39 元**（来自 s3 结果）  \n- 差额（下半年 − 上半年）：**-4,365,796.16 元**（来自 s4 计算结果）\n\n口径说明：\n- 销售额 = **SUM(order_payments.payment_value)**，仅统计 **order_status = 'delivered'** 的订单；  \n- 时间范围基于 **order_purchase_timestamp**，上半年为 2018-01-01 至 2018-06-30，下半年为 2018-07-01 至 2018-12-31。",
+    "unverified_numbers": [],
+    "failed": ""
+  },
+  "final": {
+    "path": "normal",
+    "answer": "结论：2018年下半年（7–12月）与上半年（1–6月）的销售额差额为 **-4,365,796.16 元**，即下半年销售额比上半年少约 436.58 万元。\n\n关键数字：\n- 上半年（1–6月）已完成订单销售额：**6,421,154.55 元**（来自 s2 结果）  \n- 下半年（7–12月）已完成订单销售额：**2,055,358.39 元**（来自 s3 结果）  \n- 差额（下半年 − 上半年）：**-4,365,796.16 元**（来自 s4 计算结果）\n\n口径说明：\n- 销售额 = **SUM(order_payments.payment_value)**，仅统计 **order_status = 'delivered'** 的订单；  \n- 时间范围基于 **order_purchase_timestamp**，上半年为 2018-01-01 至 2018-06-30，下半年为 2018-07-01 至 2018-12-31。"
+  },
+  "timings": {
+    "total_ms": 12091.9
+  }
+}

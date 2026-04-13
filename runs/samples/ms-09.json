@@ -1,0 +1,144 @@
+{
+  "task": "从 2017 年到 2018 年，已完成订单销售额的增长率（百分比）是多少？",
+  "mode": "eval",
+  "plan": [
+    {
+      "id": "s1",
+      "skill": "search_doc",
+      "input": "查找销售额口径定义、order_payments.payment_value 的说明、订单状态 delivered 的定义、时间范围筛选字段（order_purchase_timestamp）",
+      "depends_on": [],
+      "expect": "确认销售额 = SUM(order_payments.payment_value)，订单状态过滤条件为 order_status='delivered'，时间字段为 order_purchase_timestamp；口径说明含 Schema 链接与 SQL 示例"
+    },
+    {
+      "id": "s2",
+      "skill": "query_data",
+      "input": "2017年已完成订单的销售额（order_status='delivered'，order_purchase_timestamp 在 2017-01-01 至 2017-12-31 之间），金额口径为 SUM(order_payments.payment_value)",
+      "depends_on": [],
+      "expect": "返回单值：2017年已完成订单的总销售额（SUM(payment_value)）"
+    },
+    {
+      "id": "s3",
+      "skill": "query_data",
+      "input": "2018年已完成订单的销售额（order_status='delivered'，order_purchase_timestamp 在 2018-01-01 至 2018-12-31 之间），金额口径为 SUM(order_payments.payment_value)",
+      "depends_on": [],
+      "expect": "返回单值：2018年已完成订单的总销售额（SUM(payment_value)）"
+    },
+    {
+      "id": "s4",
+      "skill": "compute",
+      "input": "用 s3 的 2018 年销售额减去 s2 的 2017 年销售额，再除以 s2 的 2017 年销售额，乘以 100，得到增长率百分比",
+      "depends_on": [
+        "s2",
+        "s3"
+      ],
+      "expect": "返回单个浮点数：2017→2018 年已完成订单销售额的同比增长率（%）"
+    }
+  ],
+  "plan_fallback": false,
+  "layers": [
+    [
+      "s1",
+      "s2",
+      "s3"
+    ],
+    [
+      "s4"
+    ]
+  ],
+  "steps": [
+    {
+      "step_id": "s1",
+      "skill": "search_doc",
+      "input": "查找销售额口径定义、order_payments.payment_value 的说明、订单状态 delivered 的定义、时间范围筛选字段（order_purchase_timestamp）",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "hits": [
+        {
+          "title": "口径组：金额范围（amount_scope）",
+          "source": "口径手册",
+          "score": 0.7958,
+          "text": "## 口径组：金额范围（amount_scope）\n- 触发词：销售额、营收、GMV、交易额、营业额\n- 默认口径：payment_total\n- 澄清追问：销售额有几种口径：① 支付总额（默认）② 商品金额（不含运费）③ 仅已送达订单，按哪一种统计？\n- 口径变体：\n  - 支付总额（payment_total）：order_payments.payment_value 合计\n  - 商品金额（goods_only）：order_items.price 合计（不含运费）\n  - 仅已送达订单（delivered_only）：payment_value 合计且订单状态为 delivered"
+        },
+        {
+          "title": "口径组：时间口径（time_field）",
+          "source": "口径手册",
+          "score": 0.7362,
+          "text": "## 口径组：时间口径（time_field）\n- 触发词：月度、趋势、按月、每月\n- 默认口径：purchase_time\n- 澄清追问：按哪个时间统计：① 下单时间（默认）② 支付时间 ③ 送达时间\n- 口径变体：\n  - 下单时间（purchase_time）：orders.order_purchase_timestamp\n  - 支付时间（approved_time）：orders.order_approved_at\n  - 送达时间（delivered_time）：orders.order_delivered_customer_date"
+        },
+        {
+          "title": "指标：客单价（avg_order_value）",
+          "source": "口径手册",
+          "score": 0.7003,
+          "text": "## 指标：客单价（avg_order_value）\n- 定义：销售额（默认 payment_value 合计）÷ 订单量（COUNT(DISTINCT order_id)）（金额口径联动 amount_scope）"
+        }
+      ],
+      "hits_n": 3,
+      "ms": 396.9
+    },
+    {
+      "step_id": "s2",
+      "skill": "query_data",
+      "input": "2017年已完成订单的销售额（order_status='delivered'，order_purchase_timestamp 在 2017-01-01 至 2017-12-31 之间），金额口径为 SUM(order_payments.payment_value)",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT ROUND(SUM(p.payment_value), 2) AS gmv FROM order_payments AS p JOIN orders AS o ON o.order_id = p.order_id WHERE o.order_status = 'delivered' AND o.order_purchase_timestamp LIKE '2017%' LIMIT 1000",
+      "rows_n": 1,
+      "rows_preview": "(6922900.24,)",
+      "answer": "2017年已完成订单（状态为“已送达”）的销售额为692.29万元，口径为仅统计已送达订单的payment_value总和。",
+      "trace_file": "runs\\20260526_005009_4638d6.json",
+      "ms": 2310.9
+    },
+    {
+      "step_id": "s3",
+      "skill": "query_data",
+      "input": "2018年已完成订单的销售额（order_status='delivered'，order_purchase_timestamp 在 2018-01-01 至 2018-12-31 之间），金额口径为 SUM(order_payments.payment_value)",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT ROUND(SUM(p.payment_value), 2) AS gmv FROM order_payments AS p JOIN orders AS o ON o.order_id = p.order_id WHERE o.order_status = 'delivered' AND o.order_purchase_timestamp LIKE '2018%' LIMIT 1000",
+      "rows_n": 1,
+      "rows_preview": "(8452975.2,)",
+      "answer": "2018年已完成订单（状态为“已送达”）的销售额为845.30万元，口径为仅统计已送达订单的payment_value总和。",
+      "trace_file": "runs\\20260526_005009_d3001b.json",
+      "ms": 2313.9
+    },
+    {
+      "step_id": "s4",
+      "skill": "compute",
+      "input": "用 s3 的 2018 年销售额减去 s2 的 2017 年销售额，再除以 s2 的 2017 年销售额，乘以 100，得到增长率百分比",
+      "depends_on": [
+        "s2",
+        "s3"
+      ],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "code": "s2_2017 = data['s2'][0][0]\ns3_2018 = data['s3'][0][0]\nresult = round((s3_2018 - s2_2017) / s2_2017 * 100, 2)",
+      "result_text": "22.1",
+      "ms": 1610.4
+    }
+  ],
+  "synthesize": {
+    "answer": "结论：2017年到2018年，已完成订单（状态为“已送达”）的销售额同比增长率为 **22.1%**。\n\n关键数字：\n- 2017年已完成订单销售额：**6,922,900.24** 元  \n- 2018年已完成订单销售额：**8,452,975.20** 元  \n- 增长率计算结果：**22.1%**\n\n口径说明：  \n销售额 = SUM(order_payments.payment_value)，仅统计订单状态为 `'delivered'` 且下单时间（`order_purchase_timestamp`）在对应年份内的订单。",
+    "unverified_numbers": [],
+    "failed": ""
+  },
+  "final": {
+    "path": "normal",
+    "answer": "结论：2017年到2018年，已完成订单（状态为“已送达”）的销售额同比增长率为 **22.1%**。\n\n关键数字：\n- 2017年已完成订单销售额：**6,922,900.24** 元  \n- 2018年已完成订单销售额：**8,452,975.20** 元  \n- 增长率计算结果：**22.1%**\n\n口径说明：  \n销售额 = SUM(order_payments.payment_value)，仅统计订单状态为 `'delivered'` 且下单时间（`order_purchase_timestamp`）在对应年份内的订单。"
+  },
+  "timings": {
+    "total_ms": 9048.5
+  }
+}

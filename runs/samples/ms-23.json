@@ -1,0 +1,115 @@
+{
+  "task": "先看 2018 年各品类商品金额（order_items.price 合计）的前五名，再找出商品金额最低的品类及其金额。",
+  "mode": "eval",
+  "plan": [
+    {
+      "id": "s1",
+      "skill": "search_doc",
+      "input": "检索 '商品金额' 的口径定义，确认是否使用 order_items.price 合计；同时检索 '品类' 对应的字段名及翻译逻辑（category_translation）",
+      "depends_on": [],
+      "expect": "确认商品金额口径为 SUM(order_items.price)，品类字段为 products.product_category_name，翻译字段为 products.product_category_name_english 或 category_translation 表；明确是否需关联 products 表"
+    },
+    {
+      "id": "s2",
+      "skill": "query_data",
+      "input": "2018 年已完成订单（order_status='delivered'）中，按商品品类（products.product_category_name_english）统计商品金额（SUM(order_items.price)），按金额降序排列，取前五名；需关联 orders、order_items、products 表；时间范围：order_purchase_timestamp 在 2018-01-01 至 2018-12-31；金额口径：order_items.price 合计",
+      "depends_on": [],
+      "expect": "返回 5 行数据，含品类英文名和对应商品金额合计值，按金额降序"
+    },
+    {
+      "id": "s3",
+      "skill": "query_data",
+      "input": "2018 年已完成订单（order_status='delivered'）中，按商品品类（products.product_category_name_english）统计商品金额（SUM(order_items.price)），按金额升序排列，取最低的品类及其金额；需关联 orders、order_items、products 表；时间范围：order_purchase_timestamp 在 2018-01-01 至 2018-12-31；金额口径：order_items.price 合计",
+      "depends_on": [],
+      "expect": "返回 1 行数据，含商品金额最低的品类英文名及对应金额值"
+    }
+  ],
+  "plan_fallback": false,
+  "layers": [
+    [
+      "s1",
+      "s2",
+      "s3"
+    ]
+  ],
+  "steps": [
+    {
+      "step_id": "s1",
+      "skill": "search_doc",
+      "input": "检索 '商品金额' 的口径定义，确认是否使用 order_items.price 合计；同时检索 '品类' 对应的字段名及翻译逻辑（category_translation）",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "hits": [
+        {
+          "title": "口径组：金额范围（amount_scope）",
+          "source": "口径手册",
+          "score": 0.6693,
+          "text": "## 口径组：金额范围（amount_scope）\n- 触发词：销售额、营收、GMV、交易额、营业额\n- 默认口径：payment_total\n- 澄清追问：销售额有几种口径：① 支付总额（默认）② 商品金额（不含运费）③ 仅已送达订单，按哪一种统计？\n- 口径变体：\n  - 支付总额（payment_total）：order_payments.payment_value 合计\n  - 商品金额（goods_only）：order_items.price 合计（不含运费）\n  - 仅已送达订单（delivered_only）：payment_value 合计且订单状态为 delivered"
+        },
+        {
+          "title": "指标：订单平均商品金额（order_avg_item_amount）",
+          "source": "口径手册",
+          "score": 0.6542,
+          "text": "## 指标：订单平均商品金额（order_avg_item_amount）\n- 定义：SUM(order_items.price) ÷ 订单量（COUNT(DISTINCT orders.order_id)）"
+        },
+        {
+          "title": "表：category_translation",
+          "source": "数据字典",
+          "score": 0.6463,
+          "text": "## 表：category_translation\n- 说明：品类名翻译表（葡语 → 英语）；品类输出默认经此表转英文\n  - product_category_name：品类名（葡语）\n  - product_category_name_english：品类名（英语）"
+        }
+      ],
+      "hits_n": 3,
+      "ms": 399.5
+    },
+    {
+      "step_id": "s2",
+      "skill": "query_data",
+      "input": "2018 年已完成订单（order_status='delivered'）中，按商品品类（products.product_category_name_english）统计商品金额（SUM(order_items.price)），按金额降序排列，取前五名；需关联 orders、order_items、products 表；时间范围：order_purchase_timestamp 在 2018-01-01 至 2018-12-31；金额口径：order_items.price 合计",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT t.product_category_name_english AS category, ROUND(SUM(i.price), 2) AS amount FROM order_items AS i JOIN orders AS o ON o.order_id = i.order_id JOIN products AS p ON p.product_id = i.product_id LEFT JOIN category_translation AS t ON t.product_category_name = p.product_category_name WHERE o.order_status = 'delivered' AND o.order_purchase_timestamp LIKE '2018%' GROUP BY t.product_category_name_english ORDER BY amount DESC LIMIT 5",
+      "rows_n": 5,
+      "rows_preview": "('health_beauty', 755724.5); ('watches_gifts', 687855.2); ('bed_bath_table', 532358.85); ('sports_leisure', 517166.26); ('computers_accessories', 496269.3)",
+      "answer": "2018年已完成订单中，商品金额（按 `order_items.price` 合计）排名前五的品类依次为：健康美容、手表礼品、家居床品、体育休闲、电脑配件。金额口径为各品类下已发货订单中商品单价的总和（保留两位小数）。",
+      "trace_file": "runs\\20260526_005205_656291.json",
+      "ms": 3587.1
+    },
+    {
+      "step_id": "s3",
+      "skill": "query_data",
+      "input": "2018 年已完成订单（order_status='delivered'）中，按商品品类（products.product_category_name_english）统计商品金额（SUM(order_items.price)），按金额升序排列，取最低的品类及其金额；需关联 orders、order_items、products 表；时间范围：order_purchase_timestamp 在 2018-01-01 至 2018-12-31；金额口径：order_items.price 合计",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT t.product_category_name_english AS category, ROUND(SUM(i.price), 2) AS amount FROM order_items AS i JOIN orders AS o ON i.order_id = o.order_id JOIN products AS p ON i.product_id = p.product_id LEFT JOIN category_translation AS t ON p.product_category_name = t.product_category_name WHERE o.order_status = 'delivered' AND o.order_purchase_timestamp LIKE '2018%' GROUP BY t.product_category_name_english ORDER BY amount ASC LIMIT 1",
+      "rows_n": 1,
+      "rows_preview": "('cds_dvds_musicals', 65.0)",
+      "answer": "2018年已完成订单中，商品金额最低的品类是“cds_dvds_musicals”（CDs/DVDs/音乐），合计金额为65.0元。  \n所用口径为：仅统计订单状态为“delivered”、购买时间在2018年内的订单，按商品品类汇总订单项价格（order_items.price）之和。",
+      "trace_file": "runs\\20260526_005206_dd7b1f.json",
+      "ms": 3730.7
+    }
+  ],
+  "synthesize": {
+    "answer": "结论：2018年已完成订单中，商品金额（按 `order_items.price` 合计）排名前五的品类依次为：健康美容（755,724.50元）、手表礼品（687,855.20元）、家居床品（532,358.85元）、体育休闲（517,166.26元）、电脑配件（496,269.30元）；商品金额最低的品类是“cds_dvds_musicals”（CDs/DVDs/音乐），合计金额为65.0元。\n\n口径说明：仅统计订单状态为“delivered”、购买时间在2018年1月1日至12月31日之间的订单，按各品类下 `order_items.price` 求和计算商品金额。",
+    "unverified_numbers": [],
+    "failed": ""
+  },
+  "final": {
+    "path": "normal",
+    "answer": "结论：2018年已完成订单中，商品金额（按 `order_items.price` 合计）排名前五的品类依次为：健康美容（755,724.50元）、手表礼品（687,855.20元）、家居床品（532,358.85元）、体育休闲（517,166.26元）、电脑配件（496,269.30元）；商品金额最低的品类是“cds_dvds_musicals”（CDs/DVDs/音乐），合计金额为65.0元。\n\n口径说明：仅统计订单状态为“delivered”、购买时间在2018年1月1日至12月31日之间的订单，按各品类下 `order_items.price` 求和计算商品金额。"
+  },
+  "timings": {
+    "total_ms": 9086.3
+  }
+}

@@ -1,0 +1,115 @@
+{
+  "task": "算一下 2017 年与 2018 年已完成订单的销售额（按默认口径）。",
+  "mode": "eval",
+  "plan": [
+    {
+      "id": "s1",
+      "skill": "search_doc",
+      "input": "检索 '销售额' 的口径定义，确认是否使用 order_payments.payment_value 合计；检索 '已完成订单' 的状态定义，确认是否为 order_status='delivered'",
+      "depends_on": [],
+      "expect": "返回销售额口径说明（应为 order_payments.payment_value SUM），以及订单状态 'delivered' 即为已完成的确认"
+    },
+    {
+      "id": "s2",
+      "skill": "query_data",
+      "input": "统计 2017 年已完成订单（order_status='delivered'）的销售额（order_payments.payment_value 合计）",
+      "depends_on": [],
+      "expect": "返回单行结果：2017 年已完成订单的销售额合计值（float），含口径说明"
+    },
+    {
+      "id": "s3",
+      "skill": "query_data",
+      "input": "统计 2018 年已完成订单（order_status='delivered'）的销售额（order_payments.payment_value 合计）",
+      "depends_on": [],
+      "expect": "返回单行结果：2018 年已完成订单的销售额合计值（float），含口径说明"
+    }
+  ],
+  "plan_fallback": false,
+  "layers": [
+    [
+      "s1",
+      "s2",
+      "s3"
+    ]
+  ],
+  "steps": [
+    {
+      "step_id": "s1",
+      "skill": "search_doc",
+      "input": "检索 '销售额' 的口径定义，确认是否使用 order_payments.payment_value 合计；检索 '已完成订单' 的状态定义，确认是否为 order_status='delivered'",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "hits": [
+        {
+          "title": "口径组：金额范围（amount_scope）",
+          "source": "口径手册",
+          "score": 0.7825,
+          "text": "## 口径组：金额范围（amount_scope）\n- 触发词：销售额、营收、GMV、交易额、营业额\n- 默认口径：payment_total\n- 澄清追问：销售额有几种口径：① 支付总额（默认）② 商品金额（不含运费）③ 仅已送达订单，按哪一种统计？\n- 口径变体：\n  - 支付总额（payment_total）：order_payments.payment_value 合计\n  - 商品金额（goods_only）：order_items.price 合计（不含运费）\n  - 仅已送达订单（delivered_only）：payment_value 合计且订单状态为 delivered"
+        },
+        {
+          "title": "指标：客单价（avg_order_value）",
+          "source": "口径手册",
+          "score": 0.7077,
+          "text": "## 指标：客单价（avg_order_value）\n- 定义：销售额（默认 payment_value 合计）÷ 订单量（COUNT(DISTINCT order_id)）（金额口径联动 amount_scope）"
+        },
+        {
+          "title": "口径组：取消订单处理（cancel_handling）",
+          "source": "口径手册",
+          "score": 0.6675,
+          "text": "## 口径组：取消订单处理（cancel_handling）\n- 触发词：净销售额、实际成交、有效订单、成交额\n- 默认口径：exclude_canceled\n- 澄清追问：是否剔除已取消 / 不可用订单？① 剔除（默认净口径）② 全部计入\n- 口径变体：\n  - 剔除取消（exclude_canceled）：仅统计有效状态订单（剔除 canceled / unavailable）\n  - 全部计入（include_all）：不按订单状态过滤"
+        }
+      ],
+      "hits_n": 3,
+      "ms": 457.9
+    },
+    {
+      "step_id": "s2",
+      "skill": "query_data",
+      "input": "统计 2017 年已完成订单（order_status='delivered'）的销售额（order_payments.payment_value 合计）",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT ROUND(SUM(p.payment_value), 2) AS gmv FROM order_payments AS p JOIN orders AS o ON o.order_id = p.order_id WHERE o.order_status = 'delivered' AND o.order_purchase_timestamp LIKE '2017%' LIMIT 1000",
+      "rows_n": 1,
+      "rows_preview": "(6922900.24,)",
+      "answer": "2017年已完成订单（状态为“已送达”）的总销售额为692.29万元，口径为仅统计已送达订单的payment_value合计值。",
+      "trace_file": "runs\\20260526_005233_de22e6.json",
+      "ms": 2405.0
+    },
+    {
+      "step_id": "s3",
+      "skill": "query_data",
+      "input": "统计 2018 年已完成订单（order_status='delivered'）的销售额（order_payments.payment_value 合计）",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT ROUND(SUM(p.payment_value), 2) AS gmv FROM order_payments AS p JOIN orders AS o ON o.order_id = p.order_id WHERE o.order_status = 'delivered' AND o.order_purchase_timestamp LIKE '2018%' LIMIT 1000",
+      "rows_n": 1,
+      "rows_preview": "(8452975.2,)",
+      "answer": "2018年已完成订单（状态为“delivered”）的总销售额为845.30万元，口径为仅统计已送达订单的payment_value合计值。",
+      "trace_file": "runs\\20260526_005233_ed6aaa.json",
+      "ms": 2408.1
+    }
+  ],
+  "synthesize": {
+    "answer": "结论：2017年与2018年已完成订单的销售额（按默认口径）分别为：\n\n- **2017年**：692.29万元  \n- **2018年**：845.30万元  \n\n**口径说明**：  \n- 销售额采用默认口径（payment_total），即 `order_payments.payment_value` 的合计值；  \n- “已完成订单”定义为 `order_status = 'delivered'` 的订单。",
+    "unverified_numbers": [],
+    "failed": ""
+  },
+  "final": {
+    "path": "normal",
+    "answer": "结论：2017年与2018年已完成订单的销售额（按默认口径）分别为：\n\n- **2017年**：692.29万元  \n- **2018年**：845.30万元  \n\n**口径说明**：  \n- 销售额采用默认口径（payment_total），即 `order_payments.payment_value` 的合计值；  \n- “已完成订单”定义为 `order_status = 'delivered'` 的订单。"
+  },
+  "timings": {
+    "total_ms": 5833.8
+  }
+}

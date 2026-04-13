@@ -1,0 +1,119 @@
+{
+  "task": "2018 年商品金额（order_items.price 合计）最高的五个品类中，第一名是第五名的多少倍？",
+  "mode": "eval",
+  "plan": [
+    {
+      "id": "s1",
+      "skill": "search_doc",
+      "input": "检索 'order_items.price' 字段定义、'category_translation' 字段说明、'order_purchase_timestamp' 时间口径、'order_status' 状态值说明",
+      "depends_on": [],
+      "expect": "确认 price 是商品单价、category_translation 是品类英文名、时间以 order_purchase_timestamp 为准、order_status='delivered' 表示已完成"
+    },
+    {
+      "id": "s2",
+      "skill": "query_data",
+      "input": "2018 年已完成订单（order_status='delivered'）中，按品类（category_translation）汇总商品金额（SUM(order_items.price)），取前五名品类及对应金额",
+      "depends_on": [],
+      "expect": "返回 5 行数据：品类英文名、对应商品金额合计（order_items.price SUM），按金额降序排列"
+    },
+    {
+      "id": "s3",
+      "skill": "compute",
+      "input": "用 s2 中第一名的金额除以第五名的金额，计算倍数",
+      "depends_on": [
+        "s2"
+      ],
+      "expect": "返回一个数值：第一名商品金额 ÷ 第五名商品金额"
+    }
+  ],
+  "plan_fallback": false,
+  "layers": [
+    [
+      "s1",
+      "s2"
+    ],
+    [
+      "s3"
+    ]
+  ],
+  "steps": [
+    {
+      "step_id": "s1",
+      "skill": "search_doc",
+      "input": "检索 'order_items.price' 字段定义、'category_translation' 字段说明、'order_purchase_timestamp' 时间口径、'order_status' 状态值说明",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "hits": [
+        {
+          "title": "表：category_translation",
+          "source": "数据字典",
+          "score": 0.6683,
+          "text": "## 表：category_translation\n- 说明：品类名翻译表（葡语 → 英语）；品类输出默认经此表转英文\n  - product_category_name：品类名（葡语）\n  - product_category_name_english：品类名（英语）"
+        },
+        {
+          "title": "口径组：时间口径（time_field）",
+          "source": "口径手册",
+          "score": 0.6288,
+          "text": "## 口径组：时间口径（time_field）\n- 触发词：月度、趋势、按月、每月\n- 默认口径：purchase_time\n- 澄清追问：按哪个时间统计：① 下单时间（默认）② 支付时间 ③ 送达时间\n- 口径变体：\n  - 下单时间（purchase_time）：orders.order_purchase_timestamp\n  - 支付时间（approved_time）：orders.order_approved_at\n  - 送达时间（delivered_time）：orders.order_delivered_customer_date"
+        },
+        {
+          "title": "表：orders",
+          "source": "数据字典",
+          "score": 0.6203,
+          "text": "## 表：orders\n- 说明：订单主表（每行一个订单）\n  - order_id：订单 ID\n  - customer_id：客户 ID（外键 → customers）\n  - order_status：订单状态：delivered / shipped / canceled / unavailable / processing 等\n  - order_purchase_timestamp：下单时间\n  - order_approved_at：支付时间\n  - order_delivered_customer_date：客户签收时间（空 = 未送达）\n  - order_estimated_delivery_date：预计送达时间"
+        }
+      ],
+      "hits_n": 3,
+      "ms": 375.1
+    },
+    {
+      "step_id": "s2",
+      "skill": "query_data",
+      "input": "2018 年已完成订单（order_status='delivered'）中，按品类（category_translation）汇总商品金额（SUM(order_items.price)），取前五名品类及对应金额",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT t.product_category_name_english AS category, ROUND(SUM(i.price), 2) AS amount FROM order_items AS i JOIN products AS p ON p.product_id = i.product_id LEFT JOIN category_translation AS t ON t.product_category_name = p.product_category_name JOIN orders AS o ON o.order_id = i.order_id WHERE o.order_status = 'delivered' AND o.order_purchase_timestamp LIKE '2018%' GROUP BY t.product_category_name_english ORDER BY amount DESC LIMIT 5",
+      "rows_n": 5,
+      "rows_preview": "('health_beauty', 755724.5); ('watches_gifts', 687855.2); ('bed_bath_table', 532358.85); ('sports_leisure', 517166.26); ('computers_accessories', 496269.3)",
+      "answer": "2018年已完成订单中，商品金额排名前五的品类依次为：健康美容（75.57万元）、手表礼品（68.79万元）、家居床品（53.24万元）、运动休闲（51.72万元）、电脑配件（49.63万元）。  \n所用口径为：仅统计订单状态为“已送达”（delivered）且购买时间为2018年的订单，按英文品类名称汇总商品价格总和并四舍五入保留两位小数。",
+      "trace_file": "runs\\20260526_005059_7c28ca.json",
+      "ms": 3544.2
+    },
+    {
+      "step_id": "s3",
+      "skill": "compute",
+      "input": "用 s2 中第一名的金额除以第五名的金额，计算倍数",
+      "depends_on": [
+        "s2"
+      ],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "code": "result = data['s2'][0][1] / data['s2'][4][1]",
+      "result_text": "1.5228113042656477",
+      "ms": 1181.9
+    }
+  ],
+  "synthesize": {
+    "answer": "结论：2018年已完成订单中，商品金额最高的品类（健康美容）是第五名（电脑配件）的 **1.5228 倍**。\n\n关键数字：\n- 第一名（健康美容）：755724.5  \n- 第五名（电脑配件）：496269.3  \n- 倍数：1.5228113042656477（保留10位小数，实际可四舍五入为1.52）\n\n口径说明：仅统计2018年订单状态为“已送达”（order_status='delivered'）的订单，按品类英文名（category_translation）汇总商品单价（order_items.price）总和。",
+    "unverified_numbers": [
+      10.0
+    ],
+    "failed": ""
+  },
+  "final": {
+    "path": "normal",
+    "answer": "结论：2018年已完成订单中，商品金额最高的品类（健康美容）是第五名（电脑配件）的 **1.5228 倍**。\n\n关键数字：\n- 第一名（健康美容）：755724.5  \n- 第五名（电脑配件）：496269.3  \n- 倍数：1.5228113042656477（保留10位小数，实际可四舍五入为1.52）\n\n口径说明：仅统计2018年订单状态为“已送达”（order_status='delivered'）的订单，按品类英文名（category_translation）汇总商品单价（order_items.price）总和。"
+  },
+  "timings": {
+    "total_ms": 8640.7
+  }
+}

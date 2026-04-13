@@ -1,0 +1,109 @@
+{
+  "question": "2018 年各州订单量排名？",
+  "mode": "interactive",
+  "nodes": [
+    {
+      "name": "understand",
+      "ms": 0.0,
+      "out": {
+        "refuse_hit": null,
+        "metric_hits": {
+          "groups": [],
+          "metrics": [
+            "order_count"
+          ]
+        },
+        "ambiguity": null
+      }
+    },
+    {
+      "name": "link_schema",
+      "ms": 6.0,
+      "out": {
+        "tables": [
+          "category_translation",
+          "customers",
+          "geolocation",
+          "order_items",
+          "order_payments",
+          "order_reviews",
+          "orders",
+          "products",
+          "sellers"
+        ],
+        "fields_n": 0,
+        "source": "naive"
+      }
+    },
+    {
+      "name": "gen_sql",
+      "ms": 0.3,
+      "out": {
+        "sql": "SELECT SUM(payment_value) AS gmv FROM order_payment"
+      }
+    },
+    {
+      "name": "exec_sql",
+      "ms": 1.3,
+      "out": {
+        "ok": false,
+        "error_type": "exec:no_such_table",
+        "rows_n": 0
+      }
+    },
+    {
+      "name": "gen_sql",
+      "ms": 1.1,
+      "out": {
+        "sql": "SELECT COUNT(DISTINCT order_id) AS order_cnt FROM orders"
+      }
+    },
+    {
+      "name": "exec_sql",
+      "ms": 15.2,
+      "out": {
+        "ok": true,
+        "error_type": "",
+        "rows_n": 1
+      }
+    },
+    {
+      "name": "interpret",
+      "ms": 0.3,
+      "out": {
+        "answer_head": "（干跑解读）已按所选口径完成统计，结果见上方数据。"
+      }
+    },
+    {
+      "name": "respond",
+      "ms": 0.0,
+      "out": {
+        "path": "normal"
+      }
+    }
+  ],
+  "clarify": {
+    "fired": false
+  },
+  "retries": [
+    {
+      "n": 1,
+      "error_type": "exec:no_such_table",
+      "sql": "SELECT SUM(payment_value) AS gmv FROM order_payment"
+    }
+  ],
+  "final": {
+    "path": "normal",
+    "sql": "SELECT COUNT(DISTINCT order_id) AS order_cnt FROM orders LIMIT 1000",
+    "rows_n": 1,
+    "answer": "（干跑解读）已按所选口径完成统计，结果见上方数据。"
+  },
+  "timings": {
+    "understand": 0.0,
+    "link_schema": 6.0,
+    "gen_sql": 1.4,
+    "exec_sql": 16.5,
+    "interpret": 0.3,
+    "respond": 0.0
+  }
+}

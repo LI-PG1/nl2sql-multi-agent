@@ -1,0 +1,117 @@
+{
+  "task": "对比 2017 年与 2018 年已完成订单的订单量。",
+  "mode": "eval",
+  "plan": [
+    {
+      "id": "s1",
+      "skill": "search_doc",
+      "input": "检索订单量统计口径：订单量＝COUNT(DISTINCT orders.order_id)；订单状态筛选条件：order_status='delivered'；时间字段按下单时间：order_purchase_timestamp",
+      "depends_on": [],
+      "expect": "确认订单量定义、筛选条件及时间字段口径，确保后续步骤统一使用 COUNT(DISTINCT orders.order_id)、order_status='delivered'、order_purchase_timestamp"
+    },
+    {
+      "id": "s2",
+      "skill": "query_data",
+      "input": "统计 2017 年已完成订单的订单量，其中已完成指 order_status='delivered'，时间按 order_purchase_timestamp，仅统计 2017-01-01 至 2017-12-31 的订单",
+      "depends_on": [],
+      "expect": "返回一个数值：2017 年已完成订单的订单量（COUNT(DISTINCT orders.order_id)）"
+    },
+    {
+      "id": "s3",
+      "skill": "query_data",
+      "input": "统计 2018 年已完成订单的订单量，其中已完成指 order_status='delivered'，时间按 order_purchase_timestamp，仅统计 2018-01-01 至 2018-12-31 的订单",
+      "depends_on": [],
+      "expect": "返回一个数值：2018 年已完成订单的订单量（COUNT(DISTINCT orders.order_id)）"
+    }
+  ],
+  "plan_fallback": false,
+  "layers": [
+    [
+      "s1",
+      "s2",
+      "s3"
+    ]
+  ],
+  "steps": [
+    {
+      "step_id": "s1",
+      "skill": "search_doc",
+      "input": "检索订单量统计口径：订单量＝COUNT(DISTINCT orders.order_id)；订单状态筛选条件：order_status='delivered'；时间字段按下单时间：order_purchase_timestamp",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "hits": [
+        {
+          "title": "指标：订单量（order_count）",
+          "source": "口径手册",
+          "score": 0.7239,
+          "text": "## 指标：订单量（order_count）\n- 定义：COUNT(DISTINCT orders.order_id)"
+        },
+        {
+          "title": "口径组：时间口径（time_field）",
+          "source": "口径手册",
+          "score": 0.6923,
+          "text": "## 口径组：时间口径（time_field）\n- 触发词：月度、趋势、按月、每月\n- 默认口径：purchase_time\n- 澄清追问：按哪个时间统计：① 下单时间（默认）② 支付时间 ③ 送达时间\n- 口径变体：\n  - 下单时间（purchase_time）：orders.order_purchase_timestamp\n  - 支付时间（approved_time）：orders.order_approved_at\n  - 送达时间（delivered_time）：orders.order_delivered_customer_date"
+        },
+        {
+          "title": "口径组：金额范围（amount_scope）",
+          "source": "口径手册",
+          "score": 0.6336,
+          "text": "## 口径组：金额范围（amount_scope）\n- 触发词：销售额、营收、GMV、交易额、营业额\n- 默认口径：payment_total\n- 澄清追问：销售额有几种口径：① 支付总额（默认）② 商品金额（不含运费）③ 仅已送达订单，按哪一种统计？\n- 口径变体：\n  - 支付总额（payment_total）：order_payments.payment_value 合计\n  - 商品金额（goods_only）：order_items.price 合计（不含运费）\n  - 仅已送达订单（delivered_only）：payment_value 合计且订单状态为 delivered"
+        }
+      ],
+      "hits_n": 3,
+      "ms": 427.1
+    },
+    {
+      "step_id": "s2",
+      "skill": "query_data",
+      "input": "统计 2017 年已完成订单的订单量，其中已完成指 order_status='delivered'，时间按 order_purchase_timestamp，仅统计 2017-01-01 至 2017-12-31 的订单",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT COUNT(*) AS cnt FROM orders WHERE order_status = 'delivered' AND order_purchase_timestamp LIKE '2017%' LIMIT 1000",
+      "rows_n": 1,
+      "rows_preview": "(43428,)",
+      "answer": "2017年全年已完成（订单状态为'delivered'）的订单量为43,428单。  \n所用口径：以订单创建时间（order_purchase_timestamp）在2017年1月1日至12月31日之间、且订单状态为'delivered'的订单为统计对象。",
+      "trace_file": "runs\\20260526_004838_88b60a.json",
+      "ms": 2001.6
+    },
+    {
+      "step_id": "s3",
+      "skill": "query_data",
+      "input": "统计 2018 年已完成订单的订单量，其中已完成指 order_status='delivered'，时间按 order_purchase_timestamp，仅统计 2018-01-01 至 2018-12-31 的订单",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT COUNT(*) AS cnt FROM orders WHERE order_status = 'delivered' AND order_purchase_timestamp LIKE '2018%' LIMIT 1000",
+      "rows_n": 1,
+      "rows_preview": "(52783,)",
+      "answer": "2018年全年已完成（订单状态为'delivered'）的订单量为52,783单。  \n所用口径：以订单创建时间（order_purchase_timestamp）在2018年1月1日至12月31日之间，且订单状态为'delivered'的记录为统计范围。",
+      "trace_file": "runs\\20260526_004838_ec5a9b.json",
+      "ms": 1996.4
+    }
+  ],
+  "synthesize": {
+    "answer": "2018年已完成订单量（52,783单）高于2017年（43,428单），增长9,355单。  \n口径说明：订单量按 COUNT(DISTINCT orders.order_id) 统计，筛选条件为 order_status='delivered'，时间字段使用 order_purchase_timestamp（下单时间），统计区间为自然年（1月1日至12月31日）。",
+    "unverified_numbers": [
+      9355.0
+    ],
+    "failed": ""
+  },
+  "final": {
+    "path": "normal",
+    "answer": "2018年已完成订单量（52,783单）高于2017年（43,428单），增长9,355单。  \n口径说明：订单量按 COUNT(DISTINCT orders.order_id) 统计，筛选条件为 order_status='delivered'，时间字段使用 order_purchase_timestamp（下单时间），统计区间为自然年（1月1日至12月31日）。"
+  },
+  "timings": {
+    "total_ms": 5945.2
+  }
+}

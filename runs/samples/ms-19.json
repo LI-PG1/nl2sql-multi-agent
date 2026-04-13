@@ -1,0 +1,90 @@
+{
+  "task": "「客户数」的统计口径是什么（按哪个字段去重）？按该口径统计 2018 年已完成订单的客户数。",
+  "mode": "eval",
+  "plan": [
+    {
+      "id": "s1",
+      "skill": "search_doc",
+      "input": "客户数的统计口径是什么？按哪个字段去重？",
+      "depends_on": [],
+      "expect": "返回客户数的定义，明确指出是 COUNT(DISTINCT customers.customer_unique_id)"
+    },
+    {
+      "id": "s2",
+      "skill": "query_data",
+      "input": "统计 2018 年已完成订单的客户数，口径为 COUNT(DISTINCT customers.customer_unique_id)，订单状态为 order_status='delivered'，时间按 order_purchase_timestamp 在 2018 年。",
+      "depends_on": [],
+      "expect": "返回一个整数，表示 2018 年已完成订单的客户数"
+    }
+  ],
+  "plan_fallback": false,
+  "layers": [
+    [
+      "s1",
+      "s2"
+    ]
+  ],
+  "steps": [
+    {
+      "step_id": "s1",
+      "skill": "search_doc",
+      "input": "客户数的统计口径是什么？按哪个字段去重？",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "hits": [
+        {
+          "title": "指标：客户数（customer_count）",
+          "source": "口径手册",
+          "score": 0.7849,
+          "text": "## 指标：客户数（customer_count）\n- 定义：COUNT(DISTINCT customers.customer_unique_id)（一个客户跨订单只计一次）"
+        },
+        {
+          "title": "指标：订单量（order_count）",
+          "source": "口径手册",
+          "score": 0.6281,
+          "text": "## 指标：订单量（order_count）\n- 定义：COUNT(DISTINCT orders.order_id)"
+        },
+        {
+          "title": "表：customers",
+          "source": "数据字典",
+          "score": 0.6048,
+          "text": "## 表：customers\n- 说明：客户表（每行对应一个订单的客户快照）\n  - customer_id：客户 ID（订单粒度）\n  - customer_unique_id：客户唯一 ID（跨订单去重统计用）\n  - customer_state：客户所在州\n  - customer_city：客户所在城市\n  - customer_zip_code_prefix：邮编前缀"
+        }
+      ],
+      "hits_n": 3,
+      "ms": 391.4
+    },
+    {
+      "step_id": "s2",
+      "skill": "query_data",
+      "input": "统计 2018 年已完成订单的客户数，口径为 COUNT(DISTINCT customers.customer_unique_id)，订单状态为 order_status='delivered'，时间按 order_purchase_timestamp 在 2018 年。",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT COUNT(DISTINCT c.customer_unique_id) AS cnt FROM orders AS o JOIN customers AS c ON o.customer_id = c.customer_id WHERE o.order_status = 'delivered' AND o.order_purchase_timestamp LIKE '2018%' LIMIT 1000",
+      "rows_n": 1,
+      "rows_preview": "(51612,)",
+      "answer": "2018年已完成（已送达）订单的客户数为51,612人。  \n所用口径为：统计2018年订单状态为“delivered”且订单创建时间在该年度内的唯一客户ID（customer_unique_id）数量。",
+      "trace_file": "runs\\20260526_005129_9cd397.json",
+      "ms": 2196.8
+    }
+  ],
+  "synthesize": {
+    "answer": "结论：2018年已完成订单的客户数为 **51,612** 人。  \n口径说明：按 `customers.customer_unique_id` 去重统计（即一个客户跨订单只计一次），限定订单状态为 `'delivered'` 且 `order_purchase_timestamp` 在 2018 年内。",
+    "unverified_numbers": [],
+    "failed": ""
+  },
+  "final": {
+    "path": "normal",
+    "answer": "结论：2018年已完成订单的客户数为 **51,612** 人。  \n口径说明：按 `customers.customer_unique_id` 去重统计（即一个客户跨订单只计一次），限定订单状态为 `'delivered'` 且 `order_purchase_timestamp` 在 2018 年内。"
+  },
+  "timings": {
+    "total_ms": 4534.5
+  }
+}

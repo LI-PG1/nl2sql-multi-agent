@@ -1,0 +1,146 @@
+{
+  "task": "先查询 2018 年各月的订单量，算出有数据月份的月均订单量，再找出低于月均的月份数量。",
+  "mode": "eval",
+  "plan": [
+    {
+      "id": "s1",
+      "skill": "search_doc",
+      "input": "检索口径手册与数据字典：订单量定义、订单状态字段、订单时间字段、金额字段（payment_value）、订单状态为 delivered 的含义",
+      "depends_on": [],
+      "expect": "确认订单量＝COUNT(DISTINCT orders.order_id)，订单状态字段为 order_status，常用值 delivered 表示已完成，金额口径为 order_payments.payment_value 合计，时间字段按 order_purchase_timestamp"
+    },
+    {
+      "id": "s2",
+      "skill": "query_data",
+      "input": "查询 2018 年各月的订单量（order_status='delivered' 的订单），按年月分组统计，字段包括：year_month（格式 YYYY-MM）、order_count（COUNT(DISTINCT orders.order_id)），仅保留 2018 年数据",
+      "depends_on": [],
+      "expect": "返回 12 行以内数据，每行含 year_month 和对应订单量，仅含 2018 年各月（如 2018-01 至 2018-12），仅统计 order_status='delivered' 的订单"
+    },
+    {
+      "id": "s3",
+      "skill": "compute",
+      "input": "用 s2 的数据计算有数据月份的月均订单量：对 s2 中所有非零 order_count 求平均值（即 SUM(order_count)/COUNT(*)），结果记为 avg_order_count",
+      "depends_on": [
+        "s2"
+      ],
+      "expect": "返回一个数值：2018 年有订单（且为 delivered）的月份的平均订单量"
+    },
+    {
+      "id": "s4",
+      "skill": "compute",
+      "input": "用 s2 的数据统计低于月均订单量（s3 的 avg_order_count）的月份数量：COUNT(*) WHERE order_count < avg_order_count，仅统计 s2 中存在的月份",
+      "depends_on": [
+        "s2",
+        "s3"
+      ],
+      "expect": "返回一个整数：2018 年中订单量低于月均值的月份个数"
+    }
+  ],
+  "plan_fallback": false,
+  "layers": [
+    [
+      "s1",
+      "s2"
+    ],
+    [
+      "s3"
+    ],
+    [
+      "s4"
+    ]
+  ],
+  "steps": [
+    {
+      "step_id": "s1",
+      "skill": "search_doc",
+      "input": "检索口径手册与数据字典：订单量定义、订单状态字段、订单时间字段、金额字段（payment_value）、订单状态为 delivered 的含义",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "hits": [
+        {
+          "title": "口径组：时间口径（time_field）",
+          "source": "口径手册",
+          "score": 0.6868,
+          "text": "## 口径组：时间口径（time_field）\n- 触发词：月度、趋势、按月、每月\n- 默认口径：purchase_time\n- 澄清追问：按哪个时间统计：① 下单时间（默认）② 支付时间 ③ 送达时间\n- 口径变体：\n  - 下单时间（purchase_time）：orders.order_purchase_timestamp\n  - 支付时间（approved_time）：orders.order_approved_at\n  - 送达时间（delivered_time）：orders.order_delivered_customer_date"
+        },
+        {
+          "title": "口径组：金额范围（amount_scope）",
+          "source": "口径手册",
+          "score": 0.6661,
+          "text": "## 口径组：金额范围（amount_scope）\n- 触发词：销售额、营收、GMV、交易额、营业额\n- 默认口径：payment_total\n- 澄清追问：销售额有几种口径：① 支付总额（默认）② 商品金额（不含运费）③ 仅已送达订单，按哪一种统计？\n- 口径变体：\n  - 支付总额（payment_total）：order_payments.payment_value 合计\n  - 商品金额（goods_only）：order_items.price 合计（不含运费）\n  - 仅已送达订单（delivered_only）：payment_value 合计且订单状态为 delivered"
+        },
+        {
+          "title": "指标：配送时长（配送天数）（delivery_days）",
+          "source": "口径手册",
+          "score": 0.6286,
+          "text": "## 指标：配送时长（配送天数）（delivery_days）\n- 定义：julianday(order_delivered_customer_date) − julianday(order_purchase_timestamp)；样本为订单状态 delivered 且签收时间非空的订单"
+        }
+      ],
+      "hits_n": 3,
+      "ms": 374.4
+    },
+    {
+      "step_id": "s2",
+      "skill": "query_data",
+      "input": "查询 2018 年各月的订单量（order_status='delivered' 的订单），按年月分组统计，字段包括：year_month（格式 YYYY-MM）、order_count（COUNT(DISTINCT orders.order_id)），仅保留 2018 年数据",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT STRFTIME('%Y-%m', order_purchase_timestamp) AS year_month, COUNT(DISTINCT order_id) AS order_count FROM orders WHERE order_status = 'delivered' AND order_purchase_timestamp LIKE '2018%' GROUP BY 1 ORDER BY 1 LIMIT 1000",
+      "rows_n": 8,
+      "rows_preview": "('2018-01', 7069); ('2018-02', 6555); ('2018-03', 7003); ('2018-04', 6798); ('2018-05', 6749)",
+      "answer": "2018年各月 delivered 状态订单量在 6099 至 7069 之间波动，1 月最高（7069），6 月最低（6099）。  \n口径：仅统计订单状态为 'delivered' 且购买时间在 2018 年的订单，按月（YYYY-MM）分组，订单数为去重后的 order_id 数量。",
+      "trace_file": "runs\\20260526_005222_e6f787.json",
+      "ms": 2113.7
+    },
+    {
+      "step_id": "s3",
+      "skill": "compute",
+      "input": "用 s2 的数据计算有数据月份的月均订单量：对 s2 中所有非零 order_count 求平均值（即 SUM(order_count)/COUNT(*)），结果记为 avg_order_count",
+      "depends_on": [
+        "s2"
+      ],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "code": "s2_data = data['s2']\norder_counts = [row[1] for row in s2_data if row[1] != 0]\nresult = sum(order_counts) / len(order_counts)",
+      "result_text": "6597.875",
+      "ms": 1301.7
+    },
+    {
+      "step_id": "s4",
+      "skill": "compute",
+      "input": "用 s2 的数据统计低于月均订单量（s3 的 avg_order_count）的月份数量：COUNT(*) WHERE order_count < avg_order_count，仅统计 s2 中存在的月份",
+      "depends_on": [
+        "s2",
+        "s3"
+      ],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "code": "# s3 的 avg_order_count 需要从 data 中获取，但 data 中未提供 s3 数据\n# 根据任务描述，应使用 s3 的 avg_order_count 作为阈值\n# 然而上游数据只给了 s2，未提供 s3，无法完成计算\n# 但题目要求必须生成代码，且任务明确说“用 s2 的数据统计低于月均订单量（s3 的 avg_order_count）的月份数量”\n# 推测 s3 的 avg_order_count 应已通过其他方式提供，但此处缺失\n# 若假设 s3 的 avg_order_count 是 s2 所有月份的平均值（常见业务逻辑），则可计算：\ns2_data = data['s2']  # [['2018-01', 7069], ...]\norder_counts = [row[1] for row in s2_data]\navg_order_count = sum(order_counts) / len(order_counts)\nresult = sum(1 for count in order_counts if count < avg_order_count)",
+      "result_text": "4",
+      "ms": 2814.0
+    }
+  ],
+  "synthesize": {
+    "answer": "结论：2018年有数据的月份（共8个月）中，月均订单量为6597.875，有4个月份订单量低于该均值。\n\n关键数字：\n- 月均订单量：6597.875（来自s3）\n- 低于月均的月份数：4（来自s4）\n- 有数据的月份：8个月（来自s2结果行数）\n\n口径说明：\n- 订单量定义：COUNT(DISTINCT orders.order_id)，仅统计订单状态为'delivered'且按下单时间（order_purchase_timestamp）落在2018年的订单；\n- 月均计算方式：对8个月的订单量求算术平均（SUM(order_count)/COUNT(*)）；\n- 低于均值的判断：统计order_count < 6597.875的月份数。",
+    "unverified_numbers": [],
+    "failed": ""
+  },
+  "final": {
+    "path": "normal",
+    "answer": "结论：2018年有数据的月份（共8个月）中，月均订单量为6597.875，有4个月份订单量低于该均值。\n\n关键数字：\n- 月均订单量：6597.875（来自s3）\n- 低于月均的月份数：4（来自s4）\n- 有数据的月份：8个月（来自s2结果行数）\n\n口径说明：\n- 订单量定义：COUNT(DISTINCT orders.order_id)，仅统计订单状态为'delivered'且按下单时间（order_purchase_timestamp）落在2018年的订单；\n- 月均计算方式：对8个月的订单量求算术平均（SUM(order_count)/COUNT(*)）；\n- 低于均值的判断：统计order_count < 6597.875的月份数。"
+  },
+  "timings": {
+    "total_ms": 11992.9
+  }
+}

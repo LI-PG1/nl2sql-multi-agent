@@ -1,0 +1,90 @@
+{
+  "task": "商品金额与运费的字段在哪里？2018 年已完成订单的「商品金额＋运费」合计是多少？",
+  "mode": "eval",
+  "plan": [
+    {
+      "id": "s1",
+      "skill": "search_doc",
+      "input": "查找商品金额字段（如 price）、运费字段（如 freight_value）在哪个表、字段名及定义；查找订单状态字段 order_status 的取值说明；查找订单时间字段 order_purchase_timestamp、order_delivered_customer_date 的定义",
+      "depends_on": [],
+      "expect": "确认商品金额字段为 order_items.price，运费字段为 order_items.freight_value；订单状态字段为 orders.order_status；下单时间为 orders.order_purchase_timestamp，签收时间为 orders.order_delivered_customer_date；订单状态 'delivered' 表示已完成"
+    },
+    {
+      "id": "s2",
+      "skill": "query_data",
+      "input": "2018 年已完成订单（orders.order_status='delivered'）的「商品金额＋运费」合计，其中商品金额取 order_items.price，运费取 order_items.freight_value；时间范围：orders.order_purchase_timestamp 在 2018-01-01 至 2018-12-31；仅统计已完成订单",
+      "depends_on": [],
+      "expect": "返回单行单列的合计值，即 SUM(price + freight_value)，口径为 2018 年已完成订单的商品金额与运费总和"
+    }
+  ],
+  "plan_fallback": false,
+  "layers": [
+    [
+      "s1",
+      "s2"
+    ]
+  ],
+  "steps": [
+    {
+      "step_id": "s1",
+      "skill": "search_doc",
+      "input": "查找商品金额字段（如 price）、运费字段（如 freight_value）在哪个表、字段名及定义；查找订单状态字段 order_status 的取值说明；查找订单时间字段 order_purchase_timestamp、order_delivered_customer_date 的定义",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "hits": [
+        {
+          "title": "表：orders",
+          "source": "数据字典",
+          "score": 0.6966,
+          "text": "## 表：orders\n- 说明：订单主表（每行一个订单）\n  - order_id：订单 ID\n  - customer_id：客户 ID（外键 → customers）\n  - order_status：订单状态：delivered / shipped / canceled / unavailable / processing 等\n  - order_purchase_timestamp：下单时间\n  - order_approved_at：支付时间\n  - order_delivered_customer_date：客户签收时间（空 = 未送达）\n  - order_estimated_delivery_date：预计送达时间"
+        },
+        {
+          "title": "表：order_items",
+          "source": "数据字典",
+          "score": 0.668,
+          "text": "## 表：order_items\n- 说明：订单商品明细（商品金额与运费分开）\n  - order_id：订单 ID（外键 → orders）\n  - order_item_id：订单内商品序号\n  - product_id：商品 ID（外键 → products）\n  - seller_id：卖家 ID（外键 → sellers）\n  - price：商品金额\n  - freight_value：运费"
+        },
+        {
+          "title": "口径组：时间口径（time_field）",
+          "source": "口径手册",
+          "score": 0.6506,
+          "text": "## 口径组：时间口径（time_field）\n- 触发词：月度、趋势、按月、每月\n- 默认口径：purchase_time\n- 澄清追问：按哪个时间统计：① 下单时间（默认）② 支付时间 ③ 送达时间\n- 口径变体：\n  - 下单时间（purchase_time）：orders.order_purchase_timestamp\n  - 支付时间（approved_time）：orders.order_approved_at\n  - 送达时间（delivered_time）：orders.order_delivered_customer_date"
+        }
+      ],
+      "hits_n": 3,
+      "ms": 344.6
+    },
+    {
+      "step_id": "s2",
+      "skill": "query_data",
+      "input": "2018 年已完成订单（orders.order_status='delivered'）的「商品金额＋运费」合计，其中商品金额取 order_items.price，运费取 order_items.freight_value；时间范围：orders.order_purchase_timestamp 在 2018-01-01 至 2018-12-31；仅统计已完成订单",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT ROUND(SUM(i.price + i.freight_value), 2) AS total_amount FROM order_items AS i JOIN orders AS o ON i.order_id = o.order_id WHERE o.order_status = 'delivered' AND o.order_purchase_timestamp LIKE '2018%' LIMIT 1000",
+      "rows_n": 1,
+      "rows_preview": "(8451584.77,)",
+      "answer": "2018年已完成订单（状态为“delivered”）的“商品金额＋运费”合计为8451584.77元。  \n所用口径：仅统计订单状态为“delivered”且下单时间在2018年1月1日至12月31日之间的订单，商品金额取自order_items.price，运费取自order_items.freight_value，结果保留两位小数。",
+      "trace_file": "runs\\20260526_005135_29c379.json",
+      "ms": 2484.8
+    }
+  ],
+  "synthesize": {
+    "answer": "结论：2018年已完成订单的「商品金额＋运费」合计为 **8451584.77 元**。\n\n关键数字：**8451584.77**（来自步骤 s2 的查询结果）。\n\n口径说明：  \n- 商品金额字段为 `order_items.price`，运费字段为 `order_items.freight_value`；  \n- 已完成订单定义为 `orders.order_status = 'delivered'`；  \n- 时间范围限定为 `orders.order_purchase_timestamp` 在 2018-01-01 至 2018-12-31；  \n- 合计值为 `SUM(price + freight_value)`，结果保留两位小数。",
+    "unverified_numbers": [],
+    "failed": ""
+  },
+  "final": {
+    "path": "normal",
+    "answer": "结论：2018年已完成订单的「商品金额＋运费」合计为 **8451584.77 元**。\n\n关键数字：**8451584.77**（来自步骤 s2 的查询结果）。\n\n口径说明：  \n- 商品金额字段为 `order_items.price`，运费字段为 `order_items.freight_value`；  \n- 已完成订单定义为 `orders.order_status = 'delivered'`；  \n- 时间范围限定为 `orders.order_purchase_timestamp` 在 2018-01-01 至 2018-12-31；  \n- 合计值为 `SUM(price + freight_value)`，结果保留两位小数。"
+  },
+  "timings": {
+    "total_ms": 6438.8
+  }
+}

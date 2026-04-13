@@ -1,0 +1,129 @@
+{
+  "question": "平台的销售额是多少？",
+  "mode": "interactive",
+  "nodes": [
+    {
+      "name": "understand",
+      "ms": 5.1,
+      "out": {
+        "refuse_hit": null,
+        "metric_hits": {
+          "groups": [
+            {
+              "group": "amount_scope",
+              "name": "金额范围",
+              "matched": [
+                "销售额"
+              ]
+            }
+          ],
+          "metrics": [
+            "gmv"
+          ]
+        },
+        "ambiguity": "amount_scope"
+      }
+    },
+    {
+      "name": "clarify",
+      "ms": 0.0,
+      "out": {
+        "group": "amount_scope",
+        "answer": "支付总额"
+      }
+    },
+    {
+      "name": "understand",
+      "ms": 0.0,
+      "out": {
+        "refuse_hit": null,
+        "metric_hits": {
+          "groups": [
+            {
+              "group": "amount_scope",
+              "name": "金额范围",
+              "matched": [
+                "销售额"
+              ]
+            }
+          ],
+          "metrics": [
+            "gmv"
+          ]
+        },
+        "ambiguity": null
+      }
+    },
+    {
+      "name": "link_schema",
+      "ms": 22.6,
+      "out": {
+        "tables": [
+          "category_translation",
+          "customers",
+          "geolocation",
+          "order_items",
+          "order_payments",
+          "order_reviews",
+          "orders",
+          "products",
+          "sellers"
+        ],
+        "fields_n": 0,
+        "source": "naive"
+      }
+    },
+    {
+      "name": "gen_sql",
+      "ms": 1.0,
+      "out": {
+        "sql": "SELECT ROUND(SUM(payment_value), 2) AS gmv FROM order_payments"
+      }
+    },
+    {
+      "name": "exec_sql",
+      "ms": 64.0,
+      "out": {
+        "ok": true,
+        "error_type": "",
+        "rows_n": 1
+      }
+    },
+    {
+      "name": "interpret",
+      "ms": 1.8,
+      "out": {
+        "answer_head": "（干跑解读）已按所选口径完成统计，结果见上方数据。"
+      }
+    },
+    {
+      "name": "respond",
+      "ms": 0.0,
+      "out": {
+        "path": "normal"
+      }
+    }
+  ],
+  "clarify": {
+    "fired": true,
+    "group": "amount_scope",
+    "question": "销售额有几种口径：① 支付总额（默认）② 商品金额（不含运费）③ 仅已送达订单，按哪一种统计？",
+    "answer": "支付总额"
+  },
+  "retries": [],
+  "final": {
+    "path": "normal",
+    "sql": "SELECT ROUND(SUM(payment_value), 2) AS gmv FROM order_payments LIMIT 1000",
+    "rows_n": 1,
+    "answer": "（干跑解读）已按所选口径完成统计，结果见上方数据。"
+  },
+  "timings": {
+    "understand": 5.1,
+    "clarify": 0.0,
+    "link_schema": 22.6,
+    "gen_sql": 1.0,
+    "exec_sql": 64.0,
+    "interpret": 1.8,
+    "respond": 0.0
+  }
+}

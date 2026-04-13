@@ -1,0 +1,144 @@
+{
+  "task": "对比 2018 年圣保罗州（SP）与里约热内卢州（RJ）的销售额。",
+  "mode": "eval",
+  "plan": [
+    {
+      "id": "s1",
+      "skill": "search_doc",
+      "input": "查找销售额口径定义，确认是否使用 order_payments.payment_value 合计；查找圣保罗州（SP）和里约热内卢州（RJ）在 customers 表中的州字段值表示方式；查找订单状态 delivered 的定义及是否需过滤",
+      "depends_on": [],
+      "expect": "确认销售额口径为 SUM(order_payments.payment_value)，州字段为 customer_state，值为 'SP' 和 'RJ'，且任务中「已完成」指 order_status='delivered'"
+    },
+    {
+      "id": "s2",
+      "skill": "query_data",
+      "input": "2018年圣保罗州（SP）已完成订单（order_status='delivered'）的销售额，金额口径为 order_payments.payment_value 合计；时间范围：order_purchase_timestamp 在 2018-01-01 至 2018-12-31；关联 customers 表筛选 customer_state='SP'；关联 orders 表筛选 order_status='delivered'",
+      "depends_on": [],
+      "expect": "返回单行结果：SP 州 2018 年已完成订单的总销售额（SUM(payment_value)）"
+    },
+    {
+      "id": "s3",
+      "skill": "query_data",
+      "input": "2018年里约热内卢州（RJ）已完成订单（order_status='delivered'）的销售额，金额口径为 order_payments.payment_value 合计；时间范围：order_purchase_timestamp 在 2018-01-01 至 2018-12-31；关联 customers 表筛选 customer_state='RJ'；关联 orders 表筛选 order_status='delivered'",
+      "depends_on": [],
+      "expect": "返回单行结果：RJ 州 2018 年已完成订单的总销售额（SUM(payment_value)）"
+    },
+    {
+      "id": "s4",
+      "skill": "compute",
+      "input": "用 s2 的 SP 销售额减去 s3 的 RJ 销售额，计算差额（SP - RJ）",
+      "depends_on": [
+        "s2",
+        "s3"
+      ],
+      "expect": "返回一个数值：SP 与 RJ 的销售额差额（正数表示 SP 更高）"
+    }
+  ],
+  "plan_fallback": false,
+  "layers": [
+    [
+      "s1",
+      "s2",
+      "s3"
+    ],
+    [
+      "s4"
+    ]
+  ],
+  "steps": [
+    {
+      "step_id": "s1",
+      "skill": "search_doc",
+      "input": "查找销售额口径定义，确认是否使用 order_payments.payment_value 合计；查找圣保罗州（SP）和里约热内卢州（RJ）在 customers 表中的州字段值表示方式；查找订单状态 delivered 的定义及是否需过滤",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "hits": [
+        {
+          "title": "口径组：金额范围（amount_scope）",
+          "source": "口径手册",
+          "score": 0.7053,
+          "text": "## 口径组：金额范围（amount_scope）\n- 触发词：销售额、营收、GMV、交易额、营业额\n- 默认口径：payment_total\n- 澄清追问：销售额有几种口径：① 支付总额（默认）② 商品金额（不含运费）③ 仅已送达订单，按哪一种统计？\n- 口径变体：\n  - 支付总额（payment_total）：order_payments.payment_value 合计\n  - 商品金额（goods_only）：order_items.price 合计（不含运费）\n  - 仅已送达订单（delivered_only）：payment_value 合计且订单状态为 delivered"
+        },
+        {
+          "title": "表：order_payments",
+          "source": "数据字典",
+          "score": 0.6631,
+          "text": "## 表：order_payments\n- 说明：订单支付表（一个订单可有多条支付记录）\n  - order_id：订单 ID（外键 → orders）\n  - payment_type：支付方式（credit_card / boleto / voucher / debit_card）\n  - payment_installments：分期数\n  - payment_value：支付金额（销售额默认口径字段）"
+        },
+        {
+          "title": "口径组：时间口径（time_field）",
+          "source": "口径手册",
+          "score": 0.6429,
+          "text": "## 口径组：时间口径（time_field）\n- 触发词：月度、趋势、按月、每月\n- 默认口径：purchase_time\n- 澄清追问：按哪个时间统计：① 下单时间（默认）② 支付时间 ③ 送达时间\n- 口径变体：\n  - 下单时间（purchase_time）：orders.order_purchase_timestamp\n  - 支付时间（approved_time）：orders.order_approved_at\n  - 送达时间（delivered_time）：orders.order_delivered_customer_date"
+        }
+      ],
+      "hits_n": 3,
+      "ms": 437.0
+    },
+    {
+      "step_id": "s2",
+      "skill": "query_data",
+      "input": "2018年圣保罗州（SP）已完成订单（order_status='delivered'）的销售额，金额口径为 order_payments.payment_value 合计；时间范围：order_purchase_timestamp 在 2018-01-01 至 2018-12-31；关联 customers 表筛选 customer_state='SP'；关联 orders 表筛选 order_status='delivered'",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT ROUND(SUM(p.payment_value), 2) AS gmv FROM order_payments AS p JOIN orders AS o ON o.order_id = p.order_id JOIN customers AS c ON c.customer_id = o.customer_id WHERE o.order_status = 'delivered' AND c.customer_state = 'SP' AND o.order_purchase_timestamp LIKE '2018%' LIMIT 1000",
+      "rows_n": 1,
+      "rows_preview": "(3328290.18,)",
+      "answer": "2018年圣保罗州（SP）已完成订单（已送达）的销售额为332.83万元，金额口径为订单支付值（payment_value）的合计。  \n所用口径为：仅统计订单状态为“delivered”、客户所在州为“SP”、下单时间为2018年全年的订单支付金额总和。",
+      "trace_file": "runs\\20260526_004847_2e103d.json",
+      "ms": 3028.8
+    },
+    {
+      "step_id": "s3",
+      "skill": "query_data",
+      "input": "2018年里约热内卢州（RJ）已完成订单（order_status='delivered'）的销售额，金额口径为 order_payments.payment_value 合计；时间范围：order_purchase_timestamp 在 2018-01-01 至 2018-12-31；关联 customers 表筛选 customer_state='RJ'；关联 orders 表筛选 order_status='delivered'",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT ROUND(SUM(p.payment_value), 2) AS gmv FROM order_payments AS p JOIN orders AS o ON o.order_id = p.order_id JOIN customers AS c ON c.customer_id = o.customer_id WHERE o.order_status = 'delivered' AND c.customer_state = 'RJ' AND o.order_purchase_timestamp LIKE '2018%' LIMIT 1000",
+      "rows_n": 1,
+      "rows_preview": "(1033511.02,)",
+      "answer": "2018年里约热内卢州（RJ）已完成订单（已送达）的总销售额为1,033,511.02元，金额口径为订单支付值（payment_value）合计。  \n所用口径：仅统计订单状态为“delivered”、客户所在州为“RJ”、下单时间为2018年全年的订单支付金额总和。",
+      "trace_file": "runs\\20260526_004846_913222.json",
+      "ms": 2758.7
+    },
+    {
+      "step_id": "s4",
+      "skill": "compute",
+      "input": "用 s2 的 SP 销售额减去 s3 的 RJ 销售额，计算差额（SP - RJ）",
+      "depends_on": [
+        "s2",
+        "s3"
+      ],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "code": "result = data['s2'][0][0] - data['s3'][0][0]",
+      "result_text": "2294779.16",
+      "ms": 1111.2
+    }
+  ],
+  "synthesize": {
+    "answer": "2018年，圣保罗州（SP）已完成订单（order_status='delivered'）的销售额为 **3,328,290.18 元**，里约热内卢州（RJ）为 **1,033,511.02 元**；SP 比 RJ 高出 **2,294,779.16 元**。  \n口径说明：销售额采用 `order_payments.payment_value` 合计，仅统计下单时间在 2018-01-01 至 2018-12-31、订单状态为 'delivered'、客户所在州分别为 'SP' 或 'RJ' 的订单。",
+    "unverified_numbers": [],
+    "failed": ""
+  },
+  "final": {
+    "path": "normal",
+    "answer": "2018年，圣保罗州（SP）已完成订单（order_status='delivered'）的销售额为 **3,328,290.18 元**，里约热内卢州（RJ）为 **1,033,511.02 元**；SP 比 RJ 高出 **2,294,779.16 元**。  \n口径说明：销售额采用 `order_payments.payment_value` 合计，仅统计下单时间在 2018-01-01 至 2018-12-31、订单状态为 'delivered'、客户所在州分别为 'SP' 或 'RJ' 的订单。"
+  },
+  "timings": {
+    "total_ms": 9985.7
+  }
+}

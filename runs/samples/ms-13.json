@@ -1,0 +1,144 @@
+{
+  "task": "2018 年圣保罗州（SP）的销售额占全国销售额的比例（百分比）是多少？",
+  "mode": "eval",
+  "plan": [
+    {
+      "id": "s1",
+      "skill": "search_doc",
+      "input": "检索销售额口径定义、订单状态筛选条件、客户州字段名（customer_state）、订单时间字段名（order_purchase_timestamp）、订单状态常用值（delivered）",
+      "depends_on": [],
+      "expect": "确认销售额＝order_payments.payment_value 合计；订单状态需过滤为 delivered；客户州字段为 customer_state；下单时间为 order_purchase_timestamp；仅统计 order_status='delivered' 的订单"
+    },
+    {
+      "id": "s2",
+      "skill": "query_data",
+      "input": "2018年已完成（order_status='delivered'）订单中，圣保罗州（customer_state='SP'）的销售额（order_payments.payment_value 合计）",
+      "depends_on": [],
+      "expect": "返回单值：SP 州 2018 年 delivered 订单的 payment_value 总和"
+    },
+    {
+      "id": "s3",
+      "skill": "query_data",
+      "input": "2018年已完成（order_status='delivered'）订单中，全国（所有 customer_state）的销售额（order_payments.payment_value 合计）",
+      "depends_on": [],
+      "expect": "返回单值：全国 2018 年 delivered 订单的 payment_value 总和"
+    },
+    {
+      "id": "s4",
+      "skill": "compute",
+      "input": "用 s2 的 SP 销售额除以 s3 的全国销售额，再乘以 100，得到百分比",
+      "depends_on": [
+        "s2",
+        "s3"
+      ],
+      "expect": "返回一个浮点数：SP 销售额占全国销售额的百分比（保留合理小数位）"
+    }
+  ],
+  "plan_fallback": false,
+  "layers": [
+    [
+      "s1",
+      "s2",
+      "s3"
+    ],
+    [
+      "s4"
+    ]
+  ],
+  "steps": [
+    {
+      "step_id": "s1",
+      "skill": "search_doc",
+      "input": "检索销售额口径定义、订单状态筛选条件、客户州字段名（customer_state）、订单时间字段名（order_purchase_timestamp）、订单状态常用值（delivered）",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "hits": [
+        {
+          "title": "口径组：金额范围（amount_scope）",
+          "source": "口径手册",
+          "score": 0.6912,
+          "text": "## 口径组：金额范围（amount_scope）\n- 触发词：销售额、营收、GMV、交易额、营业额\n- 默认口径：payment_total\n- 澄清追问：销售额有几种口径：① 支付总额（默认）② 商品金额（不含运费）③ 仅已送达订单，按哪一种统计？\n- 口径变体：\n  - 支付总额（payment_total）：order_payments.payment_value 合计\n  - 商品金额（goods_only）：order_items.price 合计（不含运费）\n  - 仅已送达订单（delivered_only）：payment_value 合计且订单状态为 delivered"
+        },
+        {
+          "title": "口径组：时间口径（time_field）",
+          "source": "口径手册",
+          "score": 0.6847,
+          "text": "## 口径组：时间口径（time_field）\n- 触发词：月度、趋势、按月、每月\n- 默认口径：purchase_time\n- 澄清追问：按哪个时间统计：① 下单时间（默认）② 支付时间 ③ 送达时间\n- 口径变体：\n  - 下单时间（purchase_time）：orders.order_purchase_timestamp\n  - 支付时间（approved_time）：orders.order_approved_at\n  - 送达时间（delivered_time）：orders.order_delivered_customer_date"
+        },
+        {
+          "title": "表：orders",
+          "source": "数据字典",
+          "score": 0.6717,
+          "text": "## 表：orders\n- 说明：订单主表（每行一个订单）\n  - order_id：订单 ID\n  - customer_id：客户 ID（外键 → customers）\n  - order_status：订单状态：delivered / shipped / canceled / unavailable / processing 等\n  - order_purchase_timestamp：下单时间\n  - order_approved_at：支付时间\n  - order_delivered_customer_date：客户签收时间（空 = 未送达）\n  - order_estimated_delivery_date：预计送达时间"
+        }
+      ],
+      "hits_n": 3,
+      "ms": 391.2
+    },
+    {
+      "step_id": "s2",
+      "skill": "query_data",
+      "input": "2018年已完成（order_status='delivered'）订单中，圣保罗州（customer_state='SP'）的销售额（order_payments.payment_value 合计）",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT ROUND(SUM(p.payment_value), 2) AS gmv FROM order_payments AS p JOIN orders AS o ON o.order_id = p.order_id JOIN customers AS c ON c.customer_id = o.customer_id WHERE o.order_status = 'delivered' AND c.customer_state = 'SP' AND o.order_purchase_timestamp LIKE '2018%' LIMIT 1000",
+      "rows_n": 1,
+      "rows_preview": "(3328290.18,)",
+      "answer": "2018年圣保罗州（SP）已完成（已送达）订单的销售额合计为332.83万元。  \n口径：仅统计订单状态为“delivered”且客户所在州为“SP”的订单，以payment_value字段求和。",
+      "trace_file": "runs\\20260526_005050_8daa78.json",
+      "ms": 2841.4
+    },
+    {
+      "step_id": "s3",
+      "skill": "query_data",
+      "input": "2018年已完成（order_status='delivered'）订单中，全国（所有 customer_state）的销售额（order_payments.payment_value 合计）",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT ROUND(SUM(p.payment_value), 2) AS gmv FROM order_payments AS p JOIN orders AS o ON o.order_id = p.order_id WHERE o.order_status = 'delivered' AND o.order_purchase_timestamp LIKE '2018%' LIMIT 1000",
+      "rows_n": 1,
+      "rows_preview": "(8452975.2,)",
+      "answer": "2018年全国已完成（已送达）订单的总销售额为845.30万元，口径为仅统计订单状态为“delivered”且年份为2018年的订单，使用payment_value字段求和并四舍五入保留两位小数。",
+      "trace_file": "runs\\20260526_005050_f3c361.json",
+      "ms": 2571.4
+    },
+    {
+      "step_id": "s4",
+      "skill": "compute",
+      "input": "用 s2 的 SP 销售额除以 s3 的全国销售额，再乘以 100，得到百分比",
+      "depends_on": [
+        "s2",
+        "s3"
+      ],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "code": "result = round(data['s2'][0][0] / data['s3'][0][0] * 100, 2)",
+      "result_text": "39.37",
+      "ms": 1220.4
+    }
+  ],
+  "synthesize": {
+    "answer": "结论：2018年圣保罗州（SP）的销售额占全国销售额的比例为**39.37%**。\n\n关键数字：\n- SP州2018年 delivered 订单的销售额合计：**3,328,290.18**（来自 s2 观察记录）  \n- 全国2018年 delivered 订单的销售额合计：**8,452,975.20**（来自 s3 观察记录）  \n- 计算结果（SP占比）：**39.37%**（来自 s4 观察记录）\n\n口径说明：  \n销售额 = `order_payments.payment_value` 合计；仅统计 `order_status = 'delivered'` 的订单；时间范围为2018年（基于 `order_purchase_timestamp`）；客户州字段为 `customer_state`。",
+    "unverified_numbers": [],
+    "failed": ""
+  },
+  "final": {
+    "path": "normal",
+    "answer": "结论：2018年圣保罗州（SP）的销售额占全国销售额的比例为**39.37%**。\n\n关键数字：\n- SP州2018年 delivered 订单的销售额合计：**3,328,290.18**（来自 s2 观察记录）  \n- 全国2018年 delivered 订单的销售额合计：**8,452,975.20**（来自 s3 观察记录）  \n- 计算结果（SP占比）：**39.37%**（来自 s4 观察记录）\n\n口径说明：  \n销售额 = `order_payments.payment_value` 合计；仅统计 `order_status = 'delivered'` 的订单；时间范围为2018年（基于 `order_purchase_timestamp`）；客户州字段为 `customer_state`。"
+  },
+  "timings": {
+    "total_ms": 9103.7
+  }
+}

@@ -1,0 +1,120 @@
+{
+  "task": "2018 年各月销售额中，最高的三个月合计是多少？",
+  "mode": "eval",
+  "plan": [
+    {
+      "id": "s1",
+      "skill": "search_doc",
+      "input": "检索销售额口径定义、订单状态筛选条件、时间字段说明、金额字段（payment_value）定义",
+      "depends_on": [],
+      "expect": "确认销售额＝order_payments.payment_value 合计；时间按 order_purchase_timestamp；仅统计 order_status='delivered'；月份按年月截取"
+    },
+    {
+      "id": "s2",
+      "skill": "query_data",
+      "input": "2018年已完成（order_status='delivered'）订单的月度销售额（SUM(order_payments.payment_value)），按年月分组，字段包括：year_month（格式 YYYY-MM）、total_sales",
+      "depends_on": [],
+      "expect": "返回 12 行数据，每行是 2018 年某月的销售额合计，含 year_month 和 total_sales 两列"
+    },
+    {
+      "id": "s3",
+      "skill": "compute",
+      "input": "对 s2 的数据按 total_sales 降序排序，取前 3 行的 total_sales 值并求和",
+      "depends_on": [
+        "s2"
+      ],
+      "expect": "返回一个数值：2018 年销售额最高的三个月的合计销售额"
+    }
+  ],
+  "plan_fallback": false,
+  "layers": [
+    [
+      "s1",
+      "s2"
+    ],
+    [
+      "s3"
+    ]
+  ],
+  "steps": [
+    {
+      "step_id": "s1",
+      "skill": "search_doc",
+      "input": "检索销售额口径定义、订单状态筛选条件、时间字段说明、金额字段（payment_value）定义",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "hits": [
+        {
+          "title": "口径组：金额范围（amount_scope）",
+          "source": "口径手册",
+          "score": 0.7891,
+          "text": "## 口径组：金额范围（amount_scope）\n- 触发词：销售额、营收、GMV、交易额、营业额\n- 默认口径：payment_total\n- 澄清追问：销售额有几种口径：① 支付总额（默认）② 商品金额（不含运费）③ 仅已送达订单，按哪一种统计？\n- 口径变体：\n  - 支付总额（payment_total）：order_payments.payment_value 合计\n  - 商品金额（goods_only）：order_items.price 合计（不含运费）\n  - 仅已送达订单（delivered_only）：payment_value 合计且订单状态为 delivered"
+        },
+        {
+          "title": "口径组：时间口径（time_field）",
+          "source": "口径手册",
+          "score": 0.7162,
+          "text": "## 口径组：时间口径（time_field）\n- 触发词：月度、趋势、按月、每月\n- 默认口径：purchase_time\n- 澄清追问：按哪个时间统计：① 下单时间（默认）② 支付时间 ③ 送达时间\n- 口径变体：\n  - 下单时间（purchase_time）：orders.order_purchase_timestamp\n  - 支付时间（approved_time）：orders.order_approved_at\n  - 送达时间（delivered_time）：orders.order_delivered_customer_date"
+        },
+        {
+          "title": "指标：客单价（avg_order_value）",
+          "source": "口径手册",
+          "score": 0.7028,
+          "text": "## 指标：客单价（avg_order_value）\n- 定义：销售额（默认 payment_value 合计）÷ 订单量（COUNT(DISTINCT order_id)）（金额口径联动 amount_scope）"
+        }
+      ],
+      "hits_n": 3,
+      "ms": 373.4
+    },
+    {
+      "step_id": "s2",
+      "skill": "query_data",
+      "input": "2018年已完成（order_status='delivered'）订单的月度销售额（SUM(order_payments.payment_value)），按年月分组，字段包括：year_month（格式 YYYY-MM）、total_sales",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT STRFTIME('%Y-%m', o.order_purchase_timestamp) AS year_month, ROUND(SUM(p.payment_value), 2) AS total_sales FROM order_payments AS p JOIN orders AS o ON o.order_id = p.order_id WHERE o.order_status = 'delivered' AND o.order_purchase_timestamp LIKE '2018%' GROUP BY STRFTIME('%Y-%m', o.order_purchase_timestamp) LIMIT 1000",
+      "rows_n": 8,
+      "rows_preview": "('2018-01', 1078606.86); ('2018-02', 966510.88); ('2018-03', 1120678.0); ('2018-04', 1132933.95); ('2018-05', 1128836.69)",
+      "answer": "2018年已完成订单的月度销售额（按支付总额计算）从1月的107.86万元波动下降至8月的98.54万元；口径为：仅统计2018年下单且状态为“已送达”的订单，金额为各订单支付值（payment_value）之和。",
+      "trace_file": "runs\\20260526_005017_293989.json",
+      "ms": 2692.6
+    },
+    {
+      "step_id": "s3",
+      "skill": "compute",
+      "input": "对 s2 的数据按 total_sales 降序排序，取前 3 行的 total_sales 值并求和",
+      "depends_on": [
+        "s2"
+      ],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "code": "s2_data = data['s2']\nsorted_sales = sorted(s2_data, key=lambda x: x[1], reverse=True)\nresult = sum(row[1] for row in sorted_sales[:3])",
+      "result_text": "3382448.6399999997",
+      "ms": 1420.2
+    }
+  ],
+  "synthesize": {
+    "answer": "结论：2018 年销售额最高的三个月合计为 **3,382,448.64 元**。  \n\n关键数字来源：  \n- s2 返回 8 行数据（非预期的 12 行），说明仅 8 个月份有“已送达”订单数据；  \n- 前 8 行销售额（单位：元）为：  \n  2018-01：1,078,606.86  \n  2018-02：966,510.88  \n  2018-03：1,120,678.00  \n  2018-04：1,132,933.95  \n  2018-05：1,128,836.69  \n  2018-06：1,012,090.68  \n  2018-07：1,027,903.86  \n  2018-08：985,414.28  \n- 按 total_sales 降序排序后，前三高月份为：  \n  2018-04（1,132,933.95）、2018-05（1,128,836.69）、2018-03（1,120,678.00）  \n- 三者合计：1,132,933.95 + 1,128,836.69 + 1,120,678.00 = **3,382,448.64**（与 s3 输出 3,382,448.6399999997 一致）  \n\n口径说明：  \n- 销售额 = `order_payments.payment_value` 合计；  \n- 时间字段 = `order_purchase_timestamp`（下单时间）；  \n- 仅统计 `order_status = 'delivered'` 的订单；  \n- 2018 年仅 8 个月份存在“已送达”订单数据（1–8 月），9–12 月无对应订单。",
+    "unverified_numbers": [
+      9.0,
+      12.0
+    ],
+    "failed": ""
+  },
+  "final": {
+    "path": "normal",
+    "answer": "结论：2018 年销售额最高的三个月合计为 **3,382,448.64 元**。  \n\n关键数字来源：  \n- s2 返回 8 行数据（非预期的 12 行），说明仅 8 个月份有“已送达”订单数据；  \n- 前 8 行销售额（单位：元）为：  \n  2018-01：1,078,606.86  \n  2018-02：966,510.88  \n  2018-03：1,120,678.00  \n  2018-04：1,132,933.95  \n  2018-05：1,128,836.69  \n  2018-06：1,012,090.68  \n  2018-07：1,027,903.86  \n  2018-08：985,414.28  \n- 按 total_sales 降序排序后，前三高月份为：  \n  2018-04（1,132,933.95）、2018-05（1,128,836.69）、2018-03（1,120,678.00）  \n- 三者合计：1,132,933.95 + 1,128,836.69 + 1,120,678.00 = **3,382,448.64**（与 s3 输出 3,382,448.6399999997 一致）  \n\n口径说明：  \n- 销售额 = `order_payments.payment_value` 合计；  \n- 时间字段 = `order_purchase_timestamp`（下单时间）；  \n- 仅统计 `order_status = 'delivered'` 的订单；  \n- 2018 年仅 8 个月份存在“已送达”订单数据（1–8 月），9–12 月无对应订单。"
+  },
+  "timings": {
+    "total_ms": 10943.2
+  }
+}

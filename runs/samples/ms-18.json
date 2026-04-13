@@ -1,0 +1,90 @@
+{
+  "task": "配送时长的默认计算口径是什么？用该口径计算 2018 年已完成订单的平均配送天数。",
+  "mode": "eval",
+  "plan": [
+    {
+      "id": "s1",
+      "skill": "search_doc",
+      "input": "配送时长的默认计算口径是什么？",
+      "depends_on": [],
+      "expect": "返回配送时长的官方定义，应包含字段如 order_delivered_customer_date 和 order_purchase_timestamp，以及计算方式（如 julianday 差）"
+    },
+    {
+      "id": "s2",
+      "skill": "query_data",
+      "input": "计算 2018 年已完成订单（order_status='delivered'）的平均配送天数，配送时长 = julianday(order_delivered_customer_date) - julianday(order_purchase_timestamp)，仅使用 orders 表。",
+      "depends_on": [],
+      "expect": "返回一个数值：2018 年已完成订单的平均配送天数（浮点数），口径为订单签收时间减下单时间的平均值"
+    }
+  ],
+  "plan_fallback": false,
+  "layers": [
+    [
+      "s1",
+      "s2"
+    ]
+  ],
+  "steps": [
+    {
+      "step_id": "s1",
+      "skill": "search_doc",
+      "input": "配送时长的默认计算口径是什么？",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "hits": [
+        {
+          "title": "指标：配送时长（配送天数）（delivery_days）",
+          "source": "口径手册",
+          "score": 0.7713,
+          "text": "## 指标：配送时长（配送天数）（delivery_days）\n- 定义：julianday(order_delivered_customer_date) − julianday(order_purchase_timestamp)；样本为订单状态 delivered 且签收时间非空的订单"
+        },
+        {
+          "title": "口径组：时间口径（time_field）",
+          "source": "口径手册",
+          "score": 0.6122,
+          "text": "## 口径组：时间口径（time_field）\n- 触发词：月度、趋势、按月、每月\n- 默认口径：purchase_time\n- 澄清追问：按哪个时间统计：① 下单时间（默认）② 支付时间 ③ 送达时间\n- 口径变体：\n  - 下单时间（purchase_time）：orders.order_purchase_timestamp\n  - 支付时间（approved_time）：orders.order_approved_at\n  - 送达时间（delivered_time）：orders.order_delivered_customer_date"
+        },
+        {
+          "title": "口径组：金额范围（amount_scope）",
+          "source": "口径手册",
+          "score": 0.5579,
+          "text": "## 口径组：金额范围（amount_scope）\n- 触发词：销售额、营收、GMV、交易额、营业额\n- 默认口径：payment_total\n- 澄清追问：销售额有几种口径：① 支付总额（默认）② 商品金额（不含运费）③ 仅已送达订单，按哪一种统计？\n- 口径变体：\n  - 支付总额（payment_total）：order_payments.payment_value 合计\n  - 商品金额（goods_only）：order_items.price 合计（不含运费）\n  - 仅已送达订单（delivered_only）：payment_value 合计且订单状态为 delivered"
+        }
+      ],
+      "hits_n": 3,
+      "ms": 368.1
+    },
+    {
+      "step_id": "s2",
+      "skill": "query_data",
+      "input": "计算 2018 年已完成订单（order_status='delivered'）的平均配送天数，配送时长 = julianday(order_delivered_customer_date) - julianday(order_purchase_timestamp)，仅使用 orders 表。",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT ROUND(AVG(JULIANDAY(order_delivered_customer_date) - JULIANDAY(order_purchase_timestamp)), 1) AS avg_days FROM orders WHERE order_status = 'delivered' AND NOT order_delivered_customer_date IS NULL AND order_delivered_customer_date <> '' AND order_purchase_timestamp LIKE '2018%' LIMIT 1000",
+      "rows_n": 1,
+      "rows_preview": "(12.1,)",
+      "answer": "2018年已完成订单（状态为“delivered”）的平均配送天数为12.1天。  \n口径：仅使用orders表，筛选订单状态为“delivered”、配送完成日期非空且非空字符串、下单时间为2018年，按完成日期与下单日期的天数差计算平均值并四舍五入保留1位小数。",
+      "trace_file": "runs\\20260526_005124_349205.json",
+      "ms": 2098.1
+    }
+  ],
+  "synthesize": {
+    "answer": "结论：2018 年已完成订单的平均配送天数为 **12.1 天**。  \n口径说明：配送时长默认按 `julianday(order_delivered_customer_date) − julianday(order_purchase_timestamp)` 计算，仅使用 orders 表，筛选订单状态为 `'delivered'`、`order_delivered_customer_date` 非空且非空字符串、下单时间在 2018 年的订单，计算其平均值并四舍五入保留 1 位小数。",
+    "unverified_numbers": [],
+    "failed": ""
+  },
+  "final": {
+    "path": "normal",
+    "answer": "结论：2018 年已完成订单的平均配送天数为 **12.1 天**。  \n口径说明：配送时长默认按 `julianday(order_delivered_customer_date) − julianday(order_purchase_timestamp)` 计算，仅使用 orders 表，筛选订单状态为 `'delivered'`、`order_delivered_customer_date` 非空且非空字符串、下单时间在 2018 年的订单，计算其平均值并四舍五入保留 1 位小数。"
+  },
+  "timings": {
+    "total_ms": 5033.4
+  }
+}

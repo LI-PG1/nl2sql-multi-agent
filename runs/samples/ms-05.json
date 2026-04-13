@@ -1,0 +1,144 @@
+{
+  "task": "对比 2017 年与 2018 年的客单价（销售额 ÷ 订单量）。",
+  "mode": "eval",
+  "plan": [
+    {
+      "id": "s1",
+      "skill": "search_doc",
+      "input": "查找 '客单价' 的定义口径，以及 '销售额'、'订单量' 的标准计算方式；确认金额字段是否为 order_payments.payment_value，订单量是否为 COUNT(DISTINCT orders.order_id)，时间范围是否按 order_purchase_timestamp",
+      "depends_on": [],
+      "expect": "返回客单价口径说明：销售额 = SUM(order_payments.payment_value)，订单量 = COUNT(DISTINCT orders.order_id)，客单价 = 销售额 / 订单量；确认时间字段为 order_purchase_timestamp；确认订单状态过滤条件为 delivered"
+    },
+    {
+      "id": "s2",
+      "skill": "query_data",
+      "input": "2017年已完成订单（order_status='delivered'）的销售额（SUM(order_payments.payment_value)）和订单量（COUNT(DISTINCT orders.order_id)）；时间范围：order_purchase_timestamp 在 '2017-01-01' 至 '2017-12-31'；仅统计已完成订单（order_status='delivered'）",
+      "depends_on": [],
+      "expect": "返回一行：2017年销售额（payment_value 合计）和订单量（distinct order_id 数）"
+    },
+    {
+      "id": "s3",
+      "skill": "query_data",
+      "input": "2018年已完成订单（order_status='delivered'）的销售额（SUM(order_payments.payment_value)）和订单量（COUNT(DISTINCT orders.order_id)）；时间范围：order_purchase_timestamp 在 '2018-01-01' 至 '2018-12-31'；仅统计已完成订单（order_status='delivered'）",
+      "depends_on": [],
+      "expect": "返回一行：2018年销售额（payment_value 合计）和订单量（distinct order_id 数）"
+    },
+    {
+      "id": "s4",
+      "skill": "compute",
+      "input": "用 s2 的销售额除以 s2 的订单量，计算 2017 年客单价；用 s3 的销售额除以 s3 的订单量，计算 2018 年客单价；返回两个年份的客单价数值",
+      "depends_on": [
+        "s2",
+        "s3"
+      ],
+      "expect": "返回 2017 年客单价（如 123.45）和 2018 年客单价（如 130.67）"
+    }
+  ],
+  "plan_fallback": false,
+  "layers": [
+    [
+      "s1",
+      "s2",
+      "s3"
+    ],
+    [
+      "s4"
+    ]
+  ],
+  "steps": [
+    {
+      "step_id": "s1",
+      "skill": "search_doc",
+      "input": "查找 '客单价' 的定义口径，以及 '销售额'、'订单量' 的标准计算方式；确认金额字段是否为 order_payments.payment_value，订单量是否为 COUNT(DISTINCT orders.order_id)，时间范围是否按 order_purchase_timestamp",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "hits": [
+        {
+          "title": "指标：客单价（avg_order_value）",
+          "source": "口径手册",
+          "score": 0.8525,
+          "text": "## 指标：客单价（avg_order_value）\n- 定义：销售额（默认 payment_value 合计）÷ 订单量（COUNT(DISTINCT order_id)）（金额口径联动 amount_scope）"
+        },
+        {
+          "title": "口径组：金额范围（amount_scope）",
+          "source": "口径手册",
+          "score": 0.7739,
+          "text": "## 口径组：金额范围（amount_scope）\n- 触发词：销售额、营收、GMV、交易额、营业额\n- 默认口径：payment_total\n- 澄清追问：销售额有几种口径：① 支付总额（默认）② 商品金额（不含运费）③ 仅已送达订单，按哪一种统计？\n- 口径变体：\n  - 支付总额（payment_total）：order_payments.payment_value 合计\n  - 商品金额（goods_only）：order_items.price 合计（不含运费）\n  - 仅已送达订单（delivered_only）：payment_value 合计且订单状态为 delivered"
+        },
+        {
+          "title": "指标：订单平均商品金额（order_avg_item_amount）",
+          "source": "口径手册",
+          "score": 0.729,
+          "text": "## 指标：订单平均商品金额（order_avg_item_amount）\n- 定义：SUM(order_items.price) ÷ 订单量（COUNT(DISTINCT orders.order_id)）"
+        }
+      ],
+      "hits_n": 3,
+      "ms": 420.1
+    },
+    {
+      "step_id": "s2",
+      "skill": "query_data",
+      "input": "2017年已完成订单（order_status='delivered'）的销售额（SUM(order_payments.payment_value)）和订单量（COUNT(DISTINCT orders.order_id)）；时间范围：order_purchase_timestamp 在 '2017-01-01' 至 '2017-12-31'；仅统计已完成订单（order_status='delivered'）",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT ROUND(SUM(p.payment_value), 2) AS gmv, COUNT(DISTINCT o.order_id) AS order_count FROM order_payments AS p JOIN orders AS o ON o.order_id = p.order_id WHERE o.order_status = 'delivered' AND o.order_purchase_timestamp >= '2017-01-01' AND o.order_purchase_timestamp < '2018-01-01' LIMIT 1000",
+      "rows_n": 1,
+      "rows_preview": "(6922900.24, 43428)",
+      "answer": "2017年已完成订单（已送达）的总销售额为692.29万元，订单量为43,428单。  \n所用口径：仅统计订单状态为“delivered”且购买时间在2017年1月1日至12月31日之间的订单，销售额为对应支付金额（payment_value）的合计值。",
+      "trace_file": "runs\\20260526_004903_d8900b.json",
+      "ms": 3142.5
+    },
+    {
+      "step_id": "s3",
+      "skill": "query_data",
+      "input": "2018年已完成订单（order_status='delivered'）的销售额（SUM(order_payments.payment_value)）和订单量（COUNT(DISTINCT orders.order_id)）；时间范围：order_purchase_timestamp 在 '2018-01-01' 至 '2018-12-31'；仅统计已完成订单（order_status='delivered'）",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT ROUND(SUM(p.payment_value), 2) AS gmv, COUNT(DISTINCT o.order_id) AS order_count FROM order_payments AS p JOIN orders AS o ON o.order_id = p.order_id WHERE o.order_status = 'delivered' AND o.order_purchase_timestamp >= '2018-01-01' AND o.order_purchase_timestamp < '2019-01-01' LIMIT 1000",
+      "rows_n": 1,
+      "rows_preview": "(8452975.2, 52783)",
+      "answer": "2018年已完成订单（已送达）的总销售额为845.30万元，订单量为52,783单。  \n所用口径：仅统计订单状态为“delivered”且购买时间在2018年1月1日至12月31日之间的订单，销售额为对应支付金额（payment_value）的合计值。",
+      "trace_file": "runs\\20260526_004903_a748c5.json",
+      "ms": 3146.5
+    },
+    {
+      "step_id": "s4",
+      "skill": "compute",
+      "input": "用 s2 的销售额除以 s2 的订单量，计算 2017 年客单价；用 s3 的销售额除以 s3 的订单量，计算 2018 年客单价；返回两个年份的客单价数值",
+      "depends_on": [
+        "s2",
+        "s3"
+      ],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "code": "s2_sales, s2_orders = data['s2'][0]\ns3_sales, s3_orders = data['s3'][0]\nresult = [round(s2_sales / s2_orders, 2), round(s3_sales / s3_orders, 2)]",
+      "result_text": "[159.41, 160.15]",
+      "ms": 1355.7
+    }
+  ],
+  "synthesize": {
+    "answer": "2017年客单价为159.41元，2018年客单价为160.15元。  \n口径说明：销售额 = SUM(order_payments.payment_value)，订单量 = COUNT(DISTINCT orders.order_id)，仅统计订单状态为“delivered”且购买时间在对应年份1月1日至12月31日之间的订单。  \n关键数据来源：  \n- 2017年销售额：6,922,900.24元，订单量：43,428单；  \n- 2018年销售额：8,452,975.20元，订单量：52,783单。",
+    "unverified_numbers": [],
+    "failed": ""
+  },
+  "final": {
+    "path": "normal",
+    "answer": "2017年客单价为159.41元，2018年客单价为160.15元。  \n口径说明：销售额 = SUM(order_payments.payment_value)，订单量 = COUNT(DISTINCT orders.order_id)，仅统计订单状态为“delivered”且购买时间在对应年份1月1日至12月31日之间的订单。  \n关键数据来源：  \n- 2017年销售额：6,922,900.24元，订单量：43,428单；  \n- 2018年销售额：8,452,975.20元，订单量：52,783单。"
+  },
+  "timings": {
+    "total_ms": 10746.8
+  }
+}

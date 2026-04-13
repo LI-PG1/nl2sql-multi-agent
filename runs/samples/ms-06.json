@@ -1,0 +1,96 @@
+{
+  "task": "对比 2017 年与 2018 年订单评价的差评率（评分 ≤2 分的占比，百分比；按全部评价统计、按订单下单时间归年，不做订单状态过滤）。",
+  "mode": "eval",
+  "plan": [
+    {
+      "id": "s1",
+      "skill": "search_doc",
+      "input": "检索评价表（reviews）中评分字段名、评分取值范围、差评定义（如 ≤2 分）、评价与订单的关联字段；确认订单表（orders）中下单时间字段名、订单状态字段名及常用取值；确认评价表是否包含 order_id 外键",
+      "depends_on": [],
+      "expect": "返回评价表结构（含 review_score 字段）、评价与订单关联方式（如通过 order_id）、评分字段取值范围（1–5）、差评判定口径（review_score ≤ 2）、订单表时间字段（order_purchase_timestamp）与状态字段（order_status）"
+    },
+    {
+      "id": "s2",
+      "skill": "query_data",
+      "input": "统计 2017 年与 2018 年所有评价的总数、差评数（review_score ≤ 2）；按年份分组；仅使用 orders 与 order_reviews 表，通过 order_id 关联；时间范围：order_purchase_timestamp 在 2017-01-01 至 2018-12-31；不做订单状态过滤；返回字段：year(order_purchase_timestamp) AS year, COUNT(*) AS total_reviews, SUM(CASE WHEN review_score <= 2 THEN 1 ELSE 0 END) AS bad_reviews",
+      "depends_on": [],
+      "expect": "返回两行数据：2017 年总评价数、差评数；2018 年总评价数、差评数；口径：按下单时间归年，全部评价（含未完成订单），差评 = review_score ≤ 2"
+    },
+    {
+      "id": "s3",
+      "skill": "compute",
+      "input": "用 s2 的结果计算 2017 年与 2018 年的差评率（差评数 / 总评价数 × 100%），保留两位小数；输入数据为 s2 的 year、total_reviews、bad_reviews 三列",
+      "depends_on": [
+        "s2"
+      ],
+      "expect": "返回两行数据：year=2017 的差评率（%）、year=2018 的差评率（%），格式为 {year: int, bad_review_rate: float}"
+    }
+  ],
+  "plan_fallback": false,
+  "layers": [
+    [
+      "s1",
+      "s2"
+    ],
+    [
+      "s3"
+    ]
+  ],
+  "steps": [
+    {
+      "step_id": "s1",
+      "skill": "search_doc",
+      "input": "检索评价表（reviews）中评分字段名、评分取值范围、差评定义（如 ≤2 分）、评价与订单的关联字段；确认订单表（orders）中下单时间字段名、订单状态字段名及常用取值；确认评价表是否包含 order_id 外键",
+      "depends_on": [],
+      "ok": false,
+      "attempts": 0,
+      "error": "TimeoutError: timed out",
+      "warnings": [],
+      "ms": 30962.6
+    },
+    {
+      "step_id": "s2",
+      "skill": "query_data",
+      "input": "统计 2017 年与 2018 年所有评价的总数、差评数（review_score ≤ 2）；按年份分组；仅使用 orders 与 order_reviews 表，通过 order_id 关联；时间范围：order_purchase_timestamp 在 2017-01-01 至 2018-12-31；不做订单状态过滤；返回字段：year(order_purchase_timestamp) AS year, COUNT(*) AS total_reviews, SUM(CASE WHEN review_score <= 2 THEN 1 ELSE 0 END) AS bad_reviews",
+      "depends_on": [],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "path": "normal",
+      "sql": "SELECT STRFTIME('%Y', o.order_purchase_timestamp) AS year, COUNT(*) AS total_reviews, SUM(CASE WHEN r.review_score <= 2 THEN 1 ELSE 0 END) AS bad_reviews FROM orders AS o JOIN order_reviews AS r ON o.order_id = r.order_id WHERE o.order_purchase_timestamp LIKE '2017%' OR o.order_purchase_timestamp LIKE '2018%' GROUP BY STRFTIME('%Y', o.order_purchase_timestamp) ORDER BY year LIMIT 1000",
+      "rows_n": 2,
+      "rows_preview": "('2017', 45044, 6515); ('2018', 53854, 7963)",
+      "answer": "2017年共有45,044条评价，其中差评（评分≤2）6,515条；2018年共有53,854条评价，其中差评7,963条。  \n所用口径：以订单购买时间（order_purchase_timestamp）所在年份分组，仅统计2017–2018年间的评价数据，差评定义为review_score ≤ 2。",
+      "trace_file": "runs\\20260526_004913_8ea2f8.json",
+      "ms": 3350.2
+    },
+    {
+      "step_id": "s3",
+      "skill": "compute",
+      "input": "用 s2 的结果计算 2017 年与 2018 年的差评率（差评数 / 总评价数 × 100%），保留两位小数；输入数据为 s2 的 year、total_reviews、bad_reviews 三列",
+      "depends_on": [
+        "s2"
+      ],
+      "ok": true,
+      "attempts": 1,
+      "error": "",
+      "warnings": [],
+      "code": "s2_data = data['s2']\nbad_rate_2017 = round(int(s2_data[0][2]) / int(s2_data[0][1]) * 100, 2)\nbad_rate_2018 = round(int(s2_data[1][2]) / int(s2_data[1][1]) * 100, 2)\nresult = [bad_rate_2017, bad_rate_2018]",
+      "result_text": "[14.46, 14.79]",
+      "ms": 1800.7
+    }
+  ],
+  "synthesize": {
+    "answer": "结论：2018 年差评率略高于 2017 年。\n\n关键数字：  \n- 2017 年总评价数：45,044；差评数：6,515；差评率：14.46%  \n- 2018 年总评价数：53,854；差评数：7,963；差评率：14.79%  \n\n口径说明：  \n按订单下单时间（`order_purchase_timestamp`）所在年份归年，统计全部评价（不限订单状态），差评定义为 `review_score ≤ 2`；数据来源于 `orders` 与 `order_reviews` 表通过 `order_id` 关联。  \n\n注：步骤 s1 未完成（超时），但 s2 所用字段与口径已在执行计划中明确，且 s2 结果可直接支持计算，故不影响最终结论。",
+    "unverified_numbers": [],
+    "failed": ""
+  },
+  "final": {
+    "path": "degrade",
+    "answer": "结论：2018 年差评率略高于 2017 年。\n\n关键数字：  \n- 2017 年总评价数：45,044；差评数：6,515；差评率：14.46%  \n- 2018 年总评价数：53,854；差评数：7,963；差评率：14.79%  \n\n口径说明：  \n按订单下单时间（`order_purchase_timestamp`）所在年份归年，统计全部评价（不限订单状态），差评定义为 `review_score ≤ 2`；数据来源于 `orders` 与 `order_reviews` 表通过 `order_id` 关联。  \n\n注：步骤 s1 未完成（超时），但 s2 所用字段与口径已在执行计划中明确，且 s2 结果可直接支持计算，故不影响最终结论。\n\n（注：步骤 s1 未完成，结论可能不完整）"
+  },
+  "timings": {
+    "total_ms": 38908.9
+  }
+}
