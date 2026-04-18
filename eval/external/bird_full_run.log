@@ -1,0 +1,504 @@
+[run_external] BIRD Mini-Dev｜用例 500 条｜模型 qwen3-coder-next
+[001/500] simpl PASS    990ms  debit_card_specializin What is the ratio of customers who pay in 
+[002/500] moder FAIL    980ms  debit_card_specializin In 2012, who had the least consumption in   ← 结果集不一致
+[003/500] moder PASS    845ms  debit_card_specializin What was the average monthly consumption o
+[004/500] chall PASS   1553ms  debit_card_specializin What was the difference in gas consumption
+[005/500] moder PASS    937ms  debit_card_specializin Which year recorded the most consumption o
+[006/500] moder PASS   1136ms  debit_card_specializin What was the gas consumption peak month fo
+[007/500] chall FAIL  38227ms  debit_card_specializin What is the difference in the annual avera  ← 结果集不一致
+[008/500] chall FAIL   2107ms  debit_card_specializin Which of the three segments—SME, LAM and K  ← 结果集不一致
+[009/500] simpl PASS    816ms  debit_card_specializin How much did customer 6 consume in total b
+[010/500] simpl FAIL    748ms  debit_card_specializin How many more "discount" gas stations does  ← 结果集不一致
+[011/500] simpl PASS    814ms  debit_card_specializin Is it true that more SMEs pay in Czech kor
+[012/500] moder PASS    944ms  debit_card_specializin How many percent of LAM customer consumed 
+[013/500] simpl PASS    947ms  debit_card_specializin In February 2012, what percentage of custo
+[014/500] simpl FAIL    510ms  debit_card_specializin What is the highest monthly consumption in  ← 结果集不一致
+[015/500] simpl FAIL   1033ms  debit_card_specializin Please list the product description of the  ← 结果集不一致
+[016/500] moder FAIL    771ms  debit_card_specializin Please list the countries of the gas stati  ← 结果集不一致
+[017/500] simpl PASS    750ms  debit_card_specializin Among the customers who paid in euro, how 
+[018/500] moder PASS    763ms  debit_card_specializin Please list the product descriptions of th
+[019/500] simpl PASS    664ms  debit_card_specializin Please list the disparate time of the tran
+[020/500] moder PASS    715ms  debit_card_specializin Among the transactions made in the gas sta
+[021/500] simpl PASS    885ms  debit_card_specializin What kind of currency did the customer pai
+[022/500] simpl PASS    851ms  debit_card_specializin What segment did the customer have at 2012
+[023/500] moder PASS   1123ms  debit_card_specializin For all the transactions happened during 8
+[024/500] simpl FAIL    770ms  debit_card_specializin What's the nationality of the customer who  ← 结果集不一致
+[025/500] simpl FAIL   1104ms  debit_card_specializin What is the percentage of the customers wh  ← 结果集不一致
+[026/500] chall FAIL   1533ms  debit_card_specializin For the customer who paid 634.8 in 2012/8/  ← 结果集不一致
+[027/500] simpl FAIL    847ms  debit_card_specializin What is the percentage of "premium" agains  ← 结果集不一致
+[028/500] moder FAIL    908ms  debit_card_specializin What is the amount spent by customer "3850  ← 结果集不一致
+[029/500] moder FAIL   1123ms  debit_card_specializin Who is the top spending customer and how m  ← 结果集不一致
+[030/500] moder PASS    955ms  debit_card_specializin For all the people who paid more than 29.0
+[031/500] simpl PASS    642ms  student_club           What's Angela Sanders's major?
+[032/500] moder PASS    878ms  student_club           Among the students from the Student_Club w
+[033/500] moder FAIL    843ms  student_club           Among the events attended by more than 10   ← 结果集不一致
+[034/500] moder PASS    744ms  student_club           List all the names of events that had an a
+[035/500] simpl PASS    576ms  student_club           What is the amount of the funds that the V
+[036/500] simpl PASS    586ms  student_club           List the full name of the Student_Club mem
+[037/500] moder FAIL    896ms  student_club           Was each expense in October Meeting on Oct  ← 结果集不一致
+[038/500] chall PASS   1012ms  student_club           Calculate the total average cost that Elij
+[039/500] moder PASS   1145ms  student_club           Calculate the difference of the total amou
+[040/500] simpl PASS    470ms  student_club           What was the notes of the fundraising on 2
+[041/500] simpl PASS    426ms  student_club           Tell the phone number of "Carlo Jacobs".
+[042/500] moder FAIL    877ms  student_club           What is the status of the event which boug  ← 结果集不一致
+[043/500] simpl PASS    640ms  student_club           What was Brent Thomason's major?
+[044/500] moder PASS    597ms  student_club           For all the club members from "Business" m
+[045/500] simpl PASS    586ms  student_club           Which department was the President of the 
+[046/500] simpl FAIL    649ms  student_club           State the date Connor Hilton paid his/her   ← 结果集不一致
+[047/500] chall PASS   1206ms  student_club           How many times was the budget in Advertise
+[048/500] simpl PASS    341ms  student_club           What is the total cost of the pizzas for a
+[049/500] simpl FAIL    503ms  student_club           How many cities are there in Orange County  ← 结果集不一致
+[050/500] simpl PASS    640ms  student_club           What does the person with the phone number
+[051/500] simpl PASS    606ms  student_club           How many members attended the "Women's Soc
+[052/500] moder PASS    545ms  student_club           List all the members of the "School of App
+[053/500] moder PASS    717ms  student_club           Among all the closed events, which event h
+[054/500] simpl PASS    285ms  student_club           What is the highest amount of budget spend
+[055/500] simpl PASS    362ms  student_club           What is the total amount of money spent fo
+[056/500] moder PASS    758ms  student_club           List the name of students that have attend
+[057/500] moder FAIL   2281ms  student_club           Which student has been entrusted to manage  ← 执行失败：exec:no_such_column: no such column: b.link_to_member
+[058/500] simpl FAIL    583ms  student_club           Which event has the lowest cost?  ← 结果集不一致
+[059/500] moder PASS    896ms  student_club           Based on the total cost for all event, wha
+[060/500] simpl PASS    688ms  student_club           Indicate the top source of funds received 
+[061/500] simpl PASS    428ms  student_club           How many members of the Student_Club have 
+[062/500] moder PASS    635ms  student_club           Name the event with the highest amount spe
+[063/500] moder FAIL    977ms  student_club           Did Maya Mclean attend the 'Women's Soccer  ← 结果集不一致
+[064/500] moder PASS    749ms  student_club           Indicate the cost of posters for 'Septembe
+[065/500] moder PASS    673ms  student_club           Indicate the name of the closed event whos
+[066/500] moder FAIL    887ms  student_club           Identify the type of expenses and their to  ← 结果集不一致
+[067/500] moder PASS    622ms  student_club           Calculate the amount budgeted for 'April S
+[068/500] simpl PASS    480ms  student_club           Mention the total expense used on 8/20/201
+[069/500] simpl PASS    920ms  student_club           List out the full name and total cost that
+[070/500] simpl FAIL    656ms  student_club           State what kind of expenses that Sacha Har  ← 结果集不一致
+[071/500] simpl FAIL    344ms  student_club           State the category of events were held at   ← 结果集不一致
+[072/500] moder PASS    800ms  student_club           List the last name of members with a major
+[073/500] moder FAIL    782ms  student_club           What are the budget category of the events  ← 结果集不一致
+[074/500] moder PASS    970ms  student_club           Among the members with t-shirt size of med
+[075/500] moder FAIL    737ms  student_club           List the names of closed event as "game" t  ← 结果集不一致
+[076/500] chall FAIL    653ms  student_club           Give the full name and contact number of m  ← 结果集不一致
+[077/500] chall PASS    664ms  student_club           Write the full name of the member who spen
+[078/500] chall FAIL    711ms  student_club           Write the full names of students who recei  ← 结果集不一致
+[079/500] moder PASS   1002ms  thrombosis_prediction  Are there more in-patient or outpatient wh
+[080/500] moder PASS    822ms  thrombosis_prediction  What is the percentage of female patient w
+[081/500] moder FAIL    694ms  thrombosis_prediction  What is the ratio of outpatient to inpatie  ← 结果集不一致
+[082/500] simpl PASS    592ms  thrombosis_prediction  What is the disease patient '30609' diagno
+[083/500] simpl FAIL    621ms  thrombosis_prediction  List the patient ID, sex and birthday of p  ← 结果集不一致
+[084/500] moder PASS    758ms  thrombosis_prediction  State the ID and age of patient with posit
+[085/500] simpl PASS    602ms  thrombosis_prediction  For patients with severe degree of thrombo
+[086/500] moder PASS    502ms  thrombosis_prediction  How many female patients who came at the h
+[087/500] moder PASS   1764ms  thrombosis_prediction  How many of the patients with the most ser
+[088/500] simpl FAIL    684ms  thrombosis_prediction  What are the symptoms observed by the youn  ← 结果集不一致
+[089/500] chall FAIL   1918ms  thrombosis_prediction  The oldest SJS patient's medical laborator  ← 结果集不一致
+[090/500] chall PASS   1472ms  thrombosis_prediction  What is the ratio of male to female patien
+[091/500] chall FAIL    843ms  thrombosis_prediction  How many underage patients were examined d  ← 结果集不一致
+[092/500] moder FAIL   1115ms  thrombosis_prediction  How old was the patient who had the highes  ← 结果集不一致
+[093/500] moder FAIL   2370ms  thrombosis_prediction  For the patient who was diagnosed with SLE  ← 执行失败：exec:no_such_column: no such column: aCL
+[094/500] chall PASS   1625ms  thrombosis_prediction  For the patient who was born on 1959/2/18,
+[095/500] moder FAIL    826ms  thrombosis_prediction  How many patients who were examined betwee  ← 结果集不一致
+[096/500] chall PASS   2028ms  thrombosis_prediction  What number of patients with a degree of t
+[097/500] chall PASS   1507ms  thrombosis_prediction  List all patients who were followed up at 
+[098/500] moder PASS    654ms  thrombosis_prediction  What is the average blood albumin level fo
+[099/500] simpl PASS    448ms  thrombosis_prediction  How many female patients were given an APS
+[100/500] moder PASS    694ms  thrombosis_prediction  What percentage of patients who were born 
+[101/500] moder FAIL   1060ms  thrombosis_prediction  Was the patient with the number 57266's ur  ← 结果集不一致
+[102/500] moder PASS    619ms  thrombosis_prediction  Provide IDs for male patients with ALT glu
+[103/500] moder FAIL    503ms  thrombosis_prediction  Please provide the diagnosis of patients w  ← 结果集不一致
+[104/500] simpl PASS    595ms  thrombosis_prediction  Provide all ID, sex and birthday of patien
+[105/500] moder FAIL   1291ms  thrombosis_prediction  List and group all patients by sex for tot  ← 结果集不一致
+[106/500] moder FAIL   1519ms  thrombosis_prediction  What is the average age of the male patien  ← 结果集不一致
+[107/500] moder PASS    786ms  thrombosis_prediction  For all patients with triglyceride (TG) le
+[108/500] chall PASS    941ms  thrombosis_prediction  For patient born between 1936-1956, how ma
+[109/500] chall FAIL   1840ms  thrombosis_prediction  Provide ID, sex and age of patient who has  ← 结果集不一致
+[110/500] moder FAIL    910ms  thrombosis_prediction  What are the patient's diagnosis for those  ← 结果集不一致
+[111/500] moder PASS    801ms  thrombosis_prediction  Among the patients who were diagnosed with
+[112/500] chall PASS    977ms  thrombosis_prediction  Name the ID and age of patient with two or
+[113/500] chall FAIL    902ms  thrombosis_prediction  For patients with abnormal platelet level,  ← 结果集不一致
+[114/500] chall FAIL   1131ms  thrombosis_prediction  For laboratory examinations take in 1984,   ← 结果集不一致
+[115/500] chall FAIL   1139ms  thrombosis_prediction  For all patients who are older than 55 yea  ← 结果集不一致
+[116/500] chall FAIL    880ms  thrombosis_prediction  Among the male patients who have a normal   ← 结果集不一致
+[117/500] simpl FAIL    483ms  thrombosis_prediction  How many patients with an Ig G higher than  ← 结果集不一致
+[118/500] moder PASS    805ms  thrombosis_prediction  Among the patients with a normal Ig G leve
+[119/500] moder FAIL   1392ms  thrombosis_prediction  How many patients with a normal Ig A level  ← 结果集不一致
+[120/500] moder PASS    990ms  thrombosis_prediction  For the patients with an abnormal Ig M lev
+[121/500] moder PASS    469ms  thrombosis_prediction  How many patients with a abnormal C-reacti
+[122/500] chall FAIL    981ms  thrombosis_prediction  Among the patients whose creatinine level   ← 结果集不一致
+[123/500] moder FAIL    636ms  thrombosis_prediction  How many patients have a normal level of a  ← 结果集不一致
+[124/500] moder FAIL   1841ms  thrombosis_prediction  Among the patients with normal anti-SM, ho  ← 执行失败：exec:no_such_column: no such column: e.SM
+[125/500] chall PASS    837ms  thrombosis_prediction  Among the patients who has a normal anti-s
+[126/500] moder FAIL    850ms  thrombosis_prediction  Among the patients who has a normal level   ← 结果集不一致
+[127/500] moder PASS    622ms  thrombosis_prediction  Among the patients who have an abnormal le
+[128/500] chall PASS    731ms  thrombosis_prediction  For the patients with a normal range of cr
+[129/500] moder PASS    920ms  european_football_2    Give the name of the league had the most g
+[130/500] chall FAIL   1228ms  european_football_2    In Scotland Premier League, which away tea  ← 结果集不一致
+[131/500] moder FAIL    524ms  european_football_2    What are the speed in which attacks are pu  ← 结果集不一致
+[132/500] moder PASS    934ms  european_football_2    Give the name of the league had the most m
+[133/500] chall FAIL   1313ms  european_football_2    At present, calculate for the player's age  ← 结果集不一致
+[134/500] moder PASS    704ms  european_football_2    Give the name of the league with the highe
+[135/500] simpl PASS    522ms  european_football_2    Give the team_fifa_api_id of teams with mo
+[136/500] chall PASS   1165ms  european_football_2    List the long name of teams with above-ave
+[137/500] chall PASS   1215ms  european_football_2    Calculate the percentage of players who pr
+[138/500] simpl PASS    734ms  european_football_2    Find the average number of long-shot done 
+[139/500] moder PASS   1034ms  european_football_2    List the top 10 players' names whose heigh
+[140/500] chall PASS    981ms  european_football_2    List the name of leagues in which the aver
+[141/500] simpl PASS    564ms  european_football_2    List the football players with a birthyear
+[142/500] simpl PASS    839ms  european_football_2    What is the overall rating of the football
+[143/500] moder PASS    851ms  european_football_2    Calculate the average home team goal in th
+[144/500] chall FAIL   1054ms  european_football_2    Who has the highest average finishing rate  ← 结果集不一致
+[145/500] moder PASS   1078ms  european_football_2    From 2010 to 2015, what was the average ov
+[146/500] chall PASS   1591ms  european_football_2    What is the difference of the average ball
+[147/500] simpl FAIL    627ms  european_football_2    Which player is older, Aaron Lennon or Abd  ← 结果集不一致
+[148/500] simpl PASS    457ms  european_football_2    Which player is the tallest?
+[149/500] moder PASS    488ms  european_football_2    Among the players whose preferred foot was
+[150/500] chall PASS    819ms  european_football_2    Among the players born before the year 198
+[151/500] moder PASS    663ms  european_football_2    Please list the names of the players whose
+[152/500] moder PASS    876ms  european_football_2    How many matches were held in the Belgium 
+[153/500] simpl FAIL    820ms  european_football_2    Give the name of the league had the most m  ← 结果集不一致
+[154/500] chall FAIL   1377ms  european_football_2    How much higher in percentage is Ariel Bor  ← 结果集不一致
+[155/500] moder PASS    689ms  european_football_2    Calculate the average overall rating of Pi
+[156/500] moder PASS    729ms  european_football_2    What is Ajax's highest chance creation pas
+[157/500] moder PASS    900ms  european_football_2    For the players who had a 77 points overal
+[158/500] moder PASS    845ms  european_football_2    What was the overall rating for Aaron Mooy
+[159/500] moder PASS    814ms  european_football_2    How was Francesco Migliore's attacking wor
+[160/500] moder FAIL   1190ms  european_football_2    When was the first time did Kevin Constant  ← 结果集不一致
+[161/500] moder FAIL    759ms  european_football_2    Tell the build Up play passing class for "  ← 结果集不一致
+[162/500] moder FAIL    777ms  european_football_2    For the team "Hannover 96", what was its d  ← 结果集不一致
+[163/500] chall PASS   1081ms  european_football_2    What was the average overall rating for Ma
+[164/500] chall FAIL   2111ms  european_football_2    What percentage is Landon Donovan's overal  ← 结果集不一致
+[165/500] simpl PASS    359ms  european_football_2    List down most tallest players' name.
+[166/500] simpl PASS    807ms  european_football_2    State the name of the most strongest playe
+[167/500] moder PASS    565ms  european_football_2    Who are the players that tend to be attack
+[168/500] moder PASS    577ms  european_football_2    What are the short name of team who played
+[169/500] simpl PASS    523ms  european_football_2    How many football players born after the 1
+[170/500] simpl FAIL    800ms  european_football_2    What is the difference between players 6 a  ← 结果集不一致
+[171/500] moder FAIL    510ms  european_football_2    Please provide top four football players'   ← 结果集不一致
+[172/500] moder PASS    691ms  european_football_2    How many players had the highest potential
+[173/500] chall PASS    758ms  european_football_2    What was the final score for the match on 
+[174/500] moder FAIL    716ms  european_football_2    Does the KSV Cercle Brugge team have a slo  ← 结果集不一致
+[175/500] simpl FAIL    781ms  european_football_2    Please state the finishing rate and curve   ← 结果集不一致
+[176/500] simpl PASS    763ms  european_football_2    Which top 4 leagues had the most games in 
+[177/500] moder PASS    624ms  european_football_2    Please provide the full name of the away t
+[178/500] simpl PASS    724ms  european_football_2    Please name one player whose overall stren
+[179/500] moder PASS    866ms  european_football_2    What is the percentage of players that are
+[180/500] moder FAIL    795ms  formula_1              Please list the reference names of the dri  ← 结果集不一致
+[181/500] simpl FAIL    649ms  formula_1              What is the surname of the driver with the  ← 结果集不一致
+[182/500] simpl FAIL    536ms  formula_1              Please give the name of the race held on t  ← 结果集不一致
+[183/500] simpl FAIL    499ms  formula_1              What is the coordinates location of the ci  ← 结果集不一致
+[184/500] simpl FAIL    605ms  formula_1              Give the coordinate position for Abu Dhabi  ← 结果集不一致
+[185/500] simpl PASS    619ms  formula_1              What's Bruno Senna's Q1 result in the qual
+[186/500] simpl FAIL    524ms  formula_1              What is his number of the driver who finis  ← 结果集不一致
+[187/500] simpl PASS    661ms  formula_1              For the Bahrain Grand Prix in 2007, how ma
+[188/500] moder FAIL    780ms  formula_1              For all the drivers who finished the game   ← 结果集不一致
+[189/500] moder FAIL    575ms  formula_1              Who was the player that got the lap time o  ← 结果集不一致
+[190/500] simpl PASS    637ms  formula_1              Where is Malaysian Grand Prix held? Give t
+[191/500] moder PASS    556ms  formula_1              For the constructor which got the highest 
+[192/500] simpl FAIL    670ms  formula_1              In the race No. 45, for the driver who had  ← 结果集不一致
+[193/500] simpl PASS    456ms  formula_1              Show me the season page of year when the r
+[194/500] moder FAIL    767ms  formula_1              For all the drivers who finished the game   ← 结果集不一致
+[195/500] moder FAIL    888ms  formula_1              For the driver who set the fastest lap spe  ← 结果集不一致
+[196/500] chall PASS   1609ms  formula_1              Paul di Resta was in the No. 853 race, wha
+[197/500] moder PASS    922ms  formula_1              For the drivers who took part in the race 
+[198/500] moder PASS    711ms  formula_1              List the names of all races that occurred 
+[199/500] moder FAIL    614ms  formula_1              State the driver with the most points scor  ← 结果集不一致
+[200/500] moder FAIL   1068ms  formula_1              What is the best lap time recorded? List t  ← 结果集不一致
+[201/500] moder PASS    985ms  formula_1              What is the average lap time for Lewis Ham
+[202/500] chall FAIL    903ms  formula_1              Calculate the percentage whereby Hamilton   ← 结果集不一致
+[203/500] moder FAIL    962ms  formula_1              Name the driver with the most winning. Men  ← 结果集不一致
+[204/500] simpl FAIL    829ms  formula_1              How old is the youngest Japanese driver? W  ← 结果集不一致
+[205/500] simpl PASS    832ms  formula_1              Name the races along with its circuit name
+[206/500] simpl FAIL    712ms  formula_1              Which race was Alex Yoong in when he was i  ← 结果集不一致
+[207/500] moder FAIL    843ms  formula_1              State the race and year of race in which M  ← 结果集不一致
+[208/500] moder PASS    840ms  formula_1              Which was Lewis Hamilton first race? What 
+[209/500] moder PASS    815ms  formula_1              Among all European Grand Prix races, what 
+[210/500] simpl PASS    330ms  formula_1              What's the location coordinates of Silvers
+[211/500] simpl PASS    335ms  formula_1              What's the reference name of Marina Bay St
+[212/500] simpl FAIL    336ms  formula_1              Which country is the oldest driver from?  ← 结果集不一致
+[213/500] moder FAIL    770ms  formula_1              Which driver ranked the first in the Canad  ← 结果集不一致
+[214/500] simpl FAIL    806ms  formula_1              In which Formula_1 race did Lewis Hamilton  ← 结果集不一致
+[215/500] moder PASS    602ms  formula_1              What was the fastest lap speed among all d
+[216/500] moder PASS    899ms  formula_1              What was Lewis Hamilton's final rank in th
+[217/500] simpl FAIL    730ms  formula_1              What's the finish time for the driver who   ← 结果集不一致
+[218/500] moder PASS   1435ms  formula_1              Among the drivers that finished the race i
+[219/500] chall FAIL   2483ms  formula_1              How much faster in percentage is the champ  ← 结果集不一致
+[220/500] simpl PASS    367ms  formula_1              How many circuits are there in Adelaide, A
+[221/500] simpl PASS    581ms  formula_1              What are the maximum points of British con
+[222/500] simpl PASS    543ms  formula_1              Please list the constructor names with 0 p
+[223/500] simpl FAIL   1025ms  formula_1              How many Japanese constructors have 0 poin  ← 结果集不一致
+[224/500] chall PASS   1059ms  formula_1              Please calculate the race completion perce
+[225/500] chall FAIL   1581ms  formula_1              What is the average time in seconds of cha  ← 结果集不一致
+[226/500] simpl FAIL   1163ms  formula_1              What is the fastest lap number of the cham  ← 结果集不一致
+[227/500] moder PASS   1589ms  formula_1              What is the average of fastest lap speed i
+[228/500] chall PASS   2277ms  formula_1              From 2000 to 2005, what percentage of driv
+[229/500] moder FAIL    694ms  formula_1              How many French drivers who obtain the lap  ← 结果集不一致
+[230/500] simpl PASS    469ms  formula_1              List out the code for drivers who have nat
+[231/500] simpl FAIL    855ms  formula_1              State code numbers of top 3 yougest driver  ← 结果集不一致
+[232/500] simpl PASS    577ms  formula_1              Please state the reference name of the old
+[233/500] moder PASS    832ms  formula_1              Which drivers who were born in 1971 and ha
+[234/500] simpl PASS    699ms  formula_1              From race no. 50 to 100, how many finisher
+[235/500] simpl FAIL    593ms  formula_1              How many times the circuits were held in A  ← 结果集不一致
+[236/500] moder PASS   1746ms  formula_1              On what year did the youngest driver had h
+[237/500] chall FAIL   1084ms  formula_1              List down top 3 German drivers who has the  ← 结果集不一致
+[238/500] moder FAIL   1040ms  formula_1              Who is the champion of the Canadian Grand   ← 结果集不一致
+[239/500] chall PASS    803ms  formula_1              What is the constructor reference name of 
+[240/500] simpl PASS    600ms  superhero              Please list all the superpowers of 3-D Man
+[241/500] chall FAIL   2602ms  formula_1              Which constructor scored most points from   ← 结果集不一致
+[242/500] chall FAIL   1085ms  formula_1              What is full name of the racer who ranked   ← 结果集不一致
+[243/500] moder FAIL   1045ms  formula_1              As of the present, what is the full name o  ← 结果集不一致
+[244/500] moder PASS   1556ms  formula_1              How many accidents did the driver who had 
+[245/500] chall FAIL    549ms  formula_1              Which top 20 driver created the shortest l  ← 结果集不一致
+[246/500] chall FAIL    775ms  formula_1              Please list the lap records for the circui  ← 结果集不一致
+[247/500] moder PASS    734ms  superhero              Among the superheroes with the super power
+[248/500] moder PASS    722ms  superhero              Among the superheroes with blue eyes, how 
+[249/500] chall PASS    787ms  superhero              Please list the superhero names of all the
+[250/500] moder FAIL    511ms  superhero              Rank heroes published by Marvel Comics by   ← 结果集不一致
+[251/500] moder FAIL    828ms  superhero              Rank superheroes from Marvel Comics by the  ← 结果集不一致
+[252/500] chall PASS    736ms  superhero              List the superheroes from Marvel Comics wh
+[253/500] moder PASS    831ms  superhero              Which publisher published the slowest supe
+[254/500] moder PASS    713ms  superhero              How many gold-eyed superheroes did Marvel 
+[255/500] moder PASS    649ms  superhero              Who is the dumbest superhero?
+[256/500] simpl PASS    472ms  superhero              What is Copycat's race?
+[257/500] simpl PASS    679ms  superhero              Which superheroes have a durability attrib
+[258/500] moder PASS    663ms  superhero              What are the names of the superheroes with
+[259/500] moder PASS    893ms  superhero              How many female superheroes have a strengt
+[260/500] chall FAIL   1092ms  superhero              What is the percentage of superheroes who   ← 结果集不一致
+[261/500] chall PASS    865ms  superhero              Between DC and Marvel Comics, which publis
+[262/500] simpl PASS    327ms  superhero              Give the publisher ID of Star Trek.
+[263/500] simpl PASS    327ms  superhero              What is the total number of superheroes wi
+[264/500] simpl PASS    575ms  superhero              What is the average weight of all female s
+[265/500] moder PASS    681ms  superhero              List down at least five superpowers of mal
+[266/500] moder PASS    704ms  superhero              Among the superheroes with height from 170
+[267/500] moder FAIL    669ms  superhero              Provide the hair colour of the human super  ← 结果集不一致
+[268/500] chall PASS    853ms  superhero              In superheroes with height between 150 to 
+[269/500] moder PASS    639ms  superhero              Among the male superheroes, list the super
+[270/500] simpl PASS    461ms  superhero              What are the superpowers of heroes with ID
+[271/500] simpl PASS    441ms  superhero              How many heroes have stealth power?
+[272/500] moder FAIL    690ms  superhero              What is the hero's full name with the high  ← 结果集不一致
+[273/500] chall FAIL    929ms  superhero              Which superhero has the most durability pu  ← 结果集不一致
+[274/500] chall FAIL   1206ms  superhero              List the eyes, hair and skin colour of all  ← 结果集不一致
+[275/500] chall PASS    708ms  superhero              Which superhero has the same eyes, hair an
+[276/500] chall PASS    822ms  superhero              What is the percentage of blue female supe
+[277/500] simpl PASS    525ms  superhero              How many powers does Amazo hero have?
+[278/500] simpl PASS    465ms  superhero              Provide the heights of the heroes whose ey
+[279/500] moder PASS    688ms  superhero              List the heroes' names whose eyes and hair
+[280/500] simpl PASS    535ms  superhero              Describe the names of neutral alignment su
+[281/500] moder PASS    877ms  superhero              How many heroes have the highest attribute
+[282/500] chall FAIL    845ms  superhero              How many percent of female heroes were pub  ← 结果集不一致
+[283/500] moder PASS    725ms  superhero              Calculate the difference between Emil Blon
+[284/500] simpl FAIL    309ms  superhero              Calculate the average height for all super  ← 结果集不一致
+[285/500] simpl PASS    603ms  superhero              What is Abomination's superpower?
+[286/500] moder PASS    780ms  superhero              Which hero was the fastest?
+[287/500] moder PASS    625ms  superhero              State all of 3-D Man's attributes along wi
+[288/500] moder PASS    743ms  superhero              Which superheroes have blue eyes with brow
+[289/500] moder FAIL    690ms  superhero              What is the publisher for Hawkman, Karate   ← 结果集不一致
+[290/500] moder FAIL    727ms  superhero              Calculate the percentage of superheroes wi  ← 结果集不一致
+[291/500] moder FAIL    864ms  superhero              Find the ratio between male superheroes an  ← 结果集不一致
+[292/500] simpl PASS    515ms  superhero              Provide the eye colour of the superhero wh
+[293/500] chall PASS   1040ms  superhero              In superheroes with missing weight data, c
+[294/500] moder PASS    704ms  superhero              How many green-skinned villains are there 
+[295/500] moder PASS    654ms  superhero              Identify superheroes who can control wind 
+[296/500] moder PASS    800ms  superhero              Identify the gender of the superhero who h
+[297/500] chall PASS    872ms  superhero              Which publisher created more superheroes: 
+[298/500] simpl FAIL    580ms  codebase_community     Which user has a higher reputation, Harlan  ← 结果集不一致
+[299/500] simpl FAIL    387ms  codebase_community     Please list the display names of all the u  ← 结果集不一致
+[300/500] simpl FAIL    402ms  codebase_community     How many users last accessed the website a  ← 结果集不一致
+[301/500] simpl FAIL    524ms  codebase_community     Who is the owner of the post "Eliciting pr  ← 结果集不一致
+[302/500] simpl PASS    575ms  codebase_community     How many posts does the user csgillespie o
+[303/500] moder PASS    568ms  codebase_community     What is the display name of the user who l
+[304/500] simpl PASS    570ms  codebase_community     Among the posts owned by an elder user, ho
+[305/500] simpl PASS    464ms  codebase_community     From which post is the tag "bayesian" exce
+[306/500] simpl PASS    673ms  codebase_community     What is the average score of the posts own
+[307/500] moder PASS    867ms  codebase_community     Among the posts with a score of over 5, wh
+[308/500] moder FAIL   1200ms  codebase_community     User No.3025 gave a comment at 20:29:39 on  ← 结果集不一致
+[309/500] moder FAIL    913ms  codebase_community     User No.23853 gave a comment to a post at   ← 结果集不一致
+[310/500] simpl PASS    624ms  codebase_community     For the user with the display name of "Tia
+[311/500] simpl PASS    481ms  codebase_community     Provide the display name of the user who m
+[312/500] moder FAIL    707ms  codebase_community     For the user No.24, how many times is the   ← 结果集不一致
+[313/500] moder PASS    508ms  codebase_community     How many views did the post titled 'Integr
+[314/500] simpl PASS    339ms  codebase_community     Write the contents of comments with a scor
+[315/500] simpl FAIL    373ms  codebase_community     Name the user that commented 'thank you us  ← 结果集不一致
+[316/500] moder PASS    704ms  codebase_community     Which user made a post titled 'Understandi
+[317/500] moder FAIL    477ms  codebase_community     Who is the owner of the post titled 'Open   ← 结果集不一致
+[318/500] moder FAIL   1957ms  codebase_community     Write all the comments left by users who e  ← 结果集不一致
+[319/500] chall FAIL    608ms  codebase_community     Which user added a bounty amount of 50 to   ← 结果集不一致
+[320/500] moder FAIL    885ms  codebase_community     Calculate the average view count of each p  ← 结果集不一致
+[321/500] simpl PASS    519ms  codebase_community     How many users are awarded with more than 
+[322/500] moder FAIL   3240ms  codebase_community     Which user have only one post history per   ← 结果集不一致
+[323/500] chall PASS   1044ms  codebase_community     What is the percentage difference of stude
+[324/500] moder FAIL  92680ms  codebase_community     What is the average of the up votes and th  ← 执行失败：exec:other: interrupted
+[325/500] simpl PASS    976ms  codebase_community     Calculate the ratio of votes in 2010 and 2
+[326/500] moder FAIL    464ms  codebase_community     Which post by slashnick has the most answe  ← 结果集不一致
+[327/500] chall FAIL    617ms  codebase_community     Among posts by Harvey Motulsky and Noah Sn  ← 结果集不一致
+[328/500] moder FAIL    742ms  codebase_community     State all the tags used by Mark Meckes in   ← 结果集不一致
+[329/500] chall FAIL   1137ms  codebase_community     Based on posts posted by Community, calcul  ← 结果集不一致
+[330/500] moder FAIL    767ms  codebase_community     Calculate the difference in view count fro  ← 结果集不一致
+[331/500] moder PASS    806ms  codebase_community     What is the average monthly number of link
+[332/500] simpl PASS    519ms  codebase_community     When did 'chl' cast its first vote in a po
+[333/500] simpl PASS    531ms  codebase_community     What is the display name of the user who a
+[334/500] moder FAIL    753ms  codebase_community     Among the users located in United Kingdom,  ← 结果集不一致
+[335/500] simpl PASS    692ms  codebase_community     Which post by Harvey Motulsky has the most
+[336/500] moder FAIL   1539ms  codebase_community     Which is the most valuable post in 2010? P  ← 执行失败：exec:no_such_column: no such column: CreationDate
+[337/500] moder FAIL   2495ms  codebase_community     What is the percentage of posts whose owne  ← 执行失败：exec:no_such_column: no such column: p.CreationDate
+[338/500] moder FAIL    685ms  codebase_community     Identify the total views on the post 'Comp  ← 结果集不一致
+[339/500] simpl PASS    582ms  codebase_community     How many comments were added to the post w
+[340/500] moder FAIL    878ms  codebase_community     Provide the text of the latest 10 comments  ← 结果集不一致
+[341/500] chall SKIP    941ms  codebase_community     Among all the posts posted by the most inf  ← 参考 SQL 执行失败/超时（跳过判分）：interrupted
+[342/500] simpl PASS    457ms  codebase_community     What is the excerpt post ID and wiki post 
+[343/500] simpl PASS    543ms  codebase_community     Give the user's reputation and up vote num
+[344/500] moder PASS    831ms  codebase_community     Among the posts with views ranging from 10
+[345/500] simpl FAIL    727ms  codebase_community     In posts with 1 comment, how many of the c  ← 结果集不一致
+[346/500] moder PASS    849ms  codebase_community     Among the comments with scores between 5 t
+[347/500] simpl FAIL    517ms  card_games             Which are the cards that have incredibly p  ← 结果集不一致
+[348/500] simpl FAIL   1914ms  card_games             What are the borderless cards available wi  ← 结果集不一致
+[349/500] moder FAIL   1433ms  card_games             List all the mythic rarity print cards ban  ← 结果集不一致
+[350/500] moder FAIL    809ms  card_games             For artifact type of cards that do not hav  ← 结果集不一致
+[351/500] moder PASS    664ms  card_games             List all the card id and artist with unkno
+[352/500] moder FAIL   1837ms  card_games             Find all cards illustrated by Stephen Dani  ← 结果集不一致
+[353/500] moder FAIL    993ms  card_games             Name the card and artist with the most rul  ← 结果集不一致
+[354/500] moder PASS   2299ms  card_games             Calculate the percentage of the cards avai
+[355/500] simpl PASS    348ms  card_games             How many cards have infinite power?
+[356/500] simpl PASS    378ms  card_games             What is the border color of card "Ancestor
+[357/500] simpl FAIL    734ms  card_games             What is the rule of playing card "Benalish  ← 结果集不一致
+[358/500] simpl PASS    620ms  card_games             What is the percentage of borderless cards
+[359/500] chall PASS    916ms  card_games             What is the percentage of cards whose lang
+[360/500] simpl PASS    476ms  card_games             How many cards with original type of "Summ
+[361/500] simpl PASS    377ms  card_games             What are the cards belong to duel deck a? 
+[362/500] simpl PASS    584ms  card_games             How many of the banned cards are white bor
+[363/500] moder PASS    909ms  card_games             Among the Artifact cards, which are black 
+[364/500] moder PASS    680ms  card_games             What is the mana cost of cards with a norm
+[365/500] moder FAIL    852ms  card_games             What is the percentage of Story Spotlight   ← 结果集不一致
+[366/500] moder FAIL    577ms  card_games             How many Brazilian Portuguese translated s  ← 结果集不一致
+[367/500] moder FAIL    813ms  card_games             Lists all types of cards in German.  ← 结果集不一致
+[368/500] moder FAIL    470ms  card_games             How many unknown power cards contain info   ← 结果集不一致
+[369/500] moder PASS    918ms  card_games             Indicates the number of cards with pre-mod
+[370/500] moder FAIL   1875ms  card_games             What is the foreign name of the card in Fr  ← 结果集不一致
+[371/500] simpl PASS    560ms  card_games             What language is the set of 180 cards that
+[372/500] chall FAIL    806ms  card_games             What percentage of cards with format comma  ← 结果集不一致
+[373/500] chall PASS    930ms  card_games             What percentage of cards without power are
+[374/500] simpl PASS    508ms  card_games             What is the language of the card with the 
+[375/500] simpl PASS    596ms  card_games             What proportion of cards do not have a tex
+[376/500] moder PASS    364ms  card_games             What languages are available in the set kn
+[377/500] simpl FAIL    721ms  card_games             Which foreign language used by "A Pedra Fe  ← 结果集不一致
+[378/500] moder FAIL    557ms  card_games             Which card costs more converted mana, "Ser  ← 结果集不一致
+[379/500] moder FAIL    752ms  card_games             What's the Italian name of the set of card  ← 结果集不一致
+[380/500] moder FAIL    749ms  card_games             For the set of cards with "Ancestor's Chos  ← 结果集不一致
+[381/500] moder PASS    650ms  card_games             Among the cards in the set "Hauptset Zehnt
+[382/500] moder PASS    569ms  card_games             What is the Simplified Chinese translation
+[383/500] moder FAIL    695ms  card_games             Did the set of cards with "Angel of Mercy"  ← 结果集不一致
+[384/500] moder PASS    842ms  card_games             Among the sets in the block "Ice Age", how
+[385/500] moder FAIL    598ms  card_games             Is the set of cards with Adarkar Valkyrie   ← 结果集不一致
+[386/500] moder PASS    570ms  card_games             Among the sets of cards that have an Itali
+[387/500] chall PASS    595ms  card_games             Which of these artists have designed a car
+[388/500] moder PASS    874ms  card_games             Among the cards with converted mana cost h
+[389/500] moder FAIL    588ms  card_games             What is the Italian flavor text of the car  ← 结果集不一致
+[390/500] moder FAIL    946ms  card_games             Please list the Italian text ruling of all  ← 结果集不一致
+[391/500] moder FAIL   1231ms  card_games             Please list the Italian names of the cards  ← 结果集不一致
+[392/500] moder PASS    782ms  card_games             What is the percentage of the cards with a
+[393/500] chall PASS    975ms  card_games             What is the percentage of incredibly power
+[394/500] moder SKIP   1202ms  card_games             Which of the play format has the highest n  ← 参考 SQL 执行失败/超时（跳过判分）：interrupted
+[395/500] moder FAIL    675ms  card_games             Which cards are ranked 1st on EDHRec? List  ← 结果集不一致
+[396/500] chall PASS    854ms  card_games             List the names of all the cards in the set
+[397/500] moder FAIL    749ms  card_games             Find and list the names of sets which does  ← 结果集不一致
+[398/500] moder FAIL    733ms  card_games             List all the frame styles and cards Allen   ← 结果集不一致
+[399/500] simpl PASS    428ms  toxicology             What is the most common bond type?
+[400/500] moder FAIL    797ms  toxicology             Calculate the average number of oxygen ato  ← 结果集不一致
+[401/500] chall FAIL   1016ms  toxicology             On average how many carcinogenic molecules  ← 结果集不一致
+[402/500] simpl PASS    604ms  toxicology             Find the triple-bonded molecules which are
+[403/500] moder FAIL    989ms  toxicology             What is the percentage of carbon in double  ← 结果集不一致
+[404/500] chall PASS    580ms  toxicology             What elements are in the TR004_8_9 bond at
+[405/500] chall FAIL    664ms  toxicology             What elements are in a double type bond?  ← 结果集不一致
+[406/500] moder PASS    714ms  toxicology             Which type of label is the most numerous i
+[407/500] chall PASS    713ms  toxicology             Which element is the least numerous in non
+[408/500] moder FAIL   1103ms  toxicology             What type of bond is there between the ato  ← 结果集不一致
+[409/500] chall FAIL    845ms  toxicology             How many atoms with iodine and with sulfur  ← 结果集不一致
+[410/500] chall FAIL    927ms  toxicology             What percentage of carcinogenic-type molec  ← 结果集不一致
+[411/500] chall FAIL    814ms  toxicology             What is the percentage of carcinogenic mol  ← 结果集不一致
+[412/500] chall PASS    604ms  toxicology             Please list top three elements of the toxi
+[413/500] moder PASS    698ms  toxicology             What is the percentage of double bonds in 
+[414/500] simpl PASS    695ms  toxicology             What is the percentage of molecules that a
+[415/500] moder PASS    690ms  toxicology             How much of the hydrogen in molecule TR206
+[416/500] chall FAIL    572ms  toxicology             What are the elements of the toxicology an  ← 结果集不一致
+[417/500] chall FAIL   1156ms  toxicology             Which bond type accounted for the majority  ← 结果集不一致
+[418/500] moder PASS   1712ms  toxicology             Please list top three molecules that have 
+[419/500] moder FAIL    811ms  toxicology             How many bonds which involved atom 12 does  ← 结果集不一致
+[420/500] moder PASS    786ms  toxicology             What are the bond type and the atoms of th
+[421/500] simpl FAIL    559ms  toxicology             How many connections does the atom 19 have  ← 结果集不一致
+[422/500] chall PASS    465ms  toxicology             List all the elements of the toxicology of
+[423/500] moder PASS    829ms  toxicology             Among all the atoms from 21 to 25, list al
+[424/500] moder FAIL   1023ms  toxicology             What are the bonds that have phosphorus an  ← 结果集不一致
+[425/500] moder FAIL    997ms  toxicology             Is the molecule with the most double bonds  ← 结果集不一致
+[426/500] moder PASS    763ms  toxicology             What is the average number of bonds the at
+[427/500] chall FAIL    596ms  toxicology             List all the elements of atoms that can no  ← 结果集不一致
+[428/500] simpl FAIL   1055ms  toxicology             What are the atoms of the triple bond with  ← 结果集不一致
+[429/500] chall FAIL    661ms  toxicology             What are the elements of the atoms of TR14  ← 结果集不一致
+[430/500] chall PASS    676ms  toxicology             List the elements of all the triple bonds.
+[431/500] moder PASS    878ms  toxicology             What proportion of single bonds are carcin
+[432/500] moder FAIL    942ms  toxicology             Calculate the total atoms with triple-bond  ← 结果集不一致
+[433/500] chall FAIL   1087ms  toxicology             What is the composition of element chlorin  ← 结果集不一致
+[434/500] chall FAIL    768ms  toxicology             What are the elements for bond id TR001_10  ← 结果集不一致
+[435/500] moder PASS    860ms  toxicology             What is the percentage of element chlorine
+[436/500] chall FAIL    594ms  toxicology             Tally the toxicology element of the 4th at  ← 结果集不一致
+[437/500] chall PASS    876ms  toxicology             What is the ratio of Hydrogen elements in 
+[438/500] moder PASS    711ms  toxicology             Which non-carcinogenic molecules consisted
+[439/500] simpl PASS    591ms  california_schools     How many schools with an average score in 
+[440/500] simpl PASS    553ms  california_schools     Please list the codes of the schools with 
+[441/500] moder PASS   1067ms  california_schools     Among the schools with an SAT excellence r
+[442/500] simpl FAIL    638ms  california_schools     Rank schools by their average score in Wri  ← 结果集不一致
+[443/500] moder FAIL    932ms  california_schools     List the names of schools with more than 3  ← 结果集不一致
+[444/500] moder FAIL    854ms  california_schools     Give the names of the schools with the per  ← 结果集不一致
+[445/500] moder FAIL    724ms  california_schools     Name schools in Riverside which the averag  ← 结果集不一致
+[446/500] moder FAIL   3486ms  california_schools     State the names and full communication add  ← 结果集不一致
+[447/500] moder FAIL    998ms  california_schools     What is the average score in writing for t  ← 结果集不一致
+[448/500] chall FAIL   1486ms  california_schools     Consider the average difference between K-  ← 结果集不一致
+[449/500] moder FAIL    872ms  california_schools     What is the eligible free rate of the 10th  ← 结果集不一致
+[450/500] moder FAIL   1007ms  california_schools     What is the eligible free or reduced price  ← 结果集不一致
+[451/500] moder FAIL    819ms  california_schools     What is the complete address of the school  ← 结果集不一致
+[452/500] chall FAIL    911ms  california_schools     Under whose administration is the school w  ← 结果集不一致
+[453/500] simpl PASS   1756ms  california_schools     What is the average number of test takers 
+[454/500] moder FAIL    613ms  california_schools     What is the telephone number for the schoo  ← 结果集不一致
+[455/500] simpl FAIL    803ms  california_schools     List the names of virtual schools that are  ← 结果集不一致
+[456/500] moder PASS    687ms  california_schools     What is the average writing score of each 
+[457/500] simpl FAIL    886ms  california_schools     Which state special schools have the highe  ← 结果集不一致
+[458/500] moder PASS    656ms  california_schools     What is the monthly average number of scho
+[459/500] moder FAIL   1118ms  california_schools     What is the ratio of merged Unified School  ← 结果集不一致
+[460/500] simpl FAIL   2261ms  california_schools     What is the postal street address for the   ← 结果集不一致
+[461/500] chall FAIL    765ms  california_schools     What is the total number of non-chartered   ← 结果集不一致
+[462/500] moder FAIL   1752ms  california_schools     How many students from the ages of 5 to 17  ← 结果集不一致
+[463/500] moder FAIL    900ms  california_schools     Which schools served a grade span of Kinde  ← 结果集不一致
+[464/500] moder PASS    690ms  california_schools     Between San Diego and Santa Barbara, which
+[465/500] simpl PASS    392ms  california_schools     What is the grade span offered in the scho
+[466/500] chall FAIL   2887ms  california_schools     Of the schools that offers a magnet progra  ← 结果集不一致
+[467/500] moder FAIL    727ms  california_schools     What is the Percent (%) Eligible Free (K-1  ← 结果集不一致
+[468/500] chall FAIL   1281ms  california_schools     What are the valid e-mail addresses of the  ← 结果集不一致
+[469/500] moder FAIL    936ms  financial              How many accounts who choose issuance afte  ← 结果集不一致
+[470/500] simpl PASS    460ms  financial              List out the no. of districts that have fe
+[471/500] moder FAIL    679ms  financial              How many male customers who are living in   ← 结果集不一致
+[472/500] chall FAIL   1821ms  financial              List out the account numbers of female cli  ← 结果集不一致
+[473/500] moder FAIL   1020ms  financial              List out the account numbers of clients wh  ← 结果集不一致
+[474/500] moder PASS    801ms  financial              Among the accounts who have approved loan 
+[475/500] moder PASS   1437ms  financial              Among the accounts who have loan validity 
+[476/500] moder PASS    737ms  financial              Among the account opened, how many female 
+[477/500] simpl PASS    927ms  financial              For the female client who was born in 1976
+[478/500] chall FAIL    934ms  financial              For the branch which located in the south   ← 结果集不一致
+[479/500] chall PASS   2683ms  financial              For the client whose loan was approved fir
+[480/500] moder PASS    563ms  financial              What is the percentage of loan amount that
+[481/500] moder PASS    715ms  financial              For loan amount less than USD100,000, what
+[482/500] chall FAIL   1057ms  financial              For loans contracts which are still runnin  ← 结果集不一致
+[483/500] moder FAIL    836ms  financial              List the top nine districts, by descending  ← 结果集不一致
+[484/500] moder PASS    851ms  financial              Between 1/1/1995 and 12/31/1997, how many 
+[485/500] moder FAIL  32874ms  financial              Which are the top ten withdrawals (non-cre  ← 结果集不一致
+[486/500] moder PASS    522ms  financial              How many accounts have running contracts i
+[487/500] moder PASS    920ms  financial              In the branch where the second-highest num
+[488/500] moder FAIL    984ms  financial              Who are the account holder identification   ← 结果集不一致
+[489/500] chall FAIL    884ms  financial              Please list the account types that are not  ← 结果集不一致
+[490/500] moder FAIL    784ms  financial              What is the average number of crimes commi  ← 结果集不一致
+[491/500] simpl FAIL    879ms  financial              List all the withdrawals in cash transacti  ← 结果集不一致
+[492/500] moder PASS   1059ms  financial              What percentage of clients who opened thei
+[493/500] chall FAIL   1849ms  financial              What was the growth rate of the total amou  ← 结果集不一致
+[494/500] chall FAIL    686ms  financial              How often does account number 3 request an  ← 结果集不一致
+[495/500] moder FAIL   1010ms  financial              What percentage of male clients request fo  ← 结果集不一致
+[496/500] moder PASS    989ms  financial              Name the account numbers of female clients
+[497/500] moder FAIL   1419ms  financial              What is the average amount of loan which a  ← 结果集不一致
+[498/500] moder PASS    828ms  financial              Provide the IDs and age of the client with
+[499/500] moder FAIL   1692ms  financial              For accounts in 1993 with statement issued  ← 结果集不一致
+[500/500] moder FAIL   1136ms  financial              From Year 1995 to 2000, who are the accoun  ← 结果集不一致
+[run_external] 报告 → eval\report_external_bird.md
+
+[run_external] 执行准确率 272/498 = 54.6%（跳过 2）｜总耗时 12.2 min
