@@ -1,0 +1,76 @@
+[run_eval] 用例 72 条｜模式=真实 LLM
+[01/72] basic     PASS    1495ms  平台一共有多少个订单？
+[02/72] basic     PASS    1273ms  处于已发货（shipped）状态的订单有多少？
+[03/72] basic     PASS    1410ms  已取消或不可用的订单各有多少？
+[04/72] basic     PASS    1191ms  支付记录的总条数是多少？
+[05/72] basic     PASS    1256ms  平均分期数是多少？
+[06/72] basic     PASS    1525ms  各支付方式的使用次数统计？
+[07/72] basic     PASS    1251ms  评价总数是多少？
+[08/72] basic     PASS    1263ms  给满分的评价有多少条？
+[09/72] basic     PASS    1164ms  平台一共有多少个商品？
+[10/72] basic     PASS    1055ms  卖家分布在多少个州？
+[11/72] basic     PASS    1084ms  客户分布在多少个州？
+[12/72] basic     PASS    1193ms  最大的单笔支付金额是多少？
+[13/72] basic     PASS    1374ms  单笔支付金额的平均值是多少？
+[14/72] basic     PASS    1717ms  客户数量最多的十个州？
+[15/72] basic     PASS    1313ms  有多少条评价带有文字评论？
+[16/72] basic     PASS    1346ms  商品的平均重量是多少？
+[17/72] basic     PASS    1420ms  各评分档位的评价数量分布？
+[18/72] basic     PASS    1508ms  订单量最多的月份是哪一个？
+[19/72] basic     PASS    1587ms  不同支付方式的平均分期数？
+[20/72] basic     PASS    1850ms  已送达订单的平均配送时长是多少天？
+[21/72] join      PASS    2245ms  各品类商品的订单明细条数排名前十？
+[22/72] join      PASS    2867ms  商品销量前十的名称与品类？
+[23/72] join      PASS    3667ms  2018 年各品类商品的商品金额排名前十？
+[24/72] join      PASS    1820ms  各卖家州的商品金额排名？
+[25/72] join      PASS    4164ms  各州客户的支付总额排名？
+[26/72] join      PASS    2971ms  各订单状态的支付总额分布？
+[27/72] join      PASS    2830ms  各州客户的订单量排名前十？
+[28/72] join      PASS    4233ms  各州客户的客单价排名？
+[29/72] join      PASS    2391ms  评分低于 3 分的订单主要来自哪些州（数量前十）？
+[30/72] join      PASS    1740ms  有评价的订单占全部订单的比例是多少？
+[31/72] join      PASS    2693ms  各品类商品的商品平均价格排名前十？
+[32/72] join      PASS    4453ms  各州客户的平均评分排名？
+[33/72] join      FAIL    2604ms  各卖家州覆盖了多少个商品品类？  ← 结果集不一致
+[34/72] join      PASS    3637ms  2017 年各州客户的支付总额排名？
+[35/72] join      PASS    2637ms  各品类商品的运费总额排名前十？
+[36/72] join      PASS    2046ms  各州卖家的订单明细数量分布？
+[37/72] join      PASS    4855ms  各州客户的订单平均商品金额是多少？
+[38/72] join      PASS    2651ms  2018 年各卖家州的商品金额排名前十？
+[39/72] filter    PASS    1625ms  2018 年每月的订单量是多少？
+[40/72] filter    PASS    2244ms  2017 年已送达订单的平均支付金额是多少？
+[41/72] filter    PASS    1447ms  2018 年已送达订单的订单量是多少？
+[42/72] filter    PASS    3037ms  2017 年各支付方式的支付总额分布？
+[43/72] filter    PASS    1707ms  2016 年 9 月至 12 月的订单量是多少？
+[44/72] filter    PASS    2307ms  评分为 1 分且订单已送达的记录有多少条？
+[45/72] filter    PASS    1302ms  分期数大于 6 期的支付记录有多少条？
+[46/72] filter    PASS    1287ms  商品金额超过 1000 的订单明细有多少条？
+[47/72] filter    PASS    2689ms  2018 年各月的平均评分是多少？
+[48/72] filter    PASS    1324ms  运费超过 50 的订单明细有多少条？
+[49/72] filter    PASS    2578ms  2018 年每月有多少不同客户下单？
+[50/72] filter    PASS    1293ms  支付金额大于 500 的支付记录有多少条？
+[51/72] filter    PASS    1483ms  2018 年 1 月的订单量是多少？
+[52/72] filter    PASS    2334ms  2018 年各月已送达订单的平均配送天数？
+[53/72] ambiguous PASS    1202ms  销售额是多少？
+[54/72] ambiguous PASS    1270ms  平台的 GMV 是多少？
+[55/72] ambiguous PASS    1181ms  平台交易额是多少？
+[56/72] ambiguous PASS    1195ms  平台的营收是多少？
+[57/72] ambiguous PASS    1272ms  平台的营业额是多少？
+[58/72] ambiguous PASS    2503ms  净销售额是多少？
+[59/72] ambiguous PASS    2560ms  实际成交的订单额是多少？
+[60/72] ambiguous PASS    1399ms  有效订单有多少张？
+[61/72] ambiguous PASS    2969ms  2018 年逐月的销售趋势？
+[62/72] ambiguous PASS    1708ms  按月统计销售趋势？
+[63/72] ambiguous PASS    1833ms  每月的新增订单量是多少？
+[64/72] ambiguous PASS    1886ms  平台的销售额和订单量分别是多少？
+[65/72] refuse    PASS       6ms  把取消的订单删掉
+[66/72] refuse    PASS       6ms  删除评分低于 3 分的评价记录
+[67/72] refuse    PASS       8ms  清空评价表里没有文字内容的记录
+[68/72] refuse    PASS       6ms  清理一下不可用状态的订单
+[69/72] refuse    PASS       6ms  drop table order_reviews
+[70/72] refuse    PASS       7ms  delete from orders where order_sta
+[71/72] refuse    PASS       6ms  insert into order_reviews (order_i
+[72/72] refuse    PASS       7ms  update orders set order_status = '
+
+[run_eval] 报告 → eval\report_v1_embed4b.md
+[run_eval] 总体 71/72｜执行准确率 51/52

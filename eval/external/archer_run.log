@@ -1,0 +1,1040 @@
+[sets] Archer（中英双语复杂推理）｜用例 1036 条（库缺失 0）｜模型 qwen3-coder-next
+[0001/1036] zh/dev   FAIL    693ms  concert_singer           列出每个歌手的名字以及其在歌曲“Gentleman”发布的时候的年龄？  ← 结果集不一致
+[0002/1036] zh/dev   FAIL    532ms  concert_singer           给出每个歌手的名字，以及在歌曲“Gentleman”发布的时候，每个人的年龄  ← 结果集不一致
+[0003/1036] zh/dev   FAIL    554ms  concert_singer           假如“Gentleman”这首歌是21世纪的第一年发布的，列出每个歌手的名字  ← 结果集不一致
+[0004/1036] zh/dev   FAIL    763ms  concert_singer           假设“Gentleman”这首歌发布于21世纪的第一年，那么在歌曲“Gent  ← 结果集不一致
+[0005/1036] zh/dev   FAIL    765ms  concert_singer           主题为“Free choice”的音乐会的参演歌手的名字分别是什么？他们当时  ← 结果集不一致
+[0006/1036] zh/dev   FAIL    787ms  concert_singer           返回主题为“Free choice”的音乐会的参演歌手的姓名和参演时的年龄。  ← 结果集不一致
+[0007/1036] zh/dev   FAIL   7611ms  concert_singer           假如1985年前出生的歌手都参加过主题为“Free choice”的音乐会，  ← 结果集不一致
+[0008/1036] zh/dev   FAIL   1027ms  concert_singer           假如所有出生于1985年以前的歌手都是主题为“Free choice”的音乐  ← 结果集不一致
+[0009/1036] zh/dev   PASS    442ms  concert_singer           最早的一次音乐会距今多少年了？
+[0010/1036] zh/dev   FAIL    557ms  concert_singer           多少年以前举行了最早的音乐会？  ← 结果集不一致
+[0011/1036] zh/dev   FAIL    502ms  concert_singer           假如主题为“Wide Awake”的音乐会提前三年举办，最早的一次音乐会距今  ← 结果集不一致
+[0012/1036] zh/dev   FAIL    509ms  concert_singer           假如主题为“Wide Awake”的音乐会的举办时间提前三年，那么多少年以前  ← 结果集不一致
+[0013/1036] zh/dev   FAIL    787ms  concert_singer           “Home Visits”音乐会20周年的时候，它的参演歌手多少岁了？同时给  ← 结果集不一致
+[0014/1036] zh/dev   FAIL    873ms  concert_singer           返回“Home Visits”音乐会20周年的时候它的参演歌手的年纪，同时给  ← 结果集不一致
+[0015/1036] zh/dev   FAIL   1736ms  concert_singer           假如参加过在斯塔克公园举行的音乐会的歌手全都参加过“Home Visits”  ← 结果集不一致
+[0016/1036] zh/dev   FAIL   3635ms  concert_singer           假设所有参演过在斯塔克公园的组织的音乐会也都参加过“Home Visits”  ← 结果集不一致
+[0017/1036] zh/dev   FAIL    741ms  concert_singer           巴尔穆尔场馆票价一张20美元，汉普登公园场馆票价一张5.5美元。满座的时候，  ← 结果集不一致
+[0018/1036] zh/dev   FAIL    757ms  concert_singer           巴尔穆尔场馆的票价为20美元一张，汉普登公园场馆的票价为5.5美元一张。假设  ← 结果集不一致
+[0019/1036] zh/dev   FAIL    772ms  concert_singer           巴尔穆尔场馆票价一张20美元，汉普登公园场馆票价一张5.5美元。假如汉普登公  ← 结果集不一致
+[0020/1036] zh/dev   FAIL    776ms  concert_singer           巴尔穆尔场馆的票价为20美元一张，汉普登公园场馆的票价为5.5美元一张。假设  ← 结果集不一致
+[0021/1036] zh/dev   FAIL   1074ms  concert_singer           1980年前出生的歌手出演一场音乐会薪酬355美元，1980年及以后出生的歌  ← 结果集不一致
+[0022/1036] zh/dev   FAIL   1063ms  concert_singer           对于1980年前出生的歌手，薪酬是355美元一场演出；而对于1980年及以后  ← 结果集不一致
+[0023/1036] zh/dev   FAIL   1944ms  concert_singer           1980年前出生的歌手出演一场音乐会薪酬355美元，1980年及以后出生的歌  ← 结果集不一致
+[0024/1036] zh/dev   FAIL   1292ms  concert_singer           对于1980年前出生的歌手，薪酬是355美元一场演出；而对于1980年及以后  ← 结果集不一致
+[0025/1036] zh/dev   FAIL   1577ms  concert_singer           平均入座率最低和最高的场馆分别是哪个，它们分别开过几场音乐会？  ← 结果集不一致
+[0026/1036] zh/dev   FAIL   1035ms  concert_singer           请告诉我平均入座率最低和最高的场馆的名字以及它们各自举办过的音乐会数量。  ← 结果集不一致
+[0027/1036] zh/dev   FAIL   1434ms  concert_singer           假如盖菲尔德公园场馆的容量是汉普登公园场馆的十分之一，平均入座率最低和最高的  ← 结果集不一致
+[0028/1036] zh/dev   FAIL   4342ms  concert_singer           假如盖菲尔德公园场馆的容量是汉普登公园场馆的十分之一，请告诉我平均入座率最低  ← 执行失败：exec:no_such_column: no such column: c2.Average
+[0029/1036] zh/dev   FAIL   1370ms  concert_singer           在萨默塞特公园场馆举办的每个音乐会的ID和名字分别是什么？每场音乐会中有百分  ← 结果集不一致
+[0030/1036] zh/dev   FAIL   1464ms  concert_singer           列出在萨默塞特公园场馆举办的每场音乐会的ID和名字，以及其中女歌手在歌手中的  ← 结果集不一致
+[0031/1036] zh/dev   FAIL   1485ms  concert_singer           假如“Week 2”音乐会在萨默塞特公园场馆举办，在萨默塞特公园场馆举办的每  ← 结果集不一致
+[0032/1036] zh/dev   FAIL   1468ms  concert_singer           假如“Week 2”音乐会的举办场地是萨默塞特公园场馆，列出在萨默塞特公园场  ← 结果集不一致
+[0033/1036] zh/dev   FAIL    806ms  concert_singer           总共有百分之多少的音乐会是在平均入座率前三的场馆举办的？  ← 结果集不一致
+[0034/1036] zh/dev   FAIL    966ms  concert_singer           计算一下在平均入座率前三的场馆举办的音乐会数量占所有音乐会数量的百分比。  ← 结果集不一致
+[0035/1036] zh/dev   FAIL    989ms  concert_singer           假如主题为“Bleeding Love”的音乐会在格里公园举办，总共有百分之  ← 结果集不一致
+[0036/1036] zh/dev   FAIL   1208ms  concert_singer           假设主题为“Bleeding Love”的音乐会的举办场地是格里公园，计算一  ← 结果集不一致
+[0037/1036] zh/dev   FAIL   1538ms  concert_singer           哪个场馆去演唱过的歌手数量不少于去格里公园场馆唱过的歌手数量的三倍？  ← 结果集不一致
+[0038/1036] zh/dev   FAIL   1528ms  concert_singer           列出去演唱过的歌手数量不少于去格里公园场馆唱过的歌手数量的三倍的场馆。  ← 结果集不一致
+[0039/1036] zh/dev   FAIL   3572ms  concert_singer           假如去过萨默塞特公园场馆演唱的歌手都去过巴尔穆尔场馆，哪个场馆去演唱过歌手数  ← 结果集不一致
+[0040/1036] zh/dev   FAIL   3576ms  concert_singer           假如所有去萨默塞特公园场馆演唱过的歌手也都去过巴尔穆尔场馆，列出去演唱过的歌  ← 结果集不一致
+[0041/1036] zh/dev   FAIL    569ms  concert_singer           哪个场馆的最高入座率比巴尔穆尔场馆的最高入座率两倍还多？列出这些场馆的名字。  ← 结果集不一致
+[0042/1036] zh/dev   FAIL    577ms  concert_singer           列出最高入座率比巴尔穆尔场馆的最高入座率两倍还高的场馆的名字。  ← 结果集不一致
+[0043/1036] zh/dev   FAIL   1122ms  concert_singer           假如巴尔穆尔场馆的容量是5600，哪个场馆的最高入座率比巴尔穆尔场馆的最高入  ← 结果集不一致
+[0044/1036] zh/dev   FAIL    565ms  concert_singer           假设巴尔穆尔场馆最多只能容下5600人，列出最高入座率比巴尔穆尔场馆的最高入  ← 结果集不一致
+[0045/1036] zh/dev   PASS   2220ms  concert_singer           哪场2012年后举办的音乐会的歌手数量比“Happy Tonight”主题音
+[0046/1036] zh/dev   PASS   2100ms  concert_singer           举办于2012年以后的音乐会中，哪场音乐会的参演歌手比“Happy Toni
+[0047/1036] zh/dev   FAIL   2809ms  concert_singer           假如每场音乐会都有歌手乔·夏普，哪场2012年后举办的音乐会的歌手数量比“H  ← 结果集不一致
+[0048/1036] zh/dev   FAIL   6799ms  concert_singer           假如乔·夏普参演了每一场音乐会，举办于2012年以后的音乐会中，哪场音乐会的  ← 结果集不一致
+[0049/1036] zh/dev   FAIL   1210ms  concert_singer           “Love”这首歌发布的时候哪些歌手的年龄比这首歌的演唱者的两倍还大？列出这  ← 结果集不一致
+[0050/1036] zh/dev   FAIL    778ms  concert_singer           列出“Love”这首歌发布的时候年龄比这首歌的演唱者的两倍还大的歌手的名字。  ← 结果集不一致
+[0051/1036] zh/dev   FAIL   1148ms  concert_singer           假如“Love”发布于2010年，“Love”这首歌发布的时候哪些歌手的年龄  ← 结果集不一致
+[0052/1036] zh/dev   FAIL    669ms  concert_singer           假如“Love”发布于2010年，列出“Love”这首歌发布的时候年龄比这首  ← 结果集不一致
+[0053/1036] zh/dev   PASS    490ms  world_1                  人均国民生产总值最高的国家在哪个大洲？
+[0054/1036] zh/dev   PASS    500ms  world_1                  给出人均国民生产总值最高的国家所在的大洲的名字。
+[0055/1036] zh/dev   FAIL    896ms  world_1                  假如库尔勒市所在的国家国民生产总值为1982268，人均国民生产总值最高的国  ← 结果集不一致
+[0056/1036] zh/dev   FAIL   1027ms  world_1                  如果库尔勒市所在的国家国民生产总值为1982268，给出人均国民生产总值最高  ← 结果集不一致
+[0057/1036] zh/dev   PASS    955ms  world_1                  1979年后独立的国家中，哪个国家的国民生产总值增长率最高？
+[0058/1036] zh/dev   PASS    676ms  world_1                  独立日期在1979年之后的国家中，国民生产总值增长率最高的国家是哪个？
+[0059/1036] zh/dev   FAIL    936ms  world_1                  1979年后独立的国家中，哪个国家的国民生产总值增长率最高假如大洋洲所有国家  ← 结果集不一致
+[0060/1036] zh/dev   FAIL    983ms  world_1                  假设大洋洲所有国家现在的国民生产总值增加1000000，给出在1979年之后  ← 结果集不一致
+[0061/1036] zh/dev   FAIL   2762ms  world_1                  哪个绝大多数人说英语的国家的人口密度最高，是人口密度最低的国家的多少倍？  ← 结果集不一致
+[0062/1036] zh/dev   FAIL   2990ms  world_1                  在使用人数占比最高的语言为英语的国家中，人口密度最高的国家是哪个？它的人口密  ← 结果集不一致
+[0063/1036] zh/dev   FAIL   3580ms  world_1                  假如爱尔兰没有一个人说英语，哪个绝大多数人说英语的国家的人口密度最高，是人口  ← 结果集不一致
+[0064/1036] zh/dev   FAIL   2365ms  world_1                  假设爱尔兰没有说英语的人，那么在使用人数占比最高的语言为英语的国家中，人口密  ← 结果集不一致
+[0065/1036] zh/dev   FAIL    984ms  world_1                  阿拉伯语不是官方语言的国家中，哪个国家的国民生产总值的增长幅度最大？  ← 结果集不一致
+[0066/1036] zh/dev   FAIL    972ms  world_1                  所有不以阿拉伯语为官方语言的国家中，国民生产总值增长幅度最大的国家的名字是什  ← 结果集不一致
+[0067/1036] zh/dev   FAIL   1307ms  world_1                  假如南美洲所有国家过去的国民生产总值增加9999，在阿拉伯语不是官方语言的国  ← 结果集不一致
+[0068/1036] zh/dev   FAIL   1490ms  world_1                  如果所有位于南美洲的国家的过去的国民生产总值增加9999，在所有不以阿拉伯语  ← 结果集不一致
+[0069/1036] zh/dev   FAIL   1066ms  world_1                  北美洲哪个城市的人口数量至少是江原道行政区的两倍？  ← 结果集不一致
+[0070/1036] zh/dev   FAIL    982ms  world_1                  列出位于北美洲的人口数量至少是江原道行政区的两倍的所有城市名字。  ← 结果集不一致
+[0071/1036] zh/dev   FAIL   1681ms  world_1                  假如北美洲以英语为官方语言的国家的城市人口增加1%，北美洲哪个城市的人口数量  ← 结果集不一致
+[0072/1036] zh/dev   FAIL    963ms  world_1                  假如以英语为官方语言的北美洲国家的城市人口增加1%，列出位于北美洲的人口数量  ← 结果集不一致
+[0073/1036] zh/dev   SKIP    918ms  world_1                  哪个大洲的国民生产总值增长率至少是非洲的1.5倍？  ← 参考结果集为空（跳过判分）
+[0074/1036] zh/dev   SKIP   1035ms  world_1                  列出所有国民生产总值增长率至少是非洲的1.5倍的大洲的名字。  ← 参考结果集为空（跳过判分）
+[0075/1036] zh/dev   SKIP   1338ms  world_1                  假如绝大多数人说捷克语的国家现在的国民生产总值增加0.5%，哪个大洲的国民生  ← 参考结果集为空（跳过判分）
+[0076/1036] zh/dev   SKIP   1333ms  world_1                  如果使用人数比例最高的语言是捷克语的国家现在的国民生产总值增加0.5%，列出  ← 参考结果集为空（跳过判分）
+[0077/1036] zh/dev   PASS    732ms  world_1                  哪个国家的人口预期寿命不低于赞比亚的1.5倍？
+[0078/1036] zh/dev   PASS    524ms  world_1                  列出所有人口预期寿命不低于赞比亚的1.5倍的国家名字。
+[0079/1036] zh/dev   FAIL   1022ms  world_1                  假如人均国民生产总值是全球前20的国家的人口预期寿命都是90，哪个国家的人口  ← 结果集不一致
+[0080/1036] zh/dev   FAIL    947ms  world_1                  假如人均国民生产总值排名全球前20的国家的人口预期寿命都是90，列出所有人口  ← 结果集不一致
+[0081/1036] zh/dev   FAIL    891ms  world_1                  荷兰语不是最主要语言的国家中，哪个国家的国民生产总值的减少量最大？  ← 结果集不一致
+[0082/1036] zh/dev   PASS   1075ms  world_1                  在所有不以荷兰语为最主要语言的国家中，哪个国家的国民生产总值降低幅度最大？
+[0083/1036] zh/dev   FAIL   1573ms  world_1                  假如阿鲁巴岛所有人都说荷兰语，荷兰语不是最主要语言的国家中，哪个国家的国民生  ← 结果集不一致
+[0084/1036] zh/dev   FAIL   1088ms  world_1                  假如荷兰语事阿鲁巴岛唯一一种使用的语言，那么在所有不以荷兰语为最主要语言的国  ← 结果集不一致
+[0085/1036] zh/dev   PASS    712ms  world_1                  北美洲洲国民生产总值呈下降趋势的国家比南美洲多多少？
+[0086/1036] zh/dev   PASS    881ms  world_1                  位于北美洲的国家中，国民生产总值呈下降趋势的国家比南美洲多多少？
+[0087/1036] zh/dev   PASS   1103ms  world_1                  假如北美洲人口最多的前两个国家当前的国民生产总值增加2%，北美洲洲国民生产总
+[0088/1036] zh/dev   FAIL   1068ms  world_1                  假如北美洲人口数量排名最高的两个国家的当前的国民生产总值增加2%，那么在位于  ← 结果集不一致
+[0089/1036] zh/dev   FAIL   1457ms  world_1                  哪个大洲的人均国民生产总值增长率比欧洲高至少两个点？  ← 结果集不一致
+[0090/1036] zh/dev   FAIL    787ms  world_1                  列出所有人均国民生产总值增长率比欧洲高至少两个百分点的大洲。  ← 结果集不一致
+[0091/1036] zh/dev   FAIL   1803ms  world_1                  假如人口预期寿命最长的前3个国家国民生产总值减少2%，哪个大洲的人均国民生产  ← 结果集不一致
+[0092/1036] zh/dev   FAIL   1406ms  world_1                  假设人口预期寿命位列前3的国家国民生产总值减少2%，列出所有人均国民生产总值  ← 结果集不一致
+[0093/1036] zh/dev   FAIL   1001ms  world_1                  如果增长幅度保持不变，列出亚洲每个国家的名字、过去的国民生产总值、现在的国民  ← 结果集不一致
+[0094/1036] zh/dev   FAIL   1057ms  world_1                  假设国民生产总值增长幅度保持恒定，列出每个位于亚洲的国家的名字、过去的国民生  ← 结果集不一致
+[0095/1036] zh/dev   FAIL   1309ms  world_1                  如果增长幅度保持不变且以中文为主要语言的国家现在的国民生产总值是100000  ← 结果集不一致
+[0096/1036] zh/dev   FAIL   1238ms  world_1                  假设以中文为主要语言的国家现在的国民生产总值是1000000.0，且所有国家  ← 结果集不一致
+[0097/1036] zh/dev   FAIL    632ms  world_1                  英国的人口年增长率是0.4%，1年后英国的人口数量是多少？  ← 结果集不一致
+[0098/1036] zh/dev   PASS    470ms  world_1                  列出1年之后英国的人口数量，已知英国的人口年增长率是0.4%。
+[0099/1036] zh/dev   FAIL    507ms  world_1                  假如欧洲人口预期寿命大于75的国家的人口数量为103000，英国的人口年增长  ← 结果集不一致
+[0100/1036] zh/dev   PASS    502ms  world_1                  假设位于欧洲且人口预期寿命大于75的国家的人口数量为103000，请列出1年
+[0101/1036] zh/dev   FAIL    495ms  world_1                  按照赞比亚的预期寿命，出生于赞比亚独立那年的人的预期死亡年份是哪年？  ← 结果集不一致
+[0102/1036] zh/dev   FAIL    588ms  world_1                  假设一个赞比亚人出生于赞比亚独立的那一年，请根据赞比亚的预期寿命预测这个人的  ← 结果集不一致
+[0103/1036] zh/dev   FAIL    707ms  world_1                  假如人均国民生产总值大于欧洲所有国家的平均人均国民生产总值的国家的人口预期寿  ← 结果集不一致
+[0104/1036] zh/dev   FAIL    651ms  world_1                  假如人均国民生产总值大于欧洲所有国家的平均人均国民生产总值的国家的人口预期寿  ← 结果集不一致
+[0105/1036] zh/train FAIL    759ms  bike_1                   2015年6月2日12:47:02，圣何塞文娱中心站不可用的自行车停靠点有多  ← 结果集不一致
+[0106/1036] zh/train FAIL    845ms  bike_1                   返回2015年6月2日12点47分2秒圣何塞文娱中心站不可用的自行车停靠点的  ← 结果集不一致
+[0107/1036] zh/train FAIL    894ms  bike_1                   如果圣何塞文娱中心站站总共有20个自行车停靠点，那么2015年6月2日12:  ← 结果集不一致
+[0108/1036] zh/train FAIL    791ms  bike_1                   返回2015年6月2日12点47分2秒圣何塞文娱中心站不可用的自行车停靠点的  ← 结果集不一致
+[0109/1036] zh/train FAIL    601ms  bike_1                   金门之城总共有多少个自行车站，比帕洛阿托少多少？  ← 结果集不一致
+[0110/1036] zh/train FAIL    599ms  bike_1                   返回金门之城的自行车站总数。它与帕洛阿托的自行车站总数相比少多少？  ← 结果集不一致
+[0111/1036] zh/train FAIL   1039ms  bike_1                   金门之城总共有多少个自行车站？如果帕洛阿托的自行车站数量是它自己的两倍还多1  ← 结果集不一致
+[0112/1036] zh/train FAIL    659ms  bike_1                   返回金门之城的自行车站总数。假如帕洛阿托的自行车站数量增长一倍还多十个，那金  ← 结果集不一致
+[0113/1036] zh/train FAIL   1121ms  bike_1                   在2015年6月2日12:46:02这个时刻，那些建于2013年8月20日的  ← 结果集不一致
+[0114/1036] zh/train FAIL   1126ms  bike_1                   返回2015年6月2日12点46分2秒的时候，所有2013年8月20日建的车  ← 结果集不一致
+[0115/1036] zh/train FAIL   2826ms  bike_1                   如果建于2013年8月20日的每个车站的自行车停靠点数量都是"Grant A  ← 结果集不一致
+[0116/1036] zh/train FAIL   1508ms  bike_1                   假设2013年8月20日建的每个车站的自行车停靠点数量比“Grant Ave  ← 结果集不一致
+[0117/1036] zh/train PASS    721ms  bike_1                   查找持续时间是出发于“2nd at Folsom”站的行程的平均持续时间至少
+[0118/1036] zh/train PASS    610ms  bike_1                   哪些行程的持续时长至少是出发站为“2nd at Folsom”站的行程的平均
+[0119/1036] zh/train PASS    322ms  bike_1                   查找持续时间至少是出发于“2nd at Folsom”站的行程的平均持续时间
+[0120/1036] zh/train FAIL    516ms  bike_1                   假如出发站为“2nd at Folsom”站的行程的平均持续时长为666，哪  ← 结果集不一致
+[0121/1036] zh/train PASS   1635ms  bike_1                   2015年6月2日13:59:02，哪个车站的可用自行车数量是“2nd at
+[0122/1036] zh/train PASS   1546ms  bike_1                   列出在二零一五年六月二日十三点五十九分两秒的时候可用自行车数量比“2nd a
+[0123/1036] zh/train FAIL   3391ms  bike_1                   2015年6月2日13:59:02，如果“2nd at Townsend”有  ← 结果集不一致
+[0124/1036] zh/train PASS    857ms  bike_1                   列出在二零一五年六月二日十三点五十九分两秒的时候可用自行车数量比“2nd a
+[0125/1036] zh/train FAIL   1131ms  bike_1                   对于每个车站，找出以它为终点站的行程的最小持续时间、最长持续时间以及它们的差  ← 结果集不一致
+[0126/1036] zh/train FAIL   1050ms  bike_1                   对于每个车站，以它为终点的行程的最短和最长持续时长分别是多少，它们相差多少？  ← 结果集不一致
+[0127/1036] zh/train FAIL    527ms  bike_1                   邮编为94107的地方哪天温差最大？  ← 结果集不一致
+[0128/1036] zh/train FAIL    822ms  bike_1                   请告诉我哪天邮编为94107的地方温差最大。  ← 结果集不一致
+[0129/1036] zh/train FAIL    981ms  bike_1                   2013年一战停战纪念日，哪个地方的平均能见度英里数最高，给出那里的邮编，以  ← 结果集不一致
+[0130/1036] zh/train FAIL    993ms  bike_1                   返回二零一三年一战停战纪念日那天平均能见度英里数最远的地方的邮编，以及它当天  ← 结果集不一致
+[0131/1036] zh/train FAIL    809ms  bike_1                   2013年一战停战纪念日，哪个地方的平均能见度英里数最高？给出那里的邮编。如  ← 结果集不一致
+[0132/1036] zh/train FAIL   1129ms  bike_1                   返回二零一三年一战停战纪念日那天平均能见度英里数最远的地方的邮编以及它当天的  ← 结果集不一致
+[0133/1036] zh/train PASS    741ms  bike_1                   邮编为94107的地方哪天平均温度最高？列出日期和平均摄氏温度。
+[0134/1036] zh/train PASS    970ms  bike_1                   返回邮编为94107的地方平均温度最高的那天的日期和平均摄氏温度。
+[0135/1036] zh/train FAIL    923ms  bike_1                   各个地方的邮编是多少？它们2014年1月1日平均风速分别是多少千米每小时？  ← 结果集不一致
+[0136/1036] zh/train FAIL   1098ms  bike_1                   以单位千米每小时返回二零一四年各个地方的平均风速，同时给出各地的邮编。  ← 结果集不一致
+[0137/1036] zh/train FAIL    841ms  bike_1                   2014年1月1日这天各个地方的平均风速是多少千米每小时，如果当天的平均风速  ← 结果集不一致
+[0138/1036] zh/train FAIL    997ms  bike_1                   给出各个地方的邮编，并以单位千米每小时返回二零一四年各个地方的平均风速，假如  ← 结果集不一致
+[0139/1036] zh/train FAIL   1137ms  bike_1                   邮编地址为94041的地方2014年11月12日和2014年3月12日这两天  ← 结果集不一致
+[0140/1036] zh/train FAIL   1343ms  bike_1                   以单位毫米给出邮编地址为94041的地方二零一四年十一月十二日和三月十二日这  ← 结果集不一致
+[0141/1036] zh/train FAIL   2335ms  bike_1                   如果邮编地址为94041的地方2014年11月12日和2014年3月12日那  ← 结果集不一致
+[0142/1036] zh/train FAIL   2265ms  bike_1                   假设邮编地址为94041的地方二零一四年十一月十二日和三月十二日这两天的降水  ← 结果集不一致
+[0143/1036] zh/train FAIL    831ms  bike_1                   2013年国民悲痛意识日这天，各个地方的最高能见度、平均能见度、最低能见度是  ← 结果集不一致
+[0144/1036] zh/train FAIL    750ms  bike_1                   以米为单位列出二零一三年国民悲痛意识日这天各个地方的邮编、最高能见度、平均能  ← 结果集不一致
+[0145/1036] zh/train PASS    528ms  bike_1                   如果给自行车停靠点最少的车站再添10个自行车停靠点，它会有多少自行车停靠点？
+[0146/1036] zh/train PASS    467ms  bike_1                   返回给自行车停靠点最少的车站再添10个自行车停靠点后它的自行车停靠点数量。
+[0147/1036] zh/train FAIL    968ms  bike_1                   政府计划在加利福尼亚州的人口排名第三的城市中再建立四个车站，那里将总共有几个  ← 结果集不一致
+[0148/1036] zh/train FAIL    920ms  bike_1                   返回加利福尼亚州人口排名第三的城市再建四个车站后的车站总数。  ← 结果集不一致
+[0149/1036] zh/train FAIL    975ms  bike_1                   给出各地区的邮政编码，并计算2014年10月24日，各地区的最高温度是多少？  ← 结果集不一致
+[0150/1036] zh/train FAIL    734ms  bike_1                   返回二零一四年十月二十日各地区的邮政编码，最高温度，及与地球上有记录以来的最  ← 结果集不一致
+[0151/1036] zh/train PASS    749ms  bike_1                   旧金山有百分之多少的车站有超过25个自行车停靠点？
+[0152/1036] zh/train PASS    806ms  bike_1                   旧金山的车站中有超过25个自行车停靠点的车站占百分之几？
+[0153/1036] zh/train PASS    547ms  bike_1                   拥有最多车站的城市的车站数量是拥有最少车站的城市的车站数量的多少倍？
+[0154/1036] zh/train PASS    644ms  bike_1                   请告诉我拥有最多车站的城市的车站数量是车站数量最少的城市的几倍。
+[0155/1036] zh/train FAIL    767ms  bike_1                   温差最大的时候最高温度是最低温度的多少倍？  ← 结果集不一致
+[0156/1036] zh/train FAIL    618ms  bike_1                   返回温度变化最大时最高温度是最低温度的几倍。  ← 结果集不一致
+[0157/1036] zh/train FAIL    995ms  bike_1                   邮编为94063的地方平均最高气温是多少摄氏度，比平均最低气温高多少？  ← 结果集不一致
+[0158/1036] zh/train FAIL    989ms  bike_1                   以摄氏度为单位返回邮编为94063的地方的平均最高气温。它比当地的平均最低气  ← 结果集不一致
+[0159/1036] zh/train FAIL    895ms  customers_and_products_c 斯特林至今花了多少钱了？  ← 结果集不一致
+[0160/1036] zh/train PASS    864ms  customers_and_products_c 到目前为止，斯特林已经花费了多少钱？
+[0161/1036] zh/train FAIL    911ms  customers_and_products_c 假如所有古琦产品的单价都是600，斯特林至今花了多少钱了？  ← 结果集不一致
+[0162/1036] zh/train PASS   1010ms  customers_and_products_c 假如所有古琦产品通通600一件，到目前为止，斯特林已经花费了多少钱？
+[0163/1036] zh/train FAIL   1046ms  customers_and_products_c 斯特林是会员，买所有产品都有八折优惠，他至今花了多少钱了？  ← 结果集不一致
+[0164/1036] zh/train FAIL    936ms  customers_and_products_c 斯特林作为会员买所有产品都享有八折优惠，计算一下他目前为止的消费总金额。  ← 结果集不一致
+[0165/1036] zh/train FAIL   1049ms  customers_and_products_c 斯特林是会员，买所有产品都有八折优惠，他至今节约了多少钱了？  ← 结果集不一致
+[0166/1036] zh/train FAIL   1009ms  customers_and_products_c 斯特林作为会员买所有产品都享有八折优惠，计算一下他目前为止的总节省金额。  ← 结果集不一致
+[0167/1036] zh/train FAIL   5472ms  customers_and_products_c 按照用户至今的花费总额的从多到少，列出客户id、姓名、地址、电话、电子邮件。  ← 结果集不一致
+[0168/1036] zh/train FAIL   1265ms  customers_and_products_c 请给出每个客户的id、姓名、地址、电话和电子邮件，按照他们截止当前消费金额的  ← 结果集不一致
+[0169/1036] zh/train FAIL    969ms  customers_and_products_c 克莱奥最新的订单总价多少？  ← 结果集不一致
+[0170/1036] zh/train FAIL   1070ms  customers_and_products_c 克莱奥在最近一次订单中总共花费了多少钱？  ← 结果集不一致
+[0171/1036] zh/train FAIL   1018ms  customers_and_products_c 克莱奥最新的订单总价多少，假如他每个产品都买了5个？  ← 结果集不一致
+[0172/1036] zh/train FAIL    946ms  customers_and_products_c 克莱奥在最近一次订单中总共花费了多少钱，假设他每个产品的购买数量都为五？  ← 结果集不一致
+[0173/1036] zh/train FAIL   1664ms  customers_and_products_c 苹果产品的成本是出售价格的40%，古琦产品的成本是出售价格的20%，其他产品  ← 结果集不一致
+[0174/1036] zh/train FAIL   1642ms  customers_and_products_c 请提供各个产品的ID、名称、销售量、销售额和总毛利润金额。其中，苹果产品的成  ← 结果集不一致
+[0175/1036] zh/train FAIL   2230ms  customers_and_products_c 苹果产品的成本是出售价格的40%，古琦产品的成本是出售价格的20%，其他产品  ← 结果集不一致
+[0176/1036] zh/train FAIL   1699ms  customers_and_products_c 假设苹果产品的价格通通减少15%，请提供各个产品的ID、名称、销售量、销售额  ← 结果集不一致
+[0177/1036] zh/train PASS    773ms  customers_and_products_c 有百分之多少的订单已经已完成？
+[0178/1036] zh/train PASS    762ms  customers_and_products_c 计算一下处于已完成状态的订单占所有订单的百分比。
+[0179/1036] zh/train FAIL    897ms  customers_and_products_c 假如2000年以前的订单都完成了，有百分之多少的订单已经已完成？  ← 结果集不一致
+[0180/1036] zh/train FAIL    924ms  customers_and_products_c 假如2000年前的订单都处于已完成状态，计算一下处于已完成状态的订单占所有订  ← 结果集不一致
+[0181/1036] zh/train FAIL   1996ms  customers_and_products_c 有多个联系方式的用户的姓名和第一个订单的金额是多少？  ← 结果集不一致
+[0182/1036] zh/train FAIL   1885ms  customers_and_products_c 列出有多个联系方式的用户的姓名，以及他的首单消费额。  ← 结果集不一致
+[0183/1036] zh/train FAIL   1697ms  customers_and_products_c 假如2000年前所有苹果产品的单价都是888，有多个联系方式的用户第一个订单  ← 结果集不一致
+[0184/1036] zh/train FAIL   2078ms  customers_and_products_c 假如所有苹果产品在2000年以前的价格均为888，列出有多个联系方式的用户的  ← 结果集不一致
+[0185/1036] zh/train FAIL   1689ms  customers_and_products_c 哪些用户曾有过多个不同的地址，给出他们的名字，以及它们每个人至今用得最久的地  ← 结果集不一致
+[0186/1036] zh/train FAIL   1614ms  customers_and_products_c 列出曾有过多个不同的地址的用户的名字，以及他们至今用得最久的邮编。  ← 结果集不一致
+[0187/1036] zh/train FAIL   1183ms  customers_and_products_c 哪些用户从未有过多个不同的地址，给出他们的名字，以及它们每个人的邮编地址。  ← 结果集不一致
+[0188/1036] zh/train FAIL   1121ms  customers_and_products_c 列出从未有过多个不同地址的用户的名字，以及他们的邮编地址。  ← 结果集不一致
+[0189/1036] zh/train FAIL   2056ms  customers_and_products_c 哪个用户在2000年以后再也没有下过订单，列出他的id、名字、邮件以及最后一  ← 结果集不一致
+[0190/1036] zh/train FAIL   1709ms  customers_and_products_c 列出在2000年以后再也没有买过东西的用户的id、名字、邮件、以及最后一笔订  ← 结果集不一致
+[0191/1036] zh/train FAIL   5163ms  customers_and_products_c 用户单笔订单总价超过1000可以获得222积分，超过2000可以再获得666  ← 执行失败：exec:other: misuse of aggregate function SUM()
+[0192/1036] zh/train PASS   1996ms  customers_and_products_c 用户可以在单笔订单总价超过1000时获得222积分，在超过2000时再获得6
+[0193/1036] zh/train FAIL    769ms  customers_and_products_c 衣服的平均单价比硬件高多少？  ← 结果集不一致
+[0194/1036] zh/train FAIL    776ms  customers_and_products_c 衣服的平均单价与硬件的平均单价相比高多少？  ← 结果集不一致
+[0195/1036] zh/train FAIL   1069ms  customers_and_products_c 如果衣服涨价20%，衣服的平均单价比硬件高多少？  ← 结果集不一致
+[0196/1036] zh/train FAIL   1076ms  customers_and_products_c 如果所有衣服的价格上升20%，衣服的平均单价与硬件的平均单价相比高多少？  ← 结果集不一致
+[0197/1036] zh/train FAIL   1632ms  customers_and_products_c 曾使用过首府为法兰克福的州的地址的用户有多少，他们中女性的比例是多少？  ← 结果集不一致
+[0198/1036] zh/train FAIL   1708ms  customers_and_products_c 有多少客户的曾用地址位于首府为法兰克福的州，他们中女性占比多少？  ← 结果集不一致
+[0199/1036] zh/train FAIL   1355ms  customers_and_products_c 给出销售量最高的产品的ID，名字，销量，以及给出其比销售量最低的产品的销售量  ← 结果集不一致
+[0200/1036] zh/train FAIL   1744ms  customers_and_products_c 销量第一的产品的ID和名字是什么？它的销量是多少，比销量倒数第一的产品销量高  ← 结果集不一致
+[0201/1036] zh/train FAIL   1495ms  customers_and_products_c 给出销售量最高的产品的ID，名字。假如它的销售量又增加了500，它的销售量变  ← 结果集不一致
+[0202/1036] zh/train FAIL   1520ms  customers_and_products_c 销量第一的产品的ID和名字是什么？假设它的销量增加500，它的销量是多少，比  ← 结果集不一致
+[0203/1036] zh/train FAIL   1361ms  customers_and_products_c 使用信用卡付款需要交支付金额5%的手续费。列出每个客户的姓名，其每笔订单的i  ← 结果集不一致
+[0204/1036] zh/train FAIL   1279ms  customers_and_products_c 请列出每个客户的姓名，及其每笔订单的id和总花费，其中使用信用卡付款的需要额  ← 结果集不一致
+[0205/1036] zh/train FAIL    778ms  customers_and_products_c 使用信用卡付款需要交支付金额5%的手续费。假如每个产品的单价都是99，列出每  ← 结果集不一致
+[0206/1036] zh/train FAIL    969ms  customers_and_products_c 假如所有产品通通99一个，请列出每个客户的姓名，及其每笔订单的id和总花费，  ← 结果集不一致
+[0207/1036] zh/train PASS    712ms  customers_and_products_c 列出年份和对应的年销售额。
+[0208/1036] zh/train PASS    744ms  customers_and_products_c 有记录的年份和对应的年销售额是多少？
+[0209/1036] zh/train FAIL   1166ms  customers_and_products_c 列出苹果产品的最高价、最低价、方差。  ← 结果集不一致
+[0210/1036] zh/train FAIL   1366ms  customers_and_products_c 苹果产品的最高价、最低价、价格方差是多少？  ← 结果集不一致
+[0211/1036] zh/train PASS    784ms  driving_school           列出每个客户的ID和报名驾校时的年龄。
+[0212/1036] zh/train FAIL    988ms  driving_school           每个客户的ID是多少，他们报名驾校时候年龄都多大了？  ← 结果集不一致
+[0213/1036] zh/train FAIL   1152ms  driving_school           假如达蒙·桑福德出生于21世纪的第一天，列出每个客户的ID和报名驾校时的年龄  ← 结果集不一致
+[0214/1036] zh/train FAIL   1096ms  driving_school           假如达蒙·桑福德的生日是21世纪的第一天，那么每个客户的ID是多少，他们报名  ← 结果集不一致
+[0215/1036] zh/train FAIL    658ms  driving_school           未偿金额大于2000的客户中有百分之多少客户是优质客户？  ← 结果集不一致
+[0216/1036] zh/train FAIL    624ms  driving_school           列出优质客户在未偿金额大于2000的客户中所占的百分比。  ← 结果集不一致
+[0217/1036] zh/train FAIL    664ms  driving_school           假如所有2015年报名的客户未偿金额为200，未偿金额大于2000的客户中有  ← 结果集不一致
+[0218/1036] zh/train FAIL   1022ms  driving_school           如果所有在2015年报名的客户的未偿金额都是200，列出优质客户在未偿金额大  ← 结果集不一致
+[0219/1036] zh/train FAIL   1131ms  driving_school           列出入职时大于20岁的教练的ID和安排的课程数量。  ← 结果集不一致
+[0220/1036] zh/train FAIL   3202ms  driving_school           哪些教练在入职时的年龄大于20岁，他们的ID和安排的课程数量分别是多少？  ← 结果集不一致
+[0221/1036] zh/train FAIL   1649ms  driving_school           假如2018年3月8日离职的教练都是2016年3月8日入职的，列出入职时大于  ← 结果集不一致
+[0222/1036] zh/train FAIL   1961ms  driving_school           假设所有2018年3月8日离职的教练的入职日期都是2016年3月8日，那么哪  ← 结果集不一致
+[0223/1036] zh/train FAIL    561ms  driving_school           哪个教练在驾校工作得最久？给出他们的ID。  ← 结果集不一致
+[0224/1036] zh/train FAIL    409ms  driving_school           在驾校工作时间最长的教练的ID是多少？  ← 结果集不一致
+[0225/1036] zh/train FAIL   1769ms  driving_school           假如林肯·本尼·卡罗尔21岁生日那天入职的，给出在驾校工作得最久的教练的ID  ← 结果集不一致
+[0226/1036] zh/train FAIL    960ms  driving_school           如果林肯·本尼·卡罗尔的入职日期是他的21岁生日那天，在驾校工作时间最长的教  ← 结果集不一致
+[0227/1036] zh/train FAIL   1263ms  driving_school           一次课都没上过的客户中不良客户比优质客户多多少？  ← 结果集不一致
+[0228/1036] zh/train FAIL   1341ms  driving_school           列出在从未上过课的客户中不良客户比优质客户多的数量。  ← 结果集不一致
+[0229/1036] zh/train FAIL   1742ms  driving_school           假如2018年3月7日所有课都没有被取消，一次课都没上过的客户中不良客户比优  ← 结果集不一致
+[0230/1036] zh/train FAIL   1104ms  driving_school           如果2018年3月7日所有课都没有被取消，列出在从未上过课的客户中不良客户比  ← 结果集不一致
+[0231/1036] zh/train FAIL   5777ms  driving_school           2018年3月5日后没有课程安排的教练的ID是多少，其一次课平均多少钱，他今  ← 结果集不一致
+[0232/1036] zh/train FAIL   1535ms  driving_school           列出在2018年3月5日之后没有任何课程安排的教练的ID，其课程的平均价格，  ← 结果集不一致
+[0233/1036] zh/train FAIL   1993ms  driving_school           假如2018年2月所有课涨价8%，2018年3月5日后没有课程安排的教练的I  ← 结果集不一致
+[0234/1036] zh/train FAIL   2210ms  driving_school           假设2018年2月所有课程价格上调8%，列出在2018年3月5日之后没有任何  ← 结果集不一致
+[0235/1036] zh/train PASS   1285ms  driving_school           哪个教练课程均价最高，给出他的ID。其均价比课程均价最低的教练高多少？
+[0236/1036] zh/train PASS   1610ms  driving_school           课程平均价格最贵的教练的ID是多少，其平均价格比课程平均价格最便宜的教练贵多
+[0237/1036] zh/train FAIL   4844ms  driving_school           假如温尼弗雷德·利亚姆·贾斯特的所有课程降价12%，哪个教练课程均价最高，给  ← 结果集不一致
+[0238/1036] zh/train FAIL   5682ms  driving_school           假设温尼弗雷德·利亚姆·贾斯特的所有课程价格下调12%，课程平均价格最贵的教  ← 执行失败：exec:no_such_column: no such column: c.middle_name
+[0239/1036] zh/train FAIL    977ms  driving_school           有百分之多少的学员有多个教练？  ← 结果集不一致
+[0240/1036] zh/train FAIL    858ms  driving_school           列出教练数量大于一个的学员所占的百分比。  ← 结果集不一致
+[0241/1036] zh/train FAIL   1591ms  driving_school           假如ID为12的课程的教练是尼弗雷德·利亚姆·贾斯特，有百分之多少的学员有多  ← 结果集不一致
+[0242/1036] zh/train FAIL   1451ms  driving_school           如果尼弗雷德·利亚姆·贾斯特是ID为12的课程的教练，列出教练数量大于一个的  ← 结果集不一致
+[0243/1036] zh/train PASS    417ms  driving_school           最老的教练比最年轻的教练大多少岁？
+[0244/1036] zh/train FAIL    890ms  driving_school           年纪最大的教练比年纪最小的教练年长多少岁？  ← 结果集不一致
+[0245/1036] zh/train FAIL    588ms  driving_school           假如2020年的时候卡梅尔·伊西·魏斯纳特的年龄是2009年出生的人的两倍，  ← 结果集不一致
+[0246/1036] zh/train FAIL   2152ms  driving_school           假设2020年的时候卡梅尔·伊西·魏斯纳特的年龄是生于2009的人的年龄的两  ← 结果集不一致
+[0247/1036] zh/train PASS   1223ms  driving_school           离开驾校时的年龄最大的教练总共有多少课程安排，其中被取消了的课占比多少？
+[0248/1036] zh/train PASS   1310ms  driving_school           离开驾校时候的最年长的教练的课程安排总量是多少，其中多少比例的课程被取消了？
+[0249/1036] zh/train FAIL   2421ms  driving_school           假如所有教练入职后的60天内都没有课程安排，离开驾校的时年龄最大的教练总共有  ← 结果集不一致
+[0250/1036] zh/train PASS   1434ms  driving_school           如果所有教练在入职60天后才会有课程安排，离开驾校时候的最年长的教练的课程安
+[0251/1036] zh/train FAIL   1229ms  driving_school           哪个客户支付的钱最多，给出他的ID，并求出其比支付的钱最少的客户多支付多少钱  ← 结果集不一致
+[0252/1036] zh/train FAIL   1285ms  driving_school           列出付钱最多的客户的ID，以及其比付钱最少的客户多付的钱的数额。  ← 结果集不一致
+[0253/1036] zh/train FAIL   2841ms  driving_school           假如阿米娅·斯宾卡2018年3月12日多支付5000，哪个客户支付的钱最多，  ← 结果集不一致
+[0254/1036] zh/train FAIL   1831ms  driving_school           如果阿米娅·斯宾卡2018年3月12日付款金额多5000，列出付钱最多的客户  ← 结果集不一致
+[0255/1036] zh/train FAIL   1110ms  driving_school           住在乔治亚州伊莱恩湖市的教练平均年龄是多少？  ← 结果集不一致
+[0256/1036] zh/train FAIL   1106ms  driving_school           列出居住在乔治亚州伊莱恩湖市的教练的平均年龄。  ← 结果集不一致
+[0257/1036] zh/train FAIL   1188ms  driving_school           假如住在乔治亚州伊莱恩湖市的教练平均年龄是住在乔治亚州梅丽莎港市的教练的平均  ← 结果集不一致
+[0258/1036] zh/train FAIL   1191ms  driving_school           如果居住在乔治亚州伊莱恩湖市的教练平均年龄是居住在乔治亚州梅丽莎港市的教练的  ← 结果集不一致
+[0259/1036] zh/train FAIL   2110ms  driving_school           贾妮莎·阿马拉·萨文离职5年后多少岁，比卡梅尔·伊西·魏斯纳特小多少岁？  ← 结果集不一致
+[0260/1036] zh/train FAIL   2219ms  driving_school           贾妮莎·阿马拉·萨文在离职5年后的年龄是多大，其比卡梅尔·伊西·魏斯纳特年轻  ← 结果集不一致
+[0261/1036] zh/train FAIL   4161ms  driving_school           假如贾妮莎·阿马拉·萨文离职的时候卡梅尔·伊西·魏斯纳特30岁，贾妮莎·阿马  ← 结果集不一致
+[0262/1036] zh/train FAIL   1773ms  driving_school           若卡梅尔·伊西·魏斯纳特在贾妮莎·阿马拉·萨文离职的时候的年龄是30岁，那贾  ← 结果集不一致
+[0263/1036] zh/train FAIL    695ms  formula_1                五年后，刘易斯·汉密尔顿多大了？  ← 结果集不一致
+[0264/1036] zh/train FAIL    598ms  formula_1                刘易斯·汉密尔顿在五年后的年龄是多大？  ← 结果集不一致
+[0265/1036] zh/train FAIL    327ms  formula_1                五年后，刘易斯·汉密尔顿多大了，假如他出生于2020年1月1日？  ← 结果集不一致
+[0266/1036] zh/train FAIL    323ms  formula_1                如果刘易斯·汉密尔顿的生日是2020年1月1日，那他在五年后的年龄是多大？  ← 结果集不一致
+[0267/1036] zh/train FAIL   1334ms  formula_1                在2009年澳大利亚大奖赛资格赛中，排名第一的车手在三场比赛中的平均圈速是多  ← 结果集不一致
+[0268/1036] zh/train FAIL   1066ms  formula_1                在2009年澳大利亚大奖赛资格赛中排名最高的车手三场比赛的平均圈速是多少？  ← 结果集不一致
+[0269/1036] zh/train FAIL   1443ms  formula_1                在2009年澳大利亚大奖赛资格赛中，排名第一的车手在三场比赛中的平均圈速是多  ← 结果集不一致
+[0270/1036] zh/train FAIL   1533ms  formula_1                如果在2009年澳大利亚大奖赛资格赛中排名最高的车手在q1中的圈速是1:26  ← 结果集不一致
+[0271/1036] zh/train PASS    407ms  formula_1                最靠近北回归线的赛道的名称和位置是什么？
+[0272/1036] zh/train PASS    504ms  formula_1                列出离北回归线最近的赛道的名称和位置。
+[0273/1036] zh/train PASS    520ms  formula_1                离南回归线最远的赛道叫什么名字？
+[0274/1036] zh/train PASS    514ms  formula_1                给出距离南回归线距离最远的赛道名称。
+[0275/1036] zh/train PASS   1487ms  formula_1                2009年和2010年分别举行了多少场比赛？它们相差多少？
+[0276/1036] zh/train PASS   1334ms  formula_1                分别列出在2009年和2010年举行的比赛数量，以及二者的差距。
+[0277/1036] zh/train FAIL   1480ms  formula_1                2009年和2010年分别举行了多少场比赛？它们相差多少假如2010年再多举  ← 结果集不一致
+[0278/1036] zh/train FAIL   1079ms  formula_1                如果2010年再多举办5场比赛，分别列出在2009年和2010年举行的比赛数  ← 结果集不一致
+[0279/1036] zh/train PASS   1002ms  formula_1                法国比意大利多举行了多少场比赛？
+[0280/1036] zh/train PASS    931ms  formula_1                在法国举办的比赛数量比在意大利举办的比赛数量多多少？
+[0281/1036] zh/train PASS   1315ms  formula_1                北半球和南半球分别举行了多少场比赛？它们相差多少？
+[0282/1036] zh/train PASS   1221ms  formula_1                分别列出举办位置在北半球和南半球的比赛数量，以及二者的差距。
+[0283/1036] zh/train FAIL   5679ms  formula_1                在2006年英国大奖赛资格赛第一轮比赛中，给出速度最快、最慢的车手的姓，名，  ← 结果集不一致
+[0284/1036] zh/train FAIL  36350ms  formula_1                列出2006年英国大奖赛资格赛第一轮比赛中速度最快和最慢的车手的姓，名，以及  ← 结果集不一致
+[0285/1036] zh/train PASS    562ms  formula_1                哪些国家的赛道数量是日本的两倍多？
+[0286/1036] zh/train PASS    560ms  formula_1                列出赛道数量比日本赛道数量的两倍还要多的国家。
+[0287/1036] zh/train FAIL    568ms  formula_1                假设日本有2条赛道，那么哪些国家的赛道数量是日本的两倍多？  ← 结果集不一致
+[0288/1036] zh/train FAIL    454ms  formula_1                如果日本有2条赛道，列出赛道数量比日本赛道数量的两倍还要多的国家。  ← 结果集不一致
+[0289/1036] zh/train FAIL    654ms  formula_1                列出圈速超过最低圈速记录1.5倍的车手的姓和名。  ← 结果集不一致
+[0290/1036] zh/train FAIL    737ms  formula_1                哪些车手的圈速超过最低圈速记录1.5倍？列出他们的姓和名。  ← 结果集不一致
+[0291/1036] zh/train FAIL    660ms  formula_1                如果最低圈速记录为93000毫秒，请列出圈速超过最低圈速记录1.5倍的驾驶员  ← 结果集不一致
+[0292/1036] zh/train FAIL    654ms  formula_1                若最低圈速纪录是93000毫秒，那哪些车手的圈速超过最低圈速记录1.5倍？列  ← 结果集不一致
+[0293/1036] zh/train PASS   1158ms  formula_1                列出比赛次数比葡萄牙首都的比赛次数的三倍多的地点和比赛次数。
+[0294/1036] zh/train PASS   1053ms  formula_1                哪些地点举办的比赛数量比葡萄牙首都的比赛次数的三倍还要多？列出这些地点和他们
+[0295/1036] zh/train FAIL   1223ms  formula_1                如果在里斯本举行了5场比赛，列出比赛次数比葡萄牙首都的比赛次数的三倍多的地点  ← 结果集不一致
+[0296/1036] zh/train FAIL   1139ms  formula_1                如果里斯本举行的比赛数量为5场，那么哪些地点举办的比赛数量比葡萄牙首都的比赛  ← 结果集不一致
+[0297/1036] zh/train FAIL   1226ms  formula_1                刘易斯·汉密尔顿参加了多少场比赛？他有多少次获得了第一名？他获得第一名的概率  ← 结果集不一致
+[0298/1036] zh/train FAIL   1114ms  formula_1                列出刘易斯·汉密尔顿参加的比赛数量，获得第一名的次数，以及获得冠军的概率。  ← 结果集不一致
+[0299/1036] zh/train PASS    621ms  formula_1                美国的赛道数量是世界上陆地面积最大的国家的多少倍？
+[0300/1036] zh/train FAIL    996ms  formula_1                请给出位于美国的赛道数量是位于世界上陆地面积最大的国家的赛道数量的多少倍。  ← 结果集不一致
+[0301/1036] zh/train FAIL    738ms  formula_1                假设美国有2个赛道，美国的赛道数量是世界上陆地面积最大的国家的多少倍？  ← 结果集不一致
+[0302/1036] zh/train FAIL    543ms  formula_1                如果美国的赛道数量为2，请给出位于美国的赛道数量是位于世界上陆地面积最大的国  ← 结果集不一致
+[0303/1036] zh/train FAIL   1843ms  formula_1                在与著名足球运动员克里斯蒂亚诺·罗纳尔多拥有相同国籍的车手中，参加过2006  ← 结果集不一致
+[0304/1036] zh/train FAIL   3467ms  formula_1                国籍与著名足球运动员克里斯蒂亚诺·罗纳尔多相同的赛车手中，参加过2006年美  ← 结果集不一致
+[0305/1036] zh/train PASS   1326ms  formula_1                在乔治·W·布什担任总统期间，美国举办了多少场比赛？是英国举办的比赛的多少倍
+[0306/1036] zh/train PASS    980ms  formula_1                美国在乔治·W·布什担任总统期间举办的比赛数量是多少？是英国同期举办比赛数量
+[0307/1036] zh/train PASS    920ms  formula_1                在乔治·布什担任总统期间，美国举办了多少场比赛？是英国举办的比赛的多少倍，假
+[0308/1036] zh/train PASS    857ms  formula_1                美国在乔治·W·布什担任总统期间举办的比赛数量是多少？是英国举办比赛数量的多
+[0309/1036] zh/train FAIL   1847ms  formula_1                请提供参加过的比赛次数至少是艾伦·伯格的两倍且与著名的歌手迈克尔·杰克逊具有  ← 结果集不一致
+[0310/1036] zh/train FAIL   1824ms  formula_1                给出国籍与著名的歌手迈克尔·杰克逊具有相同，且参加过比赛的数量不少于艾伦·伯  ← 结果集不一致
+[0311/1036] zh/train FAIL   1705ms  formula_1                假设艾伦·伯格参加了10场比赛，请提供参加过的比赛次数至少是艾伦·伯格的两倍  ← 结果集不一致
+[0312/1036] zh/train FAIL   2055ms  formula_1                假设艾伦·伯格参加过的比赛的数量是10，给出国籍与著名的歌手迈克尔·杰克逊具  ← 结果集不一致
+[0313/1036] zh/train FAIL    702ms  hospital_1               约翰·史密斯住了几天院？  ← 结果集不一致
+[0314/1036] zh/train PASS    701ms  hospital_1               约翰·史密斯的总住院时间是多少天？
+[0315/1036] zh/train FAIL    880ms  hospital_1               如果约翰·史密斯是国际护士节那天出院的，他住了几天院？  ← 结果集不一致
+[0316/1036] zh/train FAIL    870ms  hospital_1               如果约翰·史密斯的出院日期是国际护士节，那么他总住院时间是多少天？  ← 结果集不一致
+[0317/1036] zh/train PASS   1461ms  hospital_1               使用了Foo Labs品牌的药的病人比使用了Baz Industries品牌
+[0318/1036] zh/train PASS   1454ms  hospital_1               使用过品牌为Foo Labs的药物的病人的数量比用过品牌位Baz Indus
+[0319/1036] zh/train FAIL   1460ms  hospital_1               如果使用过Foo Labs品牌的病人共有10个，使用了Foo Labs品牌的  ← 结果集不一致
+[0320/1036] zh/train FAIL   1260ms  hospital_1               假如总共有10位病人使用过Foo Labs品牌的药品，那么使用过品牌为Foo  ← 结果集不一致
+[0321/1036] zh/train PASS    719ms  hospital_1               预约次数最多的医生的预约次数是预约次数最少的医生的多少倍？
+[0322/1036] zh/train PASS   1089ms  hospital_1               预约次数排名第一的医生的预约次数是预约数量排名倒数第一的医生的多少倍？
+[0323/1036] zh/train PASS   1190ms  hospital_1               如果预约最少的医师新添了2个预约，预约次数最多的医生的预约次数是他的多少倍？
+[0324/1036] zh/train FAIL    855ms  hospital_1               如果预约数量垫底的医师新添了2个预约，那预约次数排名第一的医生的预约次数是他  ← 结果集不一致
+[0325/1036] zh/train FAIL   1150ms  hospital_1               所有药物每剂2美元。Dennis Doe在药物和治疗上总共花了多少钱？  ← 结果集不一致
+[0326/1036] zh/train FAIL   1324ms  hospital_1               如果任何药物都是2美元一剂，那么Dennis Doe在药物和治疗上的总花费是  ← 结果集不一致
+[0327/1036] zh/train FAIL   1399ms  hospital_1               所有药物每剂2美元。假如丹尼斯·多伊2008年4月30日16:53多买了10  ← 结果集不一致
+[0328/1036] zh/train FAIL   1715ms  hospital_1               如果任何药物都是2美元一剂，假如丹尼斯·多伊2008年4月30日16:53多  ← 结果集不一致
+[0329/1036] zh/train FAIL    762ms  hospital_1               John Wen 接受培训过的手术资格认证的有效期是多长？  ← 结果集不一致
+[0330/1036] zh/train FAIL    792ms  hospital_1               John Wen经过培训的手术资格认证在多长时间内有效？  ← 结果集不一致
+[0331/1036] zh/train FAIL    872ms  hospital_1               John Wen 接受培训过的手术资格认证的有效期是多长，假如有效期延长18  ← 结果集不一致
+[0332/1036] zh/train FAIL    838ms  hospital_1               假如所有资格认证有效期延长180天，那么John Wen 接受培训过的手术资  ← 结果集不一致
+[0333/1036] zh/train FAIL   2004ms  hospital_1               同时属于外科部门和普通内科部门的医生在属于外科的医生中所占的比例是多少？  ← 结果集不一致
+[0334/1036] zh/train FAIL   1973ms  hospital_1               在外科和普通内科两个部门同时工作的医生所占外科医生的比例是多少？  ← 结果集不一致
+[0335/1036] zh/train FAIL   1061ms  hospital_1               假如基思·杜德米斯特既属于外科部门又属于普通内科部门，同时属于外科部门和普通  ← 结果集不一致
+[0336/1036] zh/train FAIL   1766ms  hospital_1               假如基思·杜德米斯特既在外科部门工作又在普通内科部门工作，那么在外科和普通内  ← 结果集不一致
+[0337/1036] zh/train PASS    410ms  hospital_1               治疗的最高价格与最低价格相比是多少倍？
+[0338/1036] zh/train PASS    383ms  hospital_1               最贵的治疗的价格是最便宜的治疗的价格的多少倍？
+[0339/1036] zh/train PASS    490ms  hospital_1               治疗的最高价格与最低价格相比是多少倍，如果最低价提高了75%？
+[0340/1036] zh/train PASS    509ms  hospital_1               如果最便宜的治疗价格提高75%，那么最贵的治疗的价格是最便宜的治疗的价格的多
+[0341/1036] zh/train FAIL    908ms  hospital_1               治疗费用高于1000的案例占治疗案例总数的多少？  ← 结果集不一致
+[0342/1036] zh/train FAIL    825ms  hospital_1               价格在1000以上的治疗案例占治疗案例总数的比例是多少？  ← 结果集不一致
+[0343/1036] zh/train PASS   1036ms  hospital_1               不使用Procrastin-X的患者占患者总数的多少？
+[0344/1036] zh/train PASS   1120ms  hospital_1               不服用Procrastin-X的患者的数量所占患者总数量的比例是多少？
+[0345/1036] zh/train FAIL    790ms  hospital_1               丹尼斯·多伊最昂贵的治疗和最便宜的治疗之间有多少区别？  ← 结果集不一致
+[0346/1036] zh/train PASS   1482ms  hospital_1               丹尼斯·多伊消费最高的一次治疗和消费最低的一次治疗相差多少钱？
+[0347/1036] zh/train FAIL   1076ms  hospital_1               如果每个治疗都涨价50%，丹尼斯·多伊做的最昂贵的治疗和最便宜的治疗相差多少  ← 结果集不一致
+[0348/1036] zh/train PASS   1378ms  hospital_1               如果每个治疗都涨价50%，那么丹尼斯·多伊消费最高的一次治疗和消费最低的一次
+[0349/1036] zh/train PASS    572ms  hospital_1               可用房间占房间总数的多少？
+[0350/1036] zh/train PASS    552ms  hospital_1               目前有多少比例的房间是空闲的？
+[0351/1036] zh/train PASS    444ms  hospital_1               如果每个房间有两张床，那么可用的房间总共可以容纳多少人？
+[0352/1036] zh/train PASS    728ms  hospital_1               若每个房间有两张床位，列出目前空闲的房间可以容纳的总人数。
+[0353/1036] zh/train PASS    718ms  hospital_1               预约ID为13216584的预约持续时间是多少分钟？
+[0354/1036] zh/train PASS    629ms  hospital_1               列出预约ID为13216584的预约总共持续的分钟数。
+[0355/1036] zh/train FAIL   1174ms  hospital_1               如果预约ID为13216584的预约持续时间延长了半个小时，它的持续了多少分  ← 结果集不一致
+[0356/1036] zh/train PASS    893ms  hospital_1               如果预约ID为13216584的预约持续时间比当前长半个小时，列出预约ID为
+[0357/1036] zh/train PASS    806ms  hospital_1               如果每次培训的培训费是50英镑，那么谁是在培训上花费最多的医生？列出他的姓名
+[0358/1036] zh/train PASS    887ms  hospital_1               若每次培训都需要收费50英镑，那么哪位医生在培训上花费最多？列出他的姓名、职
+[0359/1036] zh/train PASS    782ms  hospital_1               顶层的可用房间比最底层的多多少？
+[0360/1036] zh/train PASS    849ms  hospital_1               最高楼层上的空闲房间数量比最低楼层的空闲房间数量多多少？
+[0361/1036] zh/train FAIL    807ms  hospital_1               假设在顶层有20个可用房间，顶层的可用房间比最底层的多多少？  ← 结果集不一致
+[0362/1036] zh/train FAIL    801ms  hospital_1               如果在最高层上有20个空闲房间，那么最高楼层上的空闲房间数量比最低楼层的空闲  ← 结果集不一致
+[0363/1036] zh/train PASS    744ms  riding_club              有教练的选手占选手总数的百分之多少？
+[0364/1036] zh/train PASS    821ms  riding_club              有教练指导的选手的数量占所有选手总数量的百分比是多少？
+[0365/1036] zh/train FAIL   1447ms  riding_club              如果吉姆·马洛维的教练是乔·法布里，有教练的选手占选手总数的百分之多少？  ← 结果集不一致
+[0366/1036] zh/train FAIL   1854ms  riding_club              如果乔·法布里是吉姆·马洛维的教练，那么有教练指导的选手的数量占所有选手总数  ← 结果集不一致
+[0367/1036] zh/train PASS    789ms  riding_club              建于比特币网络第一次发布那年之前的俱乐部占俱乐部总数的百分之多少？
+[0368/1036] zh/train PASS    788ms  riding_club              有百分之几的俱乐部建立于比特币网络首次发布哪一年之前？
+[0369/1036] zh/train FAIL    832ms  riding_club              如果Helsingborgs IF俱乐部建立于2000年，建于比特币网络第一  ← 结果集不一致
+[0370/1036] zh/train FAIL    696ms  riding_club              若Helsingborgs IF俱乐部在2000年成立，那么有百分之几的俱乐  ← 结果集不一致
+[0371/1036] zh/train FAIL    922ms  riding_club              拥有世界最长铁路的国家的所有俱乐部获得的奖牌一共有多少？  ← 结果集不一致
+[0372/1036] zh/train FAIL    845ms  riding_club              给出位于世界上最长的铁路所在的国家的所有俱乐部的获得的所有奖牌总数。  ← 结果集不一致
+[0373/1036] zh/train FAIL    854ms  riding_club              拥有世界最长铁路的国家的所有俱乐部获得的奖牌一共有多少，如果每个俱乐部的金牌  ← 结果集不一致
+[0374/1036] zh/train FAIL    940ms  riding_club              假设每个俱乐部的金牌数量都是现在的两倍，给出位于世界上最长的铁路所在的国家的  ← 结果集不一致
+[0375/1036] zh/train PASS    936ms  riding_club              排名第一的俱乐部拥有的奖牌总数是第三名的多少倍？
+[0376/1036] zh/train PASS   1034ms  riding_club              排名最高的俱乐部所获得的所有奖牌总数是位于排行榜第三位的俱乐部的多少倍？
+[0377/1036] zh/train PASS   1400ms  riding_club              排名第一的俱乐部拥有的奖牌总数是第三名的多少倍，如果排名第一的俱乐部的铜牌翻
+[0378/1036] zh/train FAIL    994ms  riding_club              倘若位于排行榜第一位的俱乐部获得的铜牌数量是当前的三倍，那么排名最高俱乐部所  ← 结果集不一致
+[0379/1036] zh/train PASS   1849ms  riding_club              如果一枚金牌可以获得5个积分，一枚大银牌获得3分，一枚小银牌获得2分，一枚铜
+[0380/1036] zh/train PASS   1911ms  riding_club              如果一枚金牌，一枚大银牌，一枚小银牌，和一枚铜牌分别对应5个积分，3个积分，
+[0381/1036] zh/train PASS   2794ms  riding_club              一枚金牌可以获得5个积分，一枚大银牌获得3分，一枚小银牌获得2分，一枚铜牌获
+[0382/1036] zh/train PASS   2283ms  riding_club              假设获得金牌数量最少的俱乐部的铜牌数量和金牌数量最多的俱乐部的铜牌数量一样多
+[0383/1036] zh/train FAIL   1365ms  riding_club              获得过冠军的选手中，小商人的占比是多少？  ← 结果集不一致
+[0384/1036] zh/train FAIL   1245ms  riding_club              给出小商人在所有夺冠选手中所占的比例。  ← 结果集不一致
+[0385/1036] zh/train FAIL   1035ms  riding_club              假如罗斯伊迪获得的其实是第一名，获得过冠军的选手中，小商人的占比是多少？  ← 结果集不一致
+[0386/1036] zh/train FAIL   1630ms  riding_club              如果罗斯伊迪在其参加的比赛中获得的其实是冠军，给出小商人在所有夺冠选手中所占  ← 结果集不一致
+[0387/1036] zh/train FAIL   1234ms  riding_club              詹姆森托马斯指导的选手取得冠军的概率有多大？  ← 结果集不一致
+[0388/1036] zh/train FAIL   1085ms  riding_club              教练为詹姆森托马斯的选手获得第一名的概率是多少？  ← 结果集不一致
+[0389/1036] zh/train FAIL   1107ms  riding_club              假如菲奥娜希尔斯获得的其实是第一名，詹姆森托马斯指导的选手取得冠军的概率有多  ← 结果集不一致
+[0390/1036] zh/train FAIL   1683ms  riding_club              如果菲奥娜希尔斯在其所参加的那场比赛中夺冠了，教练为詹姆森托马斯的选手获得第  ← 结果集不一致
+[0391/1036] zh/train FAIL  27770ms  riding_club              哪个教练培养的冠军最多，他的名字是什么，比培养的冠军最少的教练培养的冠军数量  ← 结果集不一致
+[0392/1036] zh/train FAIL   1721ms  riding_club              培养出最多冠军的教练的名字是什么，其培养的冠军数量比培养的冠军最少的教练培养  ← 结果集不一致
+[0393/1036] zh/train FAIL   1719ms  riding_club              教练每培养一个冠军可以获得100美元奖金，每培养一个亚军可以获得60美元奖金  ← 结果集不一致
+[0394/1036] zh/train FAIL   1505ms  riding_club              教练每培养一个冠军、亚军、季军可以分别获得100美元、60美元和20美元的奖  ← 结果集不一致
+[0395/1036] zh/train FAIL   1866ms  riding_club              教练每培养一个冠军可以获得100美元奖金，每培养一个亚军可以获得60美元奖金  ← 结果集不一致
+[0396/1036] zh/train FAIL   1983ms  riding_club              教练每培养一个冠军、亚军、季军可以分别获得100美元、60美元和20美元的奖  ← 结果集不一致
+[0397/1036] zh/train PASS    679ms  riding_club              有百分之多少的俱乐部成立于21世纪之前？
+[0398/1036] zh/train PASS    674ms  riding_club              成立时间在21世纪以前的俱乐部数量占比是百分之几？
+[0399/1036] zh/train FAIL    777ms  riding_club              如果美国所有的俱乐部是在2000年成立的，有百分之多少的俱乐部成立于21世纪  ← 结果集不一致
+[0400/1036] zh/train FAIL    808ms  riding_club              假如位于美国的所有俱乐部成立时间都是2000年，那么成立时间在21世纪以前的  ← 结果集不一致
+[0401/1036] zh/train FAIL    843ms  riding_club              哪位居住在加拿大马尼托巴省首府的球员获得的选票是罗斯马丁的两倍多？给出他们的  ← 结果集不一致
+[0402/1036] zh/train FAIL    782ms  riding_club              获得选票比罗斯马丁的两倍还多的球员中，哪些居住在加拿大马尼托巴省首府？给出他  ← 结果集不一致
+[0403/1036] zh/train FAIL    933ms  riding_club              如果罗斯马丁获得了2000张选票，哪位居住在加拿大马尼托巴省首府的球员获得的  ← 结果集不一致
+[0404/1036] zh/train FAIL    724ms  riding_club              如果罗斯马丁获得了2000张选票，那么获得选票比罗斯马丁的两倍还多的球员中，  ← 结果集不一致
+[0405/1036] zh/train FAIL   1128ms  riding_club              哪些球员由21世纪之前成立的俱乐部的教练指导，他们的名字是什么？他们的选票比  ← 结果集不一致
+[0406/1036] zh/train FAIL   1138ms  riding_club              哪些球员由成立于21世界之前的俱乐部的教练指导，他们的名字是什么？他们的选票  ← 结果集不一致
+[0407/1036] zh/train FAIL   1246ms  riding_club              如果最低投票数量是1000，哪些球员由21世纪之前成立的俱乐部的教练指导，他  ← 结果集不一致
+[0408/1036] zh/train FAIL   1361ms  riding_club              假设最低投票数量是1000，那么哪些球员由成立于21世界之前的俱乐部的教练指  ← 结果集不一致
+[0409/1036] zh/train FAIL    869ms  riding_club              没有教练的选手获得冠军的概率是多少？  ← 结果集不一致
+[0410/1036] zh/train FAIL    932ms  riding_club              没有教练指导的参赛选手夺冠的概率是多少？  ← 结果集不一致
+[0411/1036] zh/train FAIL   1855ms  riding_club              有教练的选手获得前两名的概率比没有教练的选手获得前两名的概率大多少？  ← 结果集不一致
+[0412/1036] zh/train FAIL   2140ms  riding_club              有教练指导的参赛选手获得冠亚军的概率比没有教练指导的选手获得冠亚军的概率高多  ← 结果集不一致
+[0413/1036] zh/train FAIL  14201ms  riding_club              假如尼基·阿什顿并没有教练，有教练的选手获得前两名的概率比没有教练的选手获得  ← 结果集不一致
+[0414/1036] zh/train FAIL   1293ms  riding_club              如果尼基·阿什顿没有教练指导，那么有教练指导的参赛选手获得冠亚军的概率比没有  ← 结果集不一致
+[0415/1036] zh/train FAIL  95066ms  soccer_1                 传球得分包括5%的弧线球、5%的任意球精度、15%的长传、20%的传中、20  ← 执行失败：exec:other: interrupted
+[0416/1036] zh/train FAIL  95158ms  soccer_1                 传球能力值由5%的弧线球、5%的任意球精度、15%的长传、20%的传中、20  ← 执行失败：exec:other: interrupted
+[0417/1036] zh/train FAIL  94701ms  soccer_1                 传球得分包括5%的弧线球、5%的任意球精度、15%的长传、20%的传中、20  ← 执行失败：exec:other: interrupted
+[0418/1036] zh/train FAIL  95199ms  soccer_1                 传球能力值由5%的弧线球、5%的任意球精度、15%的长传、20%的传中、20  ← 执行失败：exec:other: interrupted
+[0419/1036] zh/train FAIL   1117ms  soccer_1                 速度评分包括45%的加速评分和55%的冲刺速度评分。列出速度排名前三的选手的  ← 结果集不一致
+[0420/1036] zh/train FAIL   1068ms  soccer_1                 速度能力值由加速评分的45%和冲刺速度评分的55%组成。速度排名前三的选手的  ← 结果集不一致
+[0421/1036] zh/train FAIL   1078ms  soccer_1                 速度评分包括45%的加速评分和55%的冲刺速度评分。假如所有球员的加速评分都  ← 结果集不一致
+[0422/1036] zh/train FAIL   1026ms  soccer_1                 速度能力值由加速评分的45%和冲刺速度评分的55%组成。如果每个球员的加速评  ← 结果集不一致
+[0423/1036] zh/train FAIL    787ms  soccer_1                 列出整体评分和潜在能力差异最大的前三名球员的名字，并列出差异。  ← 结果集不一致
+[0424/1036] zh/train FAIL    798ms  soccer_1                 整体评分和潜在能力相差最大的前三名球员的名字是什么，它们整体评分和潜在能力的  ← 结果集不一致
+[0425/1036] zh/train FAIL    729ms  soccer_1                 假如总评分低于70的球员的总评分增加了5分，列出总评分和潜在能力差异最大的前  ← 结果集不一致
+[0426/1036] zh/train FAIL    733ms  soccer_1                 假设所有总评分不到70分的球员的总评分都增加5分，那么总评分和潜在能力值差异  ← 结果集不一致
+[0427/1036] zh/train FAIL   1492ms  soccer_1                 评分80到89分表示非常好。在过人不失球能力非常好的球员中，左脚球员有多少，  ← 结果集不一致
+[0428/1036] zh/train FAIL   1083ms  soccer_1                 如果一项能力的得分在80分和89分之间，我们称这位球员的这项能力非常好。那么  ← 结果集不一致
+[0429/1036] zh/train FAIL    813ms  soccer_1                 就干净接球和扑救时正确站位的能力而言，哪名守门员的总得分最高？给出他的名字。  ← 结果集不一致
+[0430/1036] zh/train FAIL    976ms  soccer_1                 哪名守门员在干净接球和扑救时正确站位的能力上总得分最高？给出他的名字。  ← 结果集不一致
+[0431/1036] zh/train FAIL    700ms  soccer_1                 在比赛中累得最快的球员的名字是什么，他在远射准确度和射门力量方面的总得分是多  ← 结果集不一致
+[0432/1036] zh/train FAIL    817ms  soccer_1                 给出在比赛中累得最快的球员的姓名，以及他在远射准确度和射门力量方面的总得分。  ← 结果集不一致
+[0433/1036] zh/train FAIL    773ms  soccer_1                 在比赛中累得最快的球员的名字是什么，如果他的远射准确度评分是90，他在远射准  ← 结果集不一致
+[0434/1036] zh/train FAIL    726ms  soccer_1                 给出在比赛中累得最快的球员的姓名，假设他的远射准确度评分为90分，那他在远射  ← 结果集不一致
+[0435/1036] zh/train FAIL   3396ms  soccer_1                 防守评分由压力、侵略性和球队宽度的评分组成。提供防守得分最高和最低的球队的缩  ← 结果集不一致
+[0436/1036] zh/train FAIL   3274ms  soccer_1                 防守能力由压力、侵略性和球队宽度的评分构成。给出防守能力最好和最差的球队的缩  ← 结果集不一致
+[0437/1036] zh/train FAIL   1700ms  soccer_1                 在使用自由式创造机会位置战术的球队中，哪支球队在进攻速度和盘带方面的综合得分  ← 结果集不一致
+[0438/1036] zh/train FAIL   1703ms  soccer_1                 哪支使用自由式创造机会位置战术的球队在进攻速度和盘带方面的综合得分最高？列出  ← 结果集不一致
+[0439/1036] zh/train FAIL   1574ms  soccer_1                 在使用自由式创造机会位置战术的球队中，哪支球队在进攻速度和盘带方面的综合得分  ← 结果集不一致
+[0440/1036] zh/train FAIL   1582ms  soccer_1                 假设每一支球队盘带方面的得分都是60，哪支使用自由式创造机会位置战术的球队在  ← 结果集不一致
+[0441/1036] zh/train PASS   1312ms  soccer_1                 射门评分由6个属性组成，包括45%的射门精度、20%的远射、5%的点球、5%
+[0442/1036] zh/train FAIL  94333ms  soccer_1                 射门综合评分由45%的射门精度、20%的远射、5%的点球、5%的跑位、20%  ← 执行失败：exec:other: interrupted
+[0443/1036] zh/train FAIL 102011ms  soccer_1                 射门评分由5个属性组成，包括45%的射门精度、20%的远射、5%的点球、5%  ← 执行失败：exec:other: interrupted
+[0444/1036] zh/train FAIL  94470ms  soccer_1                 射门综合评分由45%的射门精度、20%的远射、5%的点球、5%的跑位、20%  ← 执行失败：exec:other: interrupted
+[0445/1036] zh/train FAIL   1078ms  soccer_1                 对周围队友和对手的位置认知最好和最差的球员的长传得分是多少？他们相差多少？  ← 结果集不一致
+[0446/1036] zh/train FAIL   1320ms  soccer_1                 列出对周围队友和对手的位置认知最强和最弱的球员的长传得分，以及他们的差距。  ← 结果集不一致
+[0447/1036] zh/train FAIL    654ms  soccer_1                 在进攻得分中等的球员中，身体强壮程度指标的最高得分和最低得分之间的比例是多少  ← 结果集不一致
+[0448/1036] zh/train PASS    469ms  soccer_1                 列出进攻得分为中等的球员中，身体强壮程度指标的最高分和最低分之间的比例。
+[0449/1036] zh/train FAIL    796ms  soccer_1                 评分在80到89分之间意味着非常好。评分在70到79分之间表示良好。罚球区内  ← 结果集不一致
+[0450/1036] zh/train FAIL    800ms  soccer_1                 某项能力评分在80分和89分之间被称之为非常好，评分在70分和79分之间为良  ← 结果集不一致
+[0451/1036] zh/train FAIL    410ms  soccer_1                 最高的选手比最矮的选手重多少倍？  ← 结果集不一致
+[0452/1036] zh/train FAIL    401ms  soccer_1                 身高最高的选手比身高最矮的选手的体重重多少倍？  ← 结果集不一致
+[0453/1036] zh/train FAIL    398ms  soccer_1                 最高的选手比最矮的选手重多少倍，假如最高的选手重170磅？  ← 结果集不一致
+[0454/1036] zh/train FAIL    510ms  soccer_1                 假设身高最高的选手体重为170磅，那身高最高的选手比身高最矮的选手的体重重多  ← 结果集不一致
+[0455/1036] zh/train PASS   1624ms  soccer_1                 列出体重指数最高的球员的姓名、身高、体重和整体评分。
+[0456/1036] zh/train PASS   1013ms  soccer_1                 体重指数最高的球员是谁，他的身高、体重和整体评分分别是多少？
+[0457/1036] zh/train FAIL   1115ms  soccer_1                 在进攻和防守工作率都“低”的球员中，有多少球员是右脚球员，有多少是左脚球员，  ← 结果集不一致
+[0458/1036] zh/train FAIL   1116ms  soccer_1                 列出在进攻和防守工作率都为“低”的球员中，右脚球员和左脚球员的数量，以及二者  ← 结果集不一致
+[0459/1036] zh/train FAIL   1200ms  soccer_1                 提供一份球员名单、他们的总体评分、以及他们的属性记录日期，且这些球员的传中评  ← 结果集不一致
+[0460/1036] zh/train FAIL   1204ms  soccer_1                 列出所有传中评分超过了2007年8月30日记录的法比奥·卡纳瓦罗的传中评分的  ← 结果集不一致
+[0461/1036] zh/train FAIL   1380ms  soccer_1                 假如2007年8月30日法比奥·卡纳瓦罗获得的传中评分是45，提供一份球员名  ← 结果集不一致
+[0462/1036] zh/train FAIL   1205ms  soccer_1                 假设法比奥·卡纳瓦罗在2007年8月30日获得的传中评分是45分，列出所有传  ← 结果集不一致
+[0463/1036] zh/train FAIL    535ms  soccer_1                 乔纳森·莱科的体重指数是多少？  ← 结果集不一致
+[0464/1036] zh/train FAIL    523ms  soccer_1                 名为乔纳森·莱科的运动员的体重指数是多少？  ← 结果集不一致
+[0465/1036] zh/train FAIL    605ms  soccer_1                 乔纳森·莱科的体重指数是多少，假如他高190cm？  ← 结果集不一致
+[0466/1036] zh/train FAIL    605ms  soccer_1                 假设名为乔纳森·莱科的运动员的身高是190cm，那么他的体重指数是多少？  ← 结果集不一致
+[0467/1036] zh/train FAIL   1616ms  wine_1                   2009年总共生产了多少箱酒，比2007年增长了百分之多少？  ← 结果集不一致
+[0468/1036] zh/train FAIL   1641ms  wine_1                   2009年所有酒总产量是多少箱，比2007年增长的百分比是多少？  ← 结果集不一致
+[0469/1036] zh/train FAIL   1630ms  wine_1                   假如2009年没有生产长相思葡萄酒，2009年总共生产了多少箱酒，比2007  ← 结果集不一致
+[0470/1036] zh/train FAIL   1176ms  wine_1                   假设2009年没有生产长相思葡萄酒，那2009年所有酒总产量是多少箱，比20  ← 结果集不一致
+[0471/1036] zh/train FAIL    772ms  wine_1                   有多少种酒不是产自美国葡萄种植区，比产自美国葡萄种植区的酒多多少？  ← 结果集不一致
+[0472/1036] zh/train FAIL   3334ms  wine_1                   产自非美国葡萄种植区的酒有多少种，比产地是美国葡萄种植区的酒多多少？  ← 结果集不一致
+[0473/1036] zh/train FAIL   1013ms  wine_1                   假如价格比葡萄酒均价低10美元以上的酒都产自非美国葡萄种植区，有多少种酒不是  ← 结果集不一致
+[0474/1036] zh/train FAIL    804ms  wine_1                   假设所有价格比葡萄酒平均价格低至少10美元的酒都产自非美国葡萄种植区，那产自  ← 结果集不一致
+[0475/1036] zh/train PASS   1039ms  wine_1                   2008年红葡萄酒的产量是白葡萄酒的多少倍？
+[0476/1036] zh/train PASS   1056ms  wine_1                   红葡萄酒的产量在2008年是白葡萄酒同年产量的多少倍？
+[0477/1036] zh/train PASS    969ms  wine_1                   假如每种酒的产量都增加100箱，2008年红葡萄酒的产量是白葡萄酒的多少倍？
+[0478/1036] zh/train PASS    977ms  wine_1                   假如每一种酒的产量都增加100箱，那红葡萄酒的产量在2008年是白葡萄酒同年
+[0479/1036] zh/train PASS    432ms  wine_1                   98评分的酒的最高价和最低价相差多少？
+[0480/1036] zh/train PASS    421ms  wine_1                   评分为98的酒中，最贵的和最便宜的价格相差多少？
+[0481/1036] zh/train FAIL    729ms  wine_1                   假如卡莱尔酒厂的酒全部涨价10%，98评分的酒的最高价和最低价相差多少？  ← 结果集不一致
+[0482/1036] zh/train FAIL    575ms  wine_1                   假如卡莱尔酒厂的酒价格全部上调10%，那评分为98的酒中，最贵的和最便宜的价  ← 结果集不一致
+[0483/1036] zh/train SKIP   2321ms  wine_1                   美国葡萄种植区中哪个酒产区的酒总产量没有达到卡拉维拉斯县产区的两倍？  ← 参考结果集为空（跳过判分）
+[0484/1036] zh/train SKIP   1500ms  wine_1                   属于美国葡萄种植区的酒产区中，哪个酒产区的酒总产量小于卡拉维拉斯县产区的两倍  ← 参考结果集为空（跳过判分）
+[0485/1036] zh/train SKIP   1460ms  wine_1                   假如生产于2009年的酒的产量翻倍，美国葡萄种植区中哪个产区的酒总产量没有达  ← 参考结果集为空（跳过判分）
+[0486/1036] zh/train SKIP   1388ms  wine_1                   假如在2009年所有酒的产量都翻倍，那属于美国葡萄种植区的酒产区中，哪个酒产  ← 参考结果集为空（跳过判分）
+[0487/1036] zh/train PASS    653ms  wine_1                   价格低于40的酒中，有百分之多少的酒评分高于85？
+[0488/1036] zh/train FAIL    644ms  wine_1                   价格不到40的酒中，评分85以上的酒占的百分比是多少？  ← 结果集不一致
+[0489/1036] zh/train FAIL    805ms  wine_1                   假如用仙粉黛葡萄酿造的葡萄酒全部涨价15，价格低于40的酒中，有百分之多少的  ← 结果集不一致
+[0490/1036] zh/train FAIL    799ms  wine_1                   假设所有用仙粉黛葡萄酿造的葡萄酒全部涨价15，那价格不到40的酒中，评分85  ← 结果集不一致
+[0491/1036] zh/train SKIP   1043ms  wine_1                   价格最高的酒的产区生产的酒中，有哪些酒的评分比价格最高的酒的最低评分高10分  ← 参考结果集为空（跳过判分）
+[0492/1036] zh/train SKIP   1273ms  wine_1                   生产最贵的酒的产区所生产的所有酒当中，列出所有比最贵的酒的最低评分高10分以  ← 参考结果集为空（跳过判分）
+[0493/1036] zh/train SKIP   1803ms  wine_1                   假如2008年生产的酒涨价15%，价格最高的酒的产区生产的酒中，有哪些酒的评  ← 参考结果集为空（跳过判分）
+[0494/1036] zh/train SKIP   1289ms  wine_1                   假设2008年所生产的酒价格上涨15%，列出在生产最贵的酒的产区所生产的所有  ← 参考结果集为空（跳过判分）
+[0495/1036] zh/train FAIL    714ms  wine_1                   酿造一瓶红葡萄酒需要1.2千克的葡萄。2005年生产的红葡萄酒用了多少吨葡萄  ← 结果集不一致
+[0496/1036] zh/train FAIL   1081ms  wine_1                   使用1.2千克的葡萄可以酿造出一瓶红葡萄酒，那么产于2005年的红葡萄酒总共  ← 结果集不一致
+[0497/1036] zh/train FAIL    766ms  wine_1                   酿造一瓶红葡萄酒需要1.2千克的葡萄。假如帕洛玛酒厂2005年没有生产葡萄酒  ← 结果集不一致
+[0498/1036] zh/train FAIL    712ms  wine_1                   使用1.2千克的葡萄可以酿造出一瓶红葡萄酒，如果帕洛玛酒厂2005年没有生产  ← 结果集不一致
+[0499/1036] zh/train FAIL   1210ms  wine_1                   酿造一瓶葡萄酒需要1.2千克的葡萄。在纳帕县生产的葡萄酒一共用了多少吨红葡萄  ← 结果集不一致
+[0500/1036] zh/train FAIL   1200ms  wine_1                   使用1.2千克的葡萄可以酿造出一瓶红葡萄酒，产于纳帕县的葡萄酒一共花费了多少  ← 结果集不一致
+[0501/1036] zh/train FAIL   1548ms  wine_1                   酿造一瓶葡萄酒需要1.2千克的葡萄。假如所有卡内罗斯葡萄酒的产区都不在纳帕县  ← 结果集不一致
+[0502/1036] zh/train FAIL   1546ms  wine_1                   使用1.2千克的葡萄可以酿造出一瓶红葡萄酒，假如所有卡内罗斯葡萄酒的产区都不  ← 结果集不一致
+[0503/1036] zh/train FAIL    855ms  wine_1                   评分最高的赤霞珠葡萄酒来自哪些酒厂，它们的价格比赤霞珠葡萄酒的平均价高多少？  ← 结果集不一致
+[0504/1036] zh/train FAIL    886ms  wine_1                   评分最高的赤霞珠葡萄酒生产自哪些酒厂，这些酒的价格比赤霞珠葡萄酒的平均价贵多  ← 结果集不一致
+[0505/1036] zh/train FAIL   1217ms  wine_1                   假如2005年生产的全部酒的评分下降10分，评分最高的赤霞珠葡萄酒来自哪些酒  ← 结果集不一致
+[0506/1036] zh/train FAIL   1063ms  wine_1                   如果产于2005年的所有酒的评分全部降低10分，那么评分最高的赤霞珠葡萄酒生  ← 结果集不一致
+[0507/1036] zh/train PASS    797ms  wine_1                   最贵的红葡萄酒比最贵的白葡萄酒贵多少？
+[0508/1036] zh/train PASS    794ms  wine_1                   价格最高的红葡萄酒比价格最高的白葡萄酒贵多少？
+[0509/1036] zh/train FAIL   1129ms  wine_1                   假如安培洛斯酒厂的酒降价20%，最贵的红葡萄酒比最贵的白葡萄酒贵多少？  ← 结果集不一致
+[0510/1036] zh/train FAIL   1134ms  wine_1                   如果产自安培洛斯酒厂的酒价格下调20%，价格最高的红葡萄酒比价格最高的白葡萄  ← 结果集不一致
+[0511/1036] zh/train FAIL   1229ms  wine_1                   如果一个酒厂能做到连续3年生产的酒评分从未低于90，它就会被评为“优质酒厂”  ← 结果集不一致
+[0512/1036] zh/train FAIL   1089ms  wine_1                   “优质酒厂”是连续3年生产的酒评分从未低于90的酒厂，那么所有酒厂中优质酒厂  ← 结果集不一致
+[0513/1036] zh/train FAIL   1050ms  wine_1                   如果一个酒厂能做到连续3年生产的酒评分从未低于90，它就会被评为“优质酒厂”  ← 结果集不一致
+[0514/1036] zh/train FAIL   1258ms  wine_1                   “优质酒厂”是连续3年生产的酒评分从未低于90的酒厂，假设用黑比诺葡萄酿造的  ← 结果集不一致
+[0515/1036] zh/train FAIL    896ms  wine_1                   哪年白葡萄酒的产量最高，比当年红葡萄酒的产量高多少？  ← 结果集不一致
+[0516/1036] zh/train FAIL   1215ms  wine_1                   白葡萄酒产量最高的年份是哪一年，比同年红葡萄酒的产量高多少？  ← 结果集不一致
+[0517/1036] zh/train FAIL   1050ms  wine_1                   假如贝灵哲酒厂的全部酒产量翻倍，哪年白葡萄酒的产量最高，比当年红葡萄酒的产量  ← 结果集不一致
+[0518/1036] zh/train FAIL   1063ms  wine_1                   假设贝灵哲酒厂的全部酒产量翻倍，白葡萄酒产量最高的年份是哪一年，比同年红葡萄  ← 结果集不一致
+[0519/1036] en/dev   FAIL    434ms  concert_singer           List the name and age of each singer a  ← 结果集不一致
+[0520/1036] en/dev   FAIL    400ms  concert_singer           What were the names and ages of all si  ← 结果集不一致
+[0521/1036] en/dev   FAIL    495ms  concert_singer           If the song "Gentleman" was released i  ← 结果集不一致
+[0522/1036] en/dev   FAIL    548ms  concert_singer           Assuming that the song "Gentleman" was  ← 结果集不一致
+[0523/1036] en/dev   FAIL    662ms  concert_singer           What are the names and ages of the par  ← 结果集不一致
+[0524/1036] en/dev   FAIL    691ms  concert_singer           What were the names and ages of all si  ← 结果集不一致
+[0525/1036] en/dev   FAIL    994ms  concert_singer           If all singers born before 1985 partic  ← 结果集不一致
+[0526/1036] en/dev   FAIL    809ms  concert_singer           Assuming that all the singers born bef  ← 结果集不一致
+[0527/1036] en/dev   PASS    434ms  concert_singer           How many years has it been since the e
+[0528/1036] en/dev   PASS    601ms  concert_singer           How many years ago did the first conce
+[0529/1036] en/dev   FAIL    514ms  concert_singer           If the "Wide Awake" themed concert was  ← 结果集不一致
+[0530/1036] en/dev   FAIL    520ms  concert_singer           How many years ago did the earliest co  ← 结果集不一致
+[0531/1036] en/dev   FAIL    898ms  concert_singer           What are the names of the singer parti  ← 结果集不一致
+[0532/1036] en/dev   FAIL    927ms  concert_singer           What are the names of the "Home Visits  ← 结果集不一致
+[0533/1036] en/dev   FAIL   1610ms  concert_singer           If all the singers who participated in  ← 结果集不一致
+[0534/1036] en/dev   FAIL   1941ms  concert_singer           What will be the ages and names of the  ← 结果集不一致
+[0535/1036] en/dev   PASS    922ms  concert_singer           When all tickets sold out, how much mo
+[0536/1036] en/dev   PASS   1017ms  concert_singer           If the ticket price for Balmoor stadiu
+[0537/1036] en/dev   FAIL    944ms  concert_singer           If the capacity of the Hampden Park st  ← 结果集不一致
+[0538/1036] en/dev   FAIL    993ms  concert_singer           Assuming the ticket price for Balmoor   ← 结果集不一致
+[0539/1036] en/dev   FAIL   1100ms  concert_singer           Singers born before 1980 earn $355 per  ← 结果集不一致
+[0540/1036] en/dev   FAIL   1070ms  concert_singer           What was the total expenditure on payi  ← 结果集不一致
+[0541/1036] en/dev   FAIL   1285ms  concert_singer           Singers born before 1980 earn $355 per  ← 结果集不一致
+[0542/1036] en/dev   FAIL   1972ms  concert_singer           If Justin Brown was 3 years older than  ← 结果集不一致
+[0543/1036] en/dev   FAIL   1427ms  concert_singer           Which stadiums have the lowest and hig  ← 结果集不一致
+[0544/1036] en/dev   FAIL   1511ms  concert_singer           What are the names of the stadiums wit  ← 结果集不一致
+[0545/1036] en/dev   FAIL   2145ms  concert_singer           Suppose Gayfield Park stadium had a te  ← 结果集不一致
+[0546/1036] en/dev   FAIL   1328ms  concert_singer           What are the names of the stadiums wit  ← 结果集不一致
+[0547/1036] en/dev   PASS   1409ms  concert_singer           What are the ID and name of each conce
+[0548/1036] en/dev   PASS   1432ms  concert_singer           What are the ID and name of each conce
+[0549/1036] en/dev   FAIL   1408ms  concert_singer           If the "Week 2" concert was held at So  ← 结果集不一致
+[0550/1036] en/dev   FAIL   1385ms  concert_singer           What are the ID and name of each conce  ← 结果集不一致
+[0551/1036] en/dev   FAIL    836ms  concert_singer           What percentage of the concerts were h  ← 结果集不一致
+[0552/1036] en/dev   FAIL    836ms  concert_singer           What is the percentage of concerts tha  ← 结果集不一致
+[0553/1036] en/dev   FAIL   1147ms  concert_singer           If the "Bleeding Love" themed concert   ← 结果集不一致
+[0554/1036] en/dev   FAIL   1410ms  concert_singer           What percentage of concerts took place  ← 结果集不一致
+[0555/1036] en/dev   FAIL   1703ms  concert_singer           Which stadium has at least three times  ← 结果集不一致
+[0556/1036] en/dev   FAIL   1464ms  concert_singer           Which stadium has had a minimum of thr  ← 结果集不一致
+[0557/1036] en/dev   FAIL   3093ms  concert_singer           If all the singers who have performed   ← 结果集不一致
+[0558/1036] en/dev   FAIL   1689ms  concert_singer           What is the name of the stadium that h  ← 结果集不一致
+[0559/1036] en/dev   FAIL    496ms  concert_singer           What is the name of the stadium that h  ← 结果集不一致
+[0560/1036] en/dev   FAIL    562ms  concert_singer           Which stadium's maximum attendance rat  ← 结果集不一致
+[0561/1036] en/dev   FAIL    851ms  concert_singer           If the capacity of the Balmoor stadium  ← 结果集不一致
+[0562/1036] en/dev   FAIL    721ms  concert_singer           Which stadium's maximum attendance rat  ← 结果集不一致
+[0563/1036] en/dev   FAIL   1366ms  concert_singer           What are the IDs and names of the conc  ← 结果集不一致
+[0564/1036] en/dev   FAIL   2558ms  concert_singer           What are the ID and name of the post-2  ← 结果集不一致
+[0565/1036] en/dev   FAIL   2072ms  concert_singer           If singer Joe Sharp performed in every  ← 结果集不一致
+[0566/1036] en/dev   FAIL   2686ms  concert_singer           Assuming that Joe Sharp performed in a  ← 结果集不一致
+[0567/1036] en/dev   FAIL    994ms  concert_singer           At the time of the release of the song  ← 结果集不一致
+[0568/1036] en/dev   FAIL    671ms  concert_singer           Which singers, at the time when "Love"  ← 结果集不一致
+[0569/1036] en/dev   FAIL   1240ms  concert_singer           If "Love" was released in 2010, at the  ← 结果集不一致
+[0570/1036] en/dev   FAIL    661ms  concert_singer           Assuming "Love" was released in 2010,   ← 结果集不一致
+[0571/1036] en/dev   PASS    463ms  world_1                  Which continent is the country with th
+[0572/1036] en/dev   PASS    478ms  world_1                  In which continent can we find the cou
+[0573/1036] en/dev   FAIL    736ms  world_1                  If the gross national product of the c  ← 结果集不一致
+[0574/1036] en/dev   FAIL    738ms  world_1                  In which continent can we find the cou  ← 结果集不一致
+[0575/1036] en/dev   PASS    579ms  world_1                  Among the countries that became indepe
+[0576/1036] en/dev   PASS    602ms  world_1                  Which country, among those that gained
+[0577/1036] en/dev   PASS    779ms  world_1                  Among the countries that became indepe
+[0578/1036] en/dev   FAIL    735ms  world_1                  Assuming all countries in Oceania have  ← 结果集不一致
+[0579/1036] en/dev   FAIL    898ms  world_1                  Which country where the majority of pe  ← 结果集不一致
+[0580/1036] en/dev   FAIL   2748ms  world_1                  Among the countries in which English i  ← 结果集不一致
+[0581/1036] en/dev   FAIL   2801ms  world_1                  If no one in Ireland speaks English, w  ← 结果集不一致
+[0582/1036] en/dev   FAIL   4043ms  world_1                  If English is not spoken in Ireland, w  ← 结果集不一致
+[0583/1036] en/dev   FAIL    770ms  world_1                  In countries where Arabic is not the o  ← 结果集不一致
+[0584/1036] en/dev   FAIL    827ms  world_1                  Among countries with non-Arabic offici  ← 结果集不一致
+[0585/1036] en/dev   FAIL    876ms  world_1                  Among the countries where Arabic is no  ← 结果集不一致
+[0586/1036] en/dev   FAIL    941ms  world_1                  If all South American countries have a  ← 结果集不一致
+[0587/1036] en/dev   FAIL    720ms  world_1                  Which city in North America has a popu  ← 结果集不一致
+[0588/1036] en/dev   FAIL    931ms  world_1                  What North American city has a populat  ← 结果集不一致
+[0589/1036] en/dev   FAIL   1231ms  world_1                  If the population of North American co  ← 结果集不一致
+[0590/1036] en/dev   FAIL   1060ms  world_1                  If all countries in North America with  ← 结果集不一致
+[0591/1036] en/dev   SKIP   1274ms  world_1                  Which continent has a GNP growth rate   ← 参考结果集为空（跳过判分）
+[0592/1036] en/dev   SKIP   1300ms  world_1                  Name the continent whose rate of growt  ← 参考结果集为空（跳过判分）
+[0593/1036] en/dev   SKIP   1439ms  world_1                  If the current GNP of countries where   ← 参考结果集为空（跳过判分）
+[0594/1036] en/dev   SKIP   1059ms  world_1                  Which continent would have a GNP growt  ← 参考结果集为空（跳过判分）
+[0595/1036] en/dev   PASS    655ms  world_1                  Which country has a life expectancy no
+[0596/1036] en/dev   FAIL    650ms  world_1                  What country has an average life expec  ← 结果集不一致
+[0597/1036] en/dev   FAIL    990ms  world_1                  If the top 20 countries in terms of pe  ← 结果集不一致
+[0598/1036] en/dev   FAIL    810ms  world_1                  Which country has a life expectancy th  ← 结果集不一致
+[0599/1036] en/dev   FAIL    876ms  world_1                  In countries where Dutch is not the ma  ← 结果集不一致
+[0600/1036] en/dev   PASS    902ms  world_1                  Which country, among those where Dutch
+[0601/1036] en/dev   FAIL    608ms  world_1                  If everyone in Aruba spoke Dutch, in c  ← 结果集不一致
+[0602/1036] en/dev   FAIL    913ms  world_1                  Assuming every person in Aruba speaks   ← 结果集不一致
+[0603/1036] en/dev   PASS    678ms  world_1                  How many more countries in North Ameri
+[0604/1036] en/dev   PASS    649ms  world_1                  What is the difference in the number o
+[0605/1036] en/dev   PASS    940ms  world_1                  Suppose the current GNP of the top two
+[0606/1036] en/dev   FAIL    801ms  world_1                  If the two most populated North Americ  ← 结果集不一致
+[0607/1036] en/dev   FAIL    926ms  world_1                  Which continent has a per capita GNP g  ← 结果集不一致
+[0608/1036] en/dev   FAIL   1139ms  world_1                  Name a continent whose per capita GNP   ← 结果集不一致
+[0609/1036] en/dev   FAIL   1607ms  world_1                  If the GNP of the top three countries   ← 结果集不一致
+[0610/1036] en/dev   FAIL   1588ms  world_1                  Assuming a 2% decrease in the GNP of t  ← 结果集不一致
+[0611/1036] en/dev   PASS    796ms  world_1                  List name, the past and current gross 
+[0612/1036] en/dev   PASS   1165ms  world_1                  For each country in Asia, provide a li
+[0613/1036] en/dev   FAIL   1200ms  world_1                  If the current gross national product   ← 结果集不一致
+[0614/1036] en/dev   FAIL   1478ms  world_1                  Assuming that the country with Chinese  ← 结果集不一致
+[0615/1036] en/dev   FAIL    489ms  world_1                  The annual population growth rate in t  ← 结果集不一致
+[0616/1036] en/dev   FAIL    643ms  world_1                  What will be the population size of UK  ← 结果集不一致
+[0617/1036] en/dev   PASS    561ms  world_1                  The annual population growth rate in t
+[0618/1036] en/dev   FAIL    520ms  world_1                  What will be the population size of th  ← 结果集不一致
+[0619/1036] en/dev   FAIL    591ms  world_1                  According to Zambia's life expectancy,  ← 结果集不一致
+[0620/1036] en/dev   FAIL    494ms  world_1                  Based on Zambia's life expectancy, wha  ← 结果集不一致
+[0621/1036] en/dev   FAIL    555ms  world_1                  If life expectancy increases by 10 yea  ← 结果集不一致
+[0622/1036] en/dev   FAIL    980ms  world_1                  What is the predicted year of death fo  ← 结果集不一致
+[0623/1036] en/train FAIL    624ms  bike_1                   At 12:47:02 on June 2, 2015, how many   ← 结果集不一致
+[0624/1036] en/train FAIL    660ms  bike_1                   Give me the sum of unavailable bike do  ← 结果集不一致
+[0625/1036] en/train FAIL    717ms  bike_1                   At 12:47:02 on June 2, 2015, how many   ← 结果集不一致
+[0626/1036] en/train FAIL    857ms  bike_1                   If there are usually 20 docks at San J  ← 结果集不一致
+[0627/1036] en/train FAIL    516ms  bike_1                   How many bike stations are there in to  ← 结果集不一致
+[0628/1036] en/train FAIL    787ms  bike_1                   Within the city of the Golden Gate, wh  ← 结果集不一致
+[0629/1036] en/train FAIL    924ms  bike_1                   How many bike stations does the city o  ← 结果集不一致
+[0630/1036] en/train FAIL    768ms  bike_1                   Given that Palo Alto has ten more bike  ← 结果集不一致
+[0631/1036] en/train FAIL    872ms  bike_1                   At 12:46:02 on June 2nd, 2015 , how ma  ← 结果集不一致
+[0632/1036] en/train FAIL   1174ms  bike_1                   Provide the total number of available   ← 结果集不一致
+[0633/1036] en/train FAIL   1336ms  bike_1                   If the number of docks at each station  ← 结果集不一致
+[0634/1036] en/train FAIL   1691ms  bike_1                   Considering the stations constructed o  ← 结果集不一致
+[0635/1036] en/train FAIL    573ms  bike_1                   Find the trip ID whose duration is at   ← 结果集不一致
+[0636/1036] en/train FAIL    679ms  bike_1                   Return the trip ID with a duration min  ← 结果集不一致
+[0637/1036] en/train FAIL    418ms  bike_1                   Find the trip ID whose duration is at   ← 结果集不一致
+[0638/1036] en/train FAIL    582ms  bike_1                   Get me the ID of a trip with a duratio  ← 结果集不一致
+[0639/1036] en/train PASS   1392ms  bike_1                   At 13:59:02 on June 2nd, 2015, which s
+[0640/1036] en/train FAIL   1369ms  bike_1                   Tell me the names of the stations with  ← 结果集不一致
+[0641/1036] en/train FAIL   1225ms  bike_1                   At 13:59:02 on June 2nd, 2015, which s  ← 结果集不一致
+[0642/1036] en/train FAIL   1510ms  bike_1                   Given that the "2nd at Townsend" stati  ← 结果集不一致
+[0643/1036] en/train FAIL    934ms  bike_1                   For each station, list the station nam  ← 结果集不一致
+[0644/1036] en/train FAIL    725ms  bike_1                   List the names of all stations, and ca  ← 结果集不一致
+[0645/1036] en/train FAIL    635ms  bike_1                   In the place with zip code 94107, whic  ← 结果集不一致
+[0646/1036] en/train PASS    520ms  bike_1                   Which day of the year has the largest 
+[0647/1036] en/train FAIL    682ms  bike_1                   On Armistice Day in 2013, what is the   ← 结果集不一致
+[0648/1036] en/train FAIL    641ms  bike_1                   Find the zip code of the place with th  ← 结果集不一致
+[0649/1036] en/train FAIL    732ms  bike_1                   On Armistice Day in 2013, what is the   ← 结果集不一致
+[0650/1036] en/train FAIL    726ms  bike_1                   What is the zip code of the place with  ← 结果集不一致
+[0651/1036] en/train PASS    845ms  bike_1                   Which day has the highest mean tempera
+[0652/1036] en/train PASS    651ms  bike_1                   What was the day and mean temperature 
+[0653/1036] en/train FAIL    764ms  bike_1                   What are the zip code and average wind  ← 结果集不一致
+[0654/1036] en/train FAIL    630ms  bike_1                   For each area give me the zip code and  ← 结果集不一致
+[0655/1036] en/train FAIL    800ms  bike_1                   What are the zip code and the average   ← 结果集不一致
+[0656/1036] en/train FAIL    642ms  bike_1                   On January 1 2014 the average wind spe  ← 结果集不一致
+[0657/1036] en/train FAIL   1104ms  bike_1                   What is the precipitation in millimete  ← 结果集不一致
+[0658/1036] en/train FAIL   1044ms  bike_1                   Calculate the millimeter precipitation  ← 结果集不一致
+[0659/1036] en/train FAIL   2089ms  bike_1                   If the precipitatio in the place with   ← 结果集不一致
+[0660/1036] en/train FAIL   2047ms  bike_1                   In area 94041 the millimeter precipita  ← 结果集不一致
+[0661/1036] en/train FAIL    650ms  bike_1                   On National Grief Awareness Day 2013,   ← 结果集不一致
+[0662/1036] en/train FAIL    613ms  bike_1                   Return the max, min and mean visibilit  ← 结果集不一致
+[0663/1036] en/train PASS    376ms  bike_1                   If 10 docks were added to the station 
+[0664/1036] en/train PASS    341ms  bike_1                   What is the sum of docks at the statio
+[0665/1036] en/train FAIL    583ms  bike_1                   The government plans to build four mor  ← 结果集不一致
+[0666/1036] en/train FAIL    678ms  bike_1                   If we add four more, what will the tot  ← 结果集不一致
+[0667/1036] en/train FAIL    691ms  bike_1                   What is the zip code and highest tempe  ← 结果集不一致
+[0668/1036] en/train FAIL    899ms  bike_1                   Given me the zip code and the hottest   ← 结果集不一致
+[0669/1036] en/train PASS    690ms  bike_1                   What percentage of stations in San Fra
+[0670/1036] en/train PASS    553ms  bike_1                   How many stations, as a percentage of 
+[0671/1036] en/train PASS    783ms  bike_1                   How many times is the number of statio
+[0672/1036] en/train PASS    603ms  bike_1                   What is the ratio between the number o
+[0673/1036] en/train FAIL    618ms  bike_1                   When the temperature difference is max  ← 结果集不一致
+[0674/1036] en/train FAIL    691ms  bike_1                   What is the ratio of maximum temperatu  ← 结果集不一致
+[0675/1036] en/train FAIL    866ms  bike_1                   What is the average maximum temperatur  ← 结果集不一致
+[0676/1036] en/train PASS    752ms  bike_1                   What is the average maximum temperatur
+[0677/1036] en/train PASS    747ms  customers_and_products_c How much has Sterling spent so far?
+[0678/1036] en/train PASS    749ms  customers_and_products_c What is the total spend for Sterling t
+[0679/1036] en/train PASS    792ms  customers_and_products_c If the unit price of all Gucci product
+[0680/1036] en/train FAIL    843ms  customers_and_products_c Calculate Sterling's total spend to da  ← 结果集不一致
+[0681/1036] en/train PASS    787ms  customers_and_products_c Sterling is a member and gets a 20% di
+[0682/1036] en/train PASS    784ms  customers_and_products_c Calculate Sterling's spend to date fac
+[0683/1036] en/train PASS    780ms  customers_and_products_c Sterling is a member and gets a 20% di
+[0684/1036] en/train PASS    950ms  customers_and_products_c Calculate how much Sterling has saved 
+[0685/1036] en/train FAIL   1240ms  customers_and_products_c List customer IDs, names, addresses, p  ← 结果集不一致
+[0686/1036] en/train FAIL   1105ms  customers_and_products_c Sort customers by descending order of   ← 结果集不一致
+[0687/1036] en/train FAIL    851ms  customers_and_products_c What is the total price of Cleo's late  ← 结果集不一致
+[0688/1036] en/train FAIL    772ms  customers_and_products_c Calculate the sum price of the lastest  ← 结果集不一致
+[0689/1036] en/train FAIL    804ms  customers_and_products_c What is the total price of Cleo's late  ← 结果集不一致
+[0690/1036] en/train FAIL   1036ms  customers_and_products_c If Cleo purchased 5 of each product, t  ← 结果集不一致
+[0691/1036] en/train FAIL   1223ms  customers_and_products_c The cost of Apple products is 40% of t  ← 结果集不一致
+[0692/1036] en/train FAIL   1228ms  customers_and_products_c List all products and product ID, name  ← 结果集不一致
+[0693/1036] en/train FAIL   1319ms  customers_and_products_c The cost of Apple products is 40% of t  ← 结果集不一致
+[0694/1036] en/train FAIL   1416ms  customers_and_products_c During an Apple sale discounting all p  ← 结果集不一致
+[0695/1036] en/train PASS    556ms  customers_and_products_c What percentage of orders have been co
+[0696/1036] en/train FAIL    562ms  customers_and_products_c Of total orders, what percentage are c  ← 结果集不一致
+[0697/1036] en/train FAIL    666ms  customers_and_products_c If all orders before year 2000 have be  ← 结果集不一致
+[0698/1036] en/train FAIL    689ms  customers_and_products_c Of total orders, what percentage are c  ← 结果集不一致
+[0699/1036] en/train FAIL   3026ms  customers_and_products_c What are the names of users with multi  ← 结果集不一致
+[0700/1036] en/train FAIL   1486ms  customers_and_products_c Tell me the names and first order cost  ← 结果集不一致
+[0701/1036] en/train FAIL   1517ms  customers_and_products_c If all Apple products before year 2000  ← 结果集不一致
+[0702/1036] en/train FAIL   1482ms  customers_and_products_c Tell me the amount of the initial orde  ← 结果集不一致
+[0703/1036] en/train FAIL   1405ms  customers_and_products_c What are the names of users who have h  ← 结果集不一致
+[0704/1036] en/train FAIL   2731ms  customers_and_products_c Tell me the names of users who have he  ← 结果集不一致
+[0705/1036] en/train FAIL    898ms  customers_and_products_c What are the names of users have never  ← 结果集不一致
+[0706/1036] en/train FAIL   2203ms  customers_and_products_c Tell me the names of users who have ne  ← 结果集不一致
+[0707/1036] en/train FAIL    951ms  customers_and_products_c Which user has not placed an order sin  ← 结果集不一致
+[0708/1036] en/train FAIL   1332ms  customers_and_products_c Tell me the name, email, customer ID a  ← 结果集不一致
+[0709/1036] en/train FAIL   4137ms  customers_and_products_c Users can earn 222 points for a single  ← 执行失败：exec:other: misuse of aggregate function SUM()
+[0710/1036] en/train FAIL   1359ms  customers_and_products_c Tell me the ID of the user with the mo  ← 结果集不一致
+[0711/1036] en/train FAIL    561ms  customers_and_products_c How much higher is the average unit pr  ← 结果集不一致
+[0712/1036] en/train FAIL    562ms  customers_and_products_c Calculate the difference in average pr  ← 结果集不一致
+[0713/1036] en/train FAIL    680ms  customers_and_products_c If clothing prices increase by 20%, ho  ← 结果集不一致
+[0714/1036] en/train FAIL    795ms  customers_and_products_c Calculate how much higher the differen  ← 结果集不一致
+[0715/1036] en/train FAIL   1190ms  customers_and_products_c How many users have used an address in  ← 结果集不一致
+[0716/1036] en/train FAIL   1126ms  customers_and_products_c What is the total number of users in t  ← 结果集不一致
+[0717/1036] en/train FAIL   1402ms  customers_and_products_c What are the ID, name, and sales volum  ← 结果集不一致
+[0718/1036] en/train FAIL   1981ms  customers_and_products_c Find me the product ID and name with t  ← 结果集不一致
+[0719/1036] en/train FAIL   1303ms  customers_and_products_c What are the ID and name of product th  ← 结果集不一致
+[0720/1036] en/train FAIL   1536ms  customers_and_products_c Find me the ID and name of the product  ← 结果集不一致
+[0721/1036] en/train FAIL    996ms  customers_and_products_c A 5% service charge is required for cr  ← 结果集不一致
+[0722/1036] en/train FAIL   1003ms  customers_and_products_c Tell me the name of each customer and   ← 结果集不一致
+[0723/1036] en/train FAIL    974ms  customers_and_products_c A 5% service charge is required for cr  ← 结果集不一致
+[0724/1036] en/train FAIL    903ms  customers_and_products_c Tell me the name of each customer and   ← 结果集不一致
+[0725/1036] en/train PASS    843ms  customers_and_products_c List the year in record and the annual
+[0726/1036] en/train PASS    787ms  customers_and_products_c Tell me the year in record and corresp
+[0727/1036] en/train FAIL   1360ms  customers_and_products_c List the highest price, lowest price,   ← 结果集不一致
+[0728/1036] en/train FAIL    583ms  customers_and_products_c Considering only Apple products tell m  ← 结果集不一致
+[0729/1036] en/train PASS    622ms  driving_school           List the IDs of customers and their ag
+[0730/1036] en/train PASS    592ms  driving_school           Give me IDs of all customers and their
+[0731/1036] en/train FAIL    997ms  driving_school           If Damon Sanford was born on the first  ← 结果集不一致
+[0732/1036] en/train FAIL    961ms  driving_school           Give me IDs of all customers and their  ← 结果集不一致
+[0733/1036] en/train FAIL    633ms  driving_school           What percentage of customers with outs  ← 结果集不一致
+[0734/1036] en/train FAIL    656ms  driving_school           Give me the percentage of customers wi  ← 结果集不一致
+[0735/1036] en/train FAIL    631ms  driving_school           If all customers who registered in 201  ← 结果集不一致
+[0736/1036] en/train FAIL    794ms  driving_school           What percentage of customers are rated  ← 结果集不一致
+[0737/1036] en/train FAIL   1188ms  driving_school           List the ID and number of lessons sche  ← 结果集不一致
+[0738/1036] en/train PASS    946ms  driving_school           Give me the ID and number of scheduled
+[0739/1036] en/train FAIL   1216ms  driving_school           If the staffs who resigned on March 8t  ← 结果集不一致
+[0740/1036] en/train FAIL   1636ms  driving_school           Give me the ID and quantity of schedul  ← 结果集不一致
+[0741/1036] en/train FAIL    399ms  driving_school           What's the ID of staff who has worked   ← 结果集不一致
+[0742/1036] en/train FAIL    386ms  driving_school           Tell me the ID of staff who have worke  ← 结果集不一致
+[0743/1036] en/train FAIL    411ms  driving_school           If Lincoln Benny Carroll joined on his  ← 结果集不一致
+[0744/1036] en/train FAIL    492ms  driving_school           What's the ID of the staff member who   ← 结果集不一致
+[0745/1036] en/train FAIL    948ms  driving_school           Among the customers who have never att  ← 结果集不一致
+[0746/1036] en/train FAIL    688ms  driving_school           How many more customers are rated bad   ← 结果集不一致
+[0747/1036] en/train FAIL   1180ms  driving_school           Assuming that all classes are not canc  ← 结果集不一致
+[0748/1036] en/train FAIL   1256ms  driving_school           How many more customers are rated bad   ← 结果集不一致
+[0749/1036] en/train FAIL   1188ms  driving_school           How much is the average course fee for  ← 结果集不一致
+[0750/1036] en/train FAIL   1124ms  driving_school           Tell me the staff ID, average course f  ← 结果集不一致
+[0751/1036] en/train FAIL   1520ms  driving_school           If the prices of all courses were incr  ← 结果集不一致
+[0752/1036] en/train FAIL   1337ms  driving_school           What is the staff ID, average course f  ← 结果集不一致
+[0753/1036] en/train FAIL   1485ms  driving_school           What's the ID of the coach who has the  ← 结果集不一致
+[0754/1036] en/train PASS   1180ms  driving_school           Tell me the ID of the coach who has th
+[0755/1036] en/train FAIL   1628ms  driving_school           If all courses offered by Winnifred Li  ← 结果集不一致
+[0756/1036] en/train PASS   1783ms  driving_school           Tell me the ID of the coach who has th
+[0757/1036] en/train FAIL    897ms  driving_school           What percentage of clients have multip  ← 结果集不一致
+[0758/1036] en/train FAIL    900ms  driving_school           Calculate the percentage of clients wi  ← 结果集不一致
+[0759/1036] en/train FAIL   1693ms  driving_school           If the coach of the course with ID 12   ← 结果集不一致
+[0760/1036] en/train FAIL   2274ms  driving_school           Calculate the percentage of clients wi  ← 结果集不一致
+[0761/1036] en/train PASS    445ms  driving_school           How many years older is the oldest sta
+[0762/1036] en/train FAIL   2927ms  driving_school           Calculate the difference in age betwee  ← 结果集不一致
+[0763/1036] en/train FAIL   2393ms  driving_school           If Camylle Icie Weissnat's age in 2020  ← 结果集不一致
+[0764/1036] en/train FAIL   1003ms  driving_school           Calculate the difference in age betwee  ← 结果集不一致
+[0765/1036] en/train PASS   1259ms  driving_school           What is the total number of courses ar
+[0766/1036] en/train FAIL   1186ms  driving_school           What is the sum total of scheduled cou  ← 结果集不一致
+[0767/1036] en/train PASS   1843ms  driving_school           If all coaches have no course schedule
+[0768/1036] en/train PASS   1761ms  driving_school           Give me the total number of arranged c
+[0769/1036] en/train FAIL   1055ms  driving_school           What's the ID of the customer who paid  ← 结果集不一致
+[0770/1036] en/train PASS    787ms  driving_school           Tell me the ID of the customer who pai
+[0771/1036] en/train FAIL    881ms  driving_school           If Amya Spinka paid 5000 more on March  ← 结果集不一致
+[0772/1036] en/train FAIL   1804ms  driving_school           Tell me the ID of the customer who pai  ← 结果集不一致
+[0773/1036] en/train FAIL    989ms  driving_school           What is the average age of the coaches  ← 结果集不一致
+[0774/1036] en/train FAIL    878ms  driving_school           For the coaches resident in Lake Elain  ← 结果集不一致
+[0775/1036] en/train FAIL   1035ms  driving_school           If the average age of coaches living i  ← 结果集不一致
+[0776/1036] en/train FAIL    908ms  driving_school           What is the average age of coaches in   ← 结果集不一致
+[0777/1036] en/train FAIL   2339ms  driving_school           How old is Janessa Amara Sawayn five y  ← 结果集不一致
+[0778/1036] en/train FAIL   1915ms  driving_school           Give me Janessa Amara Sawayn's age fiv  ← 结果集不一致
+[0779/1036] en/train FAIL    459ms  driving_school           If Camylle Icie Weissnat is 30 years o  ← 结果集不一致
+[0780/1036] en/train FAIL   2029ms  driving_school           How old was Janessa Amara Sawayn five   ← 结果集不一致
+[0781/1036] en/train FAIL    641ms  formula_1                Five years later, how old is Lewis Ham  ← 结果集不一致
+[0782/1036] en/train FAIL    859ms  formula_1                How much older is Lewis Hamilton five   ← 结果集不一致
+[0783/1036] en/train FAIL    501ms  formula_1                Five years later, how old is "Lewis Ha  ← 结果集不一致
+[0784/1036] en/train FAIL    297ms  formula_1                If Lewis Hamilton was born on 01/01/20  ← 结果集不一致
+[0785/1036] en/train FAIL    916ms  formula_1                What is the average lap time over the   ← 结果集不一致
+[0786/1036] en/train FAIL   1660ms  formula_1                For the Australian Grand Prix qualifie  ← 结果集不一致
+[0787/1036] en/train FAIL    793ms  formula_1                What is the average lap time over the   ← 结果集不一致
+[0788/1036] en/train FAIL   1259ms  formula_1                Assuming the top ranked driver of the   ← 结果集不一致
+[0789/1036] en/train PASS    405ms  formula_1                What is the name and location of the c
+[0790/1036] en/train PASS    507ms  formula_1                Which circuit is closest in location t
+[0791/1036] en/train PASS    450ms  formula_1                what is the name of the circuit which 
+[0792/1036] en/train PASS    427ms  formula_1                Find me the name of the circuit which 
+[0793/1036] en/train PASS   1028ms  formula_1                How many races were held in 2009 and 2
+[0794/1036] en/train FAIL    975ms  formula_1                Find me the sum of races held in 2009   ← 结果集不一致
+[0795/1036] en/train FAIL    912ms  formula_1                How many races were held in 2009 and 2  ← 结果集不一致
+[0796/1036] en/train FAIL    992ms  formula_1                If there were five more races held in   ← 结果集不一致
+[0797/1036] en/train PASS    837ms  formula_1                How many more races are held in France
+[0798/1036] en/train PASS    732ms  formula_1                Calculate the difference between the s
+[0799/1036] en/train PASS   1068ms  formula_1                How many races were held in the Northe
+[0800/1036] en/train PASS   1179ms  formula_1                What is the sum, and difference betwee
+[0801/1036] en/train FAIL   4400ms  formula_1                What are the first name and last name   ← 结果集不一致
+[0802/1036] en/train FAIL   3354ms  formula_1                For the British Grand Prix in 2006, wh  ← 结果集不一致
+[0803/1036] en/train PASS    560ms  formula_1                Which countries have more than twice a
+[0804/1036] en/train FAIL    514ms  formula_1                Find me the countries with at least tw  ← 结果集不一致
+[0805/1036] en/train FAIL    448ms  formula_1                Assuming Japan had 2 circuits, which c  ← 结果集不一致
+[0806/1036] en/train FAIL    495ms  formula_1                Which countries have more than twice a  ← 结果集不一致
+[0807/1036] en/train FAIL    597ms  formula_1                List the first and last name of driver  ← 结果集不一致
+[0808/1036] en/train FAIL    702ms  formula_1                Which drivers have recorded a lap time  ← 结果集不一致
+[0809/1036] en/train FAIL    586ms  formula_1                If the minimum lap time record was 930  ← 结果集不一致
+[0810/1036] en/train FAIL    538ms  formula_1                Tell me the first and last names of al  ← 结果集不一致
+[0811/1036] en/train FAIL    971ms  formula_1                List locations and the number of races  ← 结果集不一致
+[0812/1036] en/train FAIL   1051ms  formula_1                Which locations have held three times   ← 结果集不一致
+[0813/1036] en/train FAIL   1237ms  formula_1                If 5 races were held in Lisbon, list l  ← 结果集不一致
+[0814/1036] en/train FAIL    871ms  formula_1                Lisbon has held five races so give me   ← 结果集不一致
+[0815/1036] en/train FAIL   1114ms  formula_1                How many races did Lewis Hamilton part  ← 结果集不一致
+[0816/1036] en/train FAIL    717ms  formula_1                Count the number of races Lewis Hamilt  ← 结果集不一致
+[0817/1036] en/train FAIL    597ms  formula_1                How many times is the number of circui  ← 结果集不一致
+[0818/1036] en/train FAIL   4611ms  formula_1                What is the ratio between the number o  ← 结果集不一致
+[0819/1036] en/train FAIL    632ms  formula_1                Assuming there were 2 circuits in USA,  ← 结果集不一致
+[0820/1036] en/train FAIL    734ms  formula_1                If the USA has two circuits then how m  ← 结果集不一致
+[0821/1036] en/train FAIL   1713ms  formula_1                Among the drivers who have the same na  ← 结果集不一致
+[0822/1036] en/train FAIL   1288ms  formula_1                Among those professional drivers who s  ← 结果集不一致
+[0823/1036] en/train FAIL   2619ms  formula_1                During George W. Bush's presidency, ho  ← 结果集不一致
+[0824/1036] en/train FAIL    999ms  formula_1                What is the total count of races hoste  ← 结果集不一致
+[0825/1036] en/train FAIL   2156ms  formula_1                During George W. Bush's presidency, ho  ← 结果集不一致
+[0826/1036] en/train FAIL   1998ms  formula_1                If the U.K. hosted 10 races during Geo  ← 结果集不一致
+[0827/1036] en/train FAIL   1491ms  formula_1                Provide the ID, first name, and number  ← 结果集不一致
+[0828/1036] en/train PASS   1625ms  formula_1                Of the drivers sharing a nationality w
+[0829/1036] en/train FAIL   3300ms  formula_1                Assuming that Allen Berg participated   ← 结果集不一致
+[0830/1036] en/train FAIL   2260ms  formula_1                Return the ID, first name and race cou  ← 结果集不一致
+[0831/1036] en/train PASS    575ms  hospital_1               How many days did John Smith stay in h
+[0832/1036] en/train PASS    714ms  hospital_1               How long was John Smith admitted to th
+[0833/1036] en/train FAIL    792ms  hospital_1               If John Smith left the hospital on Int  ← 结果集不一致
+[0834/1036] en/train FAIL    754ms  hospital_1               If John Smith was discharged from the   ← 结果集不一致
+[0835/1036] en/train PASS   1396ms  hospital_1               How many more patients have used Foo L
+[0836/1036] en/train PASS   1265ms  hospital_1               What is the difference in the number o
+[0837/1036] en/train FAIL   1233ms  hospital_1               If there were 10 patients who used Foo  ← 结果集不一致
+[0838/1036] en/train FAIL   1154ms  hospital_1               If 10 patients have used drugs branded  ← 结果集不一致
+[0839/1036] en/train PASS    508ms  hospital_1               How many times is the number of appoin
+[0840/1036] en/train PASS    742ms  hospital_1               What is the ratio between the number o
+[0841/1036] en/train PASS    633ms  hospital_1               If the physician with the fewest appoi
+[0842/1036] en/train PASS    912ms  hospital_1               If the physician who has the least num
+[0843/1036] en/train PASS   1136ms  hospital_1               All drugs are 2 dollars per dose. How 
+[0844/1036] en/train FAIL    982ms  hospital_1               If all drugs cost 2 dollars per dose,   ← 结果集不一致
+[0845/1036] en/train FAIL   1120ms  hospital_1               All drugs are 2 dollars per dose. If D  ← 结果集不一致
+[0846/1036] en/train FAIL   2847ms  hospital_1               If all drugs cost 2 dollars per dose a  ← 结果集不一致
+[0847/1036] en/train FAIL    541ms  hospital_1               How long is the validity period of Joh  ← 结果集不一致
+[0848/1036] en/train FAIL    597ms  hospital_1               What is the validity period of John We  ← 结果集不一致
+[0849/1036] en/train FAIL    731ms  hospital_1               How long is the validity period of Joh  ← 结果集不一致
+[0850/1036] en/train FAIL    611ms  hospital_1               If the validity period of John Wen's t  ← 结果集不一致
+[0851/1036] en/train PASS   1254ms  hospital_1               What is the proportion of physicians w
+[0852/1036] en/train PASS   2189ms  hospital_1               What is the ratio of physicians who ar
+[0853/1036] en/train FAIL   1043ms  hospital_1               If Keith Dudermeister belongs to both   ← 结果集不一致
+[0854/1036] en/train FAIL   1479ms  hospital_1               If Keith Dudermeister is a member of b  ← 结果集不一致
+[0855/1036] en/train PASS    465ms  hospital_1               How many times is the highest price of
+[0856/1036] en/train PASS    483ms  hospital_1               What is the ratio between the highest 
+[0857/1036] en/train PASS    444ms  hospital_1               How many times is the highest price of
+[0858/1036] en/train PASS    556ms  hospital_1               If the lowest price of the treatments 
+[0859/1036] en/train FAIL    454ms  hospital_1               How many treatments with a cost higher  ← 结果集不一致
+[0860/1036] en/train PASS    523ms  hospital_1               What proportion of treatments, out of 
+[0861/1036] en/train FAIL   1023ms  hospital_1               What is the proportion of patients who  ← 结果集不一致
+[0862/1036] en/train PASS    923ms  hospital_1               What proportion of patients, out of th
+[0863/1036] en/train PASS    754ms  hospital_1               How much is the difference between Den
+[0864/1036] en/train PASS    781ms  hospital_1               What is the difference between Dennis 
+[0865/1036] en/train PASS    889ms  hospital_1               If the price of each treatment was inc
+[0866/1036] en/train PASS    879ms  hospital_1               If the price of each treatment was inc
+[0867/1036] en/train FAIL    330ms  hospital_1               How many available rooms account for t  ← 结果集不一致
+[0868/1036] en/train PASS    462ms  hospital_1               What is the proportion of available ro
+[0869/1036] en/train PASS    473ms  hospital_1               If there are two beds in each room, ho
+[0870/1036] en/train PASS    385ms  hospital_1               If each room has two beds, what is the
+[0871/1036] en/train PASS    647ms  hospital_1               What is the duration in minutes of an 
+[0872/1036] en/train PASS    710ms  hospital_1               How long is the appointment with appoi
+[0873/1036] en/train PASS    720ms  hospital_1               If the duration of the appointment wit
+[0874/1036] en/train FAIL   1031ms  hospital_1               If the appointment with appointment ID  ← 结果集不一致
+[0875/1036] en/train PASS    850ms  hospital_1               If the training fee for each training 
+[0876/1036] en/train PASS    837ms  hospital_1               Which physician has incurred the highe
+[0877/1036] en/train PASS    720ms  hospital_1               How many more rooms are available on t
+[0878/1036] en/train PASS    685ms  hospital_1               What is the difference in the number o
+[0879/1036] en/train FAIL    861ms  hospital_1               Suppose there are 20 available rooms o  ← 结果集不一致
+[0880/1036] en/train FAIL    706ms  hospital_1               If the top floor has 20 available room  ← 结果集不一致
+[0881/1036] en/train PASS    768ms  riding_club              What is the percentage of players with
+[0882/1036] en/train PASS    738ms  riding_club              What percentage of total players have 
+[0883/1036] en/train FAIL   1325ms  riding_club              If Jim Maloway's coach is Joe Fabbri,   ← 结果集不一致
+[0884/1036] en/train FAIL   1734ms  riding_club              What percentage of players have a coac  ← 结果集不一致
+[0885/1036] en/train PASS    695ms  riding_club              What percentage of the total number of
+[0886/1036] en/train FAIL    413ms  riding_club              How many clubs, out of the total numbe  ← 结果集不一致
+[0887/1036] en/train FAIL    576ms  riding_club              If the Helsingborgs IF Club was establ  ← 结果集不一致
+[0888/1036] en/train FAIL    780ms  riding_club              Which clubs, as a percentage of total   ← 结果集不一致
+[0889/1036] en/train FAIL    676ms  riding_club              How many medals have all the clubs in   ← 结果集不一致
+[0890/1036] en/train FAIL    773ms  riding_club              What is the medal count for all clubs   ← 结果集不一致
+[0891/1036] en/train FAIL    657ms  riding_club              How many medals have all the clubs in   ← 结果集不一致
+[0892/1036] en/train FAIL   1195ms  riding_club              Assuming the number of gold medal of e  ← 结果集不一致
+[0893/1036] en/train PASS    852ms  riding_club              How many times more medals does the to
+[0894/1036] en/train PASS    960ms  riding_club              What is the ratio of medals between th
+[0895/1036] en/train PASS   1115ms  riding_club              How many times more medals does the to
+[0896/1036] en/train PASS   1072ms  riding_club              If the number of bronze medals for the
+[0897/1036] en/train PASS   1381ms  riding_club              If a gold medal equals 5 points, a big
+[0898/1036] en/train PASS   1401ms  riding_club              Assuming you converted a gold medal to
+[0899/1036] en/train PASS   1946ms  riding_club              If a gold medal equals 5 points, a big
+[0900/1036] en/train PASS   2276ms  riding_club              If the clubs with the highest and lowe
+[0901/1036] en/train FAIL   1194ms  riding_club              What is the proportion of small busine  ← 结果集不一致
+[0902/1036] en/train FAIL   1037ms  riding_club              Out of contestants winning the champio  ← 结果集不一致
+[0903/1036] en/train FAIL   1076ms  riding_club              If Ross Eadie won the first place inst  ← 结果集不一致
+[0904/1036] en/train FAIL    965ms  riding_club              What proportion of the winning contest  ← 结果集不一致
+[0905/1036] en/train FAIL    976ms  riding_club              What is the probability of a contestan  ← 结果集不一致
+[0906/1036] en/train PASS   1275ms  riding_club              If a contestant is guided by Jameson T
+[0907/1036] en/train FAIL    890ms  riding_club              If Fiona Shiells won the first place i  ← 结果集不一致
+[0908/1036] en/train FAIL    892ms  riding_club              Imagine if Fiona Shiells won the champ  ← 结果集不一致
+[0909/1036] en/train FAIL   2493ms  riding_club              What's the name of the coach who has g  ← 结果集不一致
+[0910/1036] en/train FAIL   2706ms  riding_club              Find me the name of the coach with the  ← 结果集不一致
+[0911/1036] en/train FAIL   1106ms  riding_club              Coaches earn $100 for every champion t  ← 结果集不一致
+[0912/1036] en/train FAIL   1355ms  riding_club              Find me the name and bonus of the high  ← 结果集不一致
+[0913/1036] en/train FAIL   1454ms  riding_club              Coaches earn $100 for every champion t  ← 结果集不一致
+[0914/1036] en/train FAIL   1061ms  riding_club              What is the name and bonus of the coac  ← 结果集不一致
+[0915/1036] en/train PASS    581ms  riding_club              What percentage of clubs were establis
+[0916/1036] en/train PASS    604ms  riding_club              What percentage of clubs were founded 
+[0917/1036] en/train FAIL    642ms  riding_club              If all the clubs in USA were establish  ← 结果集不一致
+[0918/1036] en/train FAIL    623ms  riding_club              What percentage of clubs were founded   ← 结果集不一致
+[0919/1036] en/train PASS    718ms  riding_club              What are the names of players living i
+[0920/1036] en/train FAIL    716ms  riding_club              Of the players living in Manitona prov  ← 结果集不一致
+[0921/1036] en/train PASS    477ms  riding_club              What are the names of players living i
+[0922/1036] en/train FAIL    529ms  riding_club              Of the players living in Manitona prov  ← 结果集不一致
+[0923/1036] en/train FAIL   1478ms  riding_club              What are the names of the players whos  ← 结果集不一致
+[0924/1036] en/train FAIL    950ms  riding_club              Find me the names of players who have   ← 结果集不一致
+[0925/1036] en/train FAIL    950ms  riding_club              What are the names of players who are   ← 结果集不一致
+[0926/1036] en/train FAIL   1063ms  riding_club              If the lowest vote count is 1000 then   ← 结果集不一致
+[0927/1036] en/train FAIL    649ms  riding_club              What is the probability of a player wi  ← 结果集不一致
+[0928/1036] en/train FAIL   8202ms  riding_club              If a player has no coach then how like  ← 结果集不一致
+[0929/1036] en/train FAIL   1512ms  riding_club              How much more likely is the coached pl  ← 结果集不一致
+[0930/1036] en/train FAIL   1007ms  riding_club              What is the difference in likelihood o  ← 结果集不一致
+[0931/1036] en/train FAIL   8211ms  riding_club              If Niki Ashton was an uncoached player  ← 结果集不一致
+[0932/1036] en/train FAIL   1482ms  riding_club              How much likelier is it that a coached  ← 结果集不一致
+[0933/1036] en/train FAIL   1824ms  soccer_1                 The passing rating consists of 5% curv  ← 结果集不一致
+[0934/1036] en/train FAIL   1582ms  soccer_1                 Find me the name and age today of the   ← 结果集不一致
+[0935/1036] en/train FAIL   1326ms  soccer_1                 The passing rating consists of 5% curv  ← 结果集不一致
+[0936/1036] en/train FAIL   1406ms  soccer_1                 What are the names and present day age  ← 结果集不一致
+[0937/1036] en/train FAIL    961ms  soccer_1                 The pace rating consists of 45% accele  ← 结果集不一致
+[0938/1036] en/train FAIL    998ms  soccer_1                 What is the name, height, weight and b  ← 结果集不一致
+[0939/1036] en/train FAIL   1029ms  soccer_1                 The pace rating consists of 45% accele  ← 结果集不一致
+[0940/1036] en/train FAIL   1110ms  soccer_1                 Give me the names, body mass index, he  ← 结果集不一致
+[0941/1036] en/train FAIL    838ms  soccer_1                 List names of the top three players wi  ← 结果集不一致
+[0942/1036] en/train FAIL    701ms  soccer_1                 What are the names of the players with  ← 结果集不一致
+[0943/1036] en/train FAIL    786ms  soccer_1                 Assuming players with an overall ratin  ← 结果集不一致
+[0944/1036] en/train FAIL    753ms  soccer_1                 List the top three players with the la  ← 结果集不一致
+[0945/1036] en/train FAIL    652ms  soccer_1                 Rating 80 to 89 points means very good  ← 结果集不一致
+[0946/1036] en/train FAIL   1112ms  soccer_1                 What is the sum of players that are le  ← 结果集不一致
+[0947/1036] en/train FAIL    811ms  soccer_1                 What is the name of the goalkeeper wit  ← 结果集不一致
+[0948/1036] en/train FAIL    803ms  soccer_1                 Considering ability of catching the ba  ← 结果集不一致
+[0949/1036] en/train FAIL    856ms  soccer_1                 For the player who gets tired during a  ← 结果集不一致
+[0950/1036] en/train FAIL    698ms  soccer_1                 Give me the name and total rating in l  ← 结果集不一致
+[0951/1036] en/train FAIL   1483ms  soccer_1                 For the player who gets tired during a  ← 结果集不一致
+[0952/1036] en/train FAIL    757ms  soccer_1                 Find me the name of the player who tir  ← 结果集不一致
+[0953/1036] en/train FAIL   3293ms  soccer_1                 The defensive rating is composed of ra  ← 结果集不一致
+[0954/1036] en/train FAIL   3275ms  soccer_1                 What are the short names of the teams   ← 结果集不一致
+[0955/1036] en/train PASS    758ms  soccer_1                 Out of the teams that utilize the free
+[0956/1036] en/train FAIL    834ms  soccer_1                 What is the long team name and highest  ← 结果集不一致
+[0957/1036] en/train FAIL    752ms  soccer_1                 Assuming all teams have a dribbling ra  ← 结果集不一致
+[0958/1036] en/train FAIL    750ms  soccer_1                 Tell me the long name and combined rat  ← 结果集不一致
+[0959/1036] en/train FAIL  94206ms  soccer_1                 The shooting rating is comprised of 6   ← 执行失败：exec:other: interrupted
+[0960/1036] en/train FAIL   1137ms  soccer_1                 Which is the top 1 player as measured   ← 结果集不一致
+[0961/1036] en/train FAIL  94923ms  soccer_1                 The shooting rating is comprised of 6   ← 执行失败：exec:other: interrupted
+[0962/1036] en/train FAIL   4069ms  soccer_1                 Give me the name and shooting rating o  ← 结果集不一致
+[0963/1036] en/train FAIL   1065ms  soccer_1                 What are the long passing ratings for   ← 结果集不一致
+[0964/1036] en/train FAIL    700ms  soccer_1                 For the players with the best and wors  ← 结果集不一致
+[0965/1036] en/train PASS    629ms  soccer_1                 Among the players with medium attack r
+[0966/1036] en/train PASS    608ms  soccer_1                 Find me the ratio of highest to lowest
+[0967/1036] en/train FAIL    839ms  soccer_1                 Rating between 80 to 89 points means v  ← 结果集不一致
+[0968/1036] en/train FAIL   1615ms  soccer_1                 Calculate the proportion of players wi  ← 结果集不一致
+[0969/1036] en/train FAIL    562ms  soccer_1                 How many times does the tallest player  ← 结果集不一致
+[0970/1036] en/train PASS    497ms  soccer_1                 How many more times is the weight of t
+[0971/1036] en/train FAIL    804ms  soccer_1                 How many times does the tallest player  ← 结果集不一致
+[0972/1036] en/train PASS    379ms  soccer_1                 If the tallest player has a weight of 
+[0973/1036] en/train PASS    872ms  soccer_1                 List the name, height, weight and over
+[0974/1036] en/train FAIL    861ms  soccer_1                 As sorted by highest body mass index,   ← 结果集不一致
+[0975/1036] en/train FAIL   1092ms  soccer_1                 Among players who have both "low" atta  ← 结果集不一致
+[0976/1036] en/train FAIL   1010ms  soccer_1                 What is the count, and difference betw  ← 结果集不一致
+[0977/1036] en/train FAIL   1189ms  soccer_1                 Provide a list of player names, their   ← 结果集不一致
+[0978/1036] en/train FAIL   1146ms  soccer_1                 What are the names of the players with  ← 结果集不一致
+[0979/1036] en/train FAIL   1103ms  soccer_1                 Assuming that Fabio Cannavaro obtained  ← 结果集不一致
+[0980/1036] en/train FAIL   1192ms  soccer_1                 Get me the player names, overall ratin  ← 结果集不一致
+[0981/1036] en/train FAIL    527ms  soccer_1                 What is the body mass index of Jonatha  ← 结果集不一致
+[0982/1036] en/train FAIL    516ms  soccer_1                 For the player Jonathan Leko, return t  ← 结果集不一致
+[0983/1036] en/train FAIL    573ms  soccer_1                 What is the body mass index of "Jonath  ← 结果集不一致
+[0984/1036] en/train FAIL    676ms  soccer_1                 If you imagine that "Jonathan Leko" is  ← 结果集不一致
+[0985/1036] en/train PASS   1017ms  wine_1                   How many cases of wine were produced i
+[0986/1036] en/train FAIL   1522ms  wine_1                   What is the total case quantity of win  ← 结果集不一致
+[0987/1036] en/train FAIL   1577ms  wine_1                   If no Sauvignon Blanc was produced in   ← 结果集不一致
+[0988/1036] en/train FAIL   1029ms  wine_1                   What is the total case production of w  ← 结果集不一致
+[0989/1036] en/train FAIL    702ms  wine_1                   How many types of wine are not produce  ← 结果集不一致
+[0990/1036] en/train PASS    981ms  wine_1                   What is the total number of wine types
+[0991/1036] en/train FAIL   1012ms  wine_1                   If wines priced more than 10 dollars l  ← 结果集不一致
+[0992/1036] en/train FAIL    904ms  wine_1                   How many types of wine are produced no  ← 结果集不一致
+[0993/1036] en/train FAIL    907ms  wine_1                   How many times was the production of r  ← 结果集不一致
+[0994/1036] en/train FAIL    843ms  wine_1                   What is the ratio of wine production f  ← 结果集不一致
+[0995/1036] en/train PASS    938ms  wine_1                   If the production of each type of wine
+[0996/1036] en/train FAIL    884ms  wine_1                   How many times more was red wine produ  ← 结果集不一致
+[0997/1036] en/train PASS    403ms  wine_1                   What is the difference between the hig
+[0998/1036] en/train PASS    425ms  wine_1                   Out of wines with a 98 rating, give me
+[0999/1036] en/train FAIL    797ms  wine_1                   What is the difference between the hig  ← 结果集不一致
+[1000/1036] en/train FAIL    823ms  wine_1                   If you only consider wines with a 98 r  ← 结果集不一致
+[1001/1036] en/train SKIP   1250ms  wine_1                   What is the name of the appellation in  ← 参考结果集为空（跳过判分）
+[1002/1036] en/train SKIP   1179ms  wine_1                   Tell me the name of the appelation in   ← 参考结果集为空（跳过判分）
+[1003/1036] en/train SKIP   1181ms  wine_1                   If the production of wine produced in   ← 参考结果集为空（跳过判分）
+[1004/1036] en/train SKIP    836ms  wine_1                   Which appelation in the American Vitic  ← 参考结果集为空（跳过判分）
+[1005/1036] en/train FAIL    642ms  wine_1                   What percentage of wines priced lower   ← 结果集不一致
+[1006/1036] en/train PASS    620ms  wine_1                   Of the wines cheaper than 40, what per
+[1007/1036] en/train FAIL    872ms  wine_1                   If the price of all the wines made fro  ← 结果集不一致
+[1008/1036] en/train FAIL    724ms  wine_1                   Considering only wines cheaper than 40  ← 结果集不一致
+[1009/1036] en/train SKIP    901ms  wine_1                   What are the No. and names of wines th  ← 参考结果集为空（跳过判分）
+[1010/1036] en/train SKIP    938ms  wine_1                   List me the No. and names of all wines  ← 参考结果集为空（跳过判分）
+[1011/1036] en/train SKIP   1346ms  wine_1                   If the price of wine produced in 2008   ← 参考结果集为空（跳过判分）
+[1012/1036] en/train SKIP   9442ms  wine_1                   List the No. and names of all wines fr  ← 参考结果集为空（跳过判分）
+[1013/1036] en/train FAIL    682ms  wine_1                   It takes 1.2 kilograms of grapes to ma  ← 结果集不一致
+[1014/1036] en/train PASS    673ms  wine_1                   How many tons of grapes were used for 
+[1015/1036] en/train FAIL    789ms  wine_1                   It takes 1.2 kilograms of grapes to ma  ← 结果集不一致
+[1016/1036] en/train FAIL    789ms  wine_1                   How many tons of grapes were used for   ← 结果集不一致
+[1017/1036] en/train FAIL   1193ms  wine_1                   It takes 1.2 kilograms of grapes to ma  ← 结果集不一致
+[1018/1036] en/train FAIL   1158ms  wine_1                   Tell me how many tons of red and white  ← 结果集不一致
+[1019/1036] en/train FAIL   1219ms  wine_1                   It takes 1.2kg of grapes to make a bot  ← 结果集不一致
+[1020/1036] en/train FAIL    856ms  wine_1                   How many tones of red and white grapes  ← 结果集不一致
+[1021/1036] en/train FAIL    845ms  wine_1                   Which wineries do the highest-rated Ca  ← 结果集不一致
+[1022/1036] en/train FAIL    870ms  wine_1                   List the wineries providing the highes  ← 结果集不一致
+[1023/1036] en/train FAIL   1247ms  wine_1                   If the scores of all wines produced in  ← 结果集不一致
+[1024/1036] en/train FAIL   1436ms  wine_1                   List the wineries making the Cabernet   ← 结果集不一致
+[1025/1036] en/train PASS    691ms  wine_1                   How much more expensive is the most ex
+[1026/1036] en/train PASS    780ms  wine_1                   What is the price difference between t
+[1027/1036] en/train FAIL   1178ms  wine_1                   If the price of Ampelos Winery's wine   ← 结果集不一致
+[1028/1036] en/train FAIL    989ms  wine_1                   What is the price increase between the  ← 结果集不一致
+[1029/1036] en/train FAIL   1827ms  wine_1                   If a winery has produced wine for thre  ← 结果集不一致
+[1030/1036] en/train FAIL   2000ms  wine_1                   Which wineries are considered premium   ← 结果集不一致
+[1031/1036] en/train FAIL   1277ms  wine_1                   If a winery has produced wine for thre  ← 结果集不一致
+[1032/1036] en/train FAIL   1486ms  wine_1                   Which wineries are considered premium,  ← 结果集不一致
+[1033/1036] en/train PASS   1012ms  wine_1                   In which year was the production of wh
+[1034/1036] en/train PASS   1011ms  wine_1                   Calculate the year in which white wine
+[1035/1036] en/train FAIL   1018ms  wine_1                   If the production of all wines at the   ← 结果集不一致
+[1036/1036] en/train FAIL   2749ms  wine_1                   Calculate the year of peak white wine   ← 结果集不一致
+[sets] 报告 → eval\report_external_archer.md
+
+[sets] 执行准确率 238/1012 = 23.5%（跳过 24）｜总耗时 35.8 min
