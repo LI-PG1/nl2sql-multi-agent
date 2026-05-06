@@ -1,0 +1,16 @@
+[scale_lab] E1 SQLite 批次 1/10 完成（累计约 1,126,500 行）
+[scale_lab] E1 SQLite 批次 2/10 完成（累计约 2,253,000 行）
+[scale_lab] E1 SQLite 批次 3/10 完成（累计约 3,379,500 行）
+[scale_lab] E1 SQLite 批次 4/10 完成（累计约 4,506,000 行）
+[scale_lab] E1 SQLite 批次 5/10 完成（累计约 5,632,500 行）
+[scale_lab] E1 SQLite 批次 6/10 完成（累计约 6,759,000 行）
+[scale_lab] E1 SQLite 批次 7/10 完成（累计约 7,885,500 行）
+[scale_lab] E1 SQLite 批次 8/10 完成（累计约 9,012,000 行）
+[scale_lab] E1 SQLite 批次 9/10 完成（累计约 10,138,500 行）
+[scale_lab] E1 SQLite 批次 10/10 完成（累计约 11,265,000 行）
+[scale_lab] E1 SQLite 构建完成：27.3s
+[scale_lab] E1 DuckDB 镜像完成：28.6s（extension=True）
+[scale_lab] 事实表 11,265,000 行｜SQLite 1634.2 MB｜DuckDB 212.0 MB
+[scale_lab] E2 引擎对比完成
+[scale_lab] E3 一致性完成：49/52
+[scale_lab] 报告已写入 eval\report_scale_lab.md
