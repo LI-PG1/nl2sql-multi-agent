@@ -1,0 +1,913 @@
+{
+  "evaluator": "DataSpace Evaluator",
+  "evaluator_version": "1.0.0",
+  "config_schema_version": "1.0",
+  "config_set_sha256": "0efe57a7a9ea4bf82a2ac994b5ec1d29ba9997882b0403e744cccb8d5e40ce54",
+  "metric": "task_accuracy",
+  "task_count": 60,
+  "passed_task_count": 11,
+  "failed_task_count": 49,
+  "task_accuracy": 0.18333333333333332,
+  "unscored_prediction_tasks": [],
+  "tasks": [
+    {
+      "task_id": "task_10",
+      "passed": true,
+      "score": 1,
+      "order_sensitive": true,
+      "gold_column_count": 2,
+      "prediction_column_count": 2,
+      "gold_row_count": 242,
+      "prediction_row_count": 242,
+      "column_mapping": [
+        {
+          "gold_index": 0,
+          "prediction_index": 0
+        },
+        {
+          "gold_index": 1,
+          "prediction_index": 1
+        }
+      ],
+      "error_code": null,
+      "error": null
+    },
+    {
+      "task_id": "task_18",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": true,
+      "gold_column_count": 2,
+      "prediction_column_count": 2,
+      "gold_row_count": 3,
+      "prediction_row_count": 103,
+      "column_mapping": null,
+      "error_code": "row_count_mismatch",
+      "error": "Expected 3 data rows; received 103"
+    },
+    {
+      "task_id": "task_23",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 2,
+      "prediction_column_count": 2,
+      "gold_row_count": 2,
+      "prediction_row_count": 0,
+      "column_mapping": null,
+      "error_code": "row_count_mismatch",
+      "error": "Expected 2 data rows; received 0"
+    },
+    {
+      "task_id": "task_24",
+      "passed": true,
+      "score": 1,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 1,
+      "gold_row_count": 1,
+      "prediction_row_count": 1,
+      "column_mapping": [
+        {
+          "gold_index": 0,
+          "prediction_index": 0
+        }
+      ],
+      "error_code": null,
+      "error": null
+    },
+    {
+      "task_id": "task_33",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": true,
+      "gold_column_count": 3,
+      "prediction_column_count": 3,
+      "gold_row_count": 12962,
+      "prediction_row_count": 1025,
+      "column_mapping": null,
+      "error_code": "row_count_mismatch",
+      "error": "Expected 12962 data rows; received 1025"
+    },
+    {
+      "task_id": "task_35",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": true,
+      "gold_column_count": 3,
+      "prediction_column_count": 1,
+      "gold_row_count": 3,
+      "prediction_row_count": 0,
+      "column_mapping": null,
+      "error_code": "column_count_mismatch",
+      "error": "Expected 3 columns; received 1"
+    },
+    {
+      "task_id": "task_43",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": true,
+      "gold_column_count": 2,
+      "prediction_column_count": 2,
+      "gold_row_count": 12,
+      "prediction_row_count": 10,
+      "column_mapping": null,
+      "error_code": "row_count_mismatch",
+      "error": "Expected 12 data rows; received 10"
+    },
+    {
+      "task_id": "task_44",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": true,
+      "gold_column_count": 1,
+      "prediction_column_count": 1,
+      "gold_row_count": 4,
+      "prediction_row_count": 0,
+      "column_mapping": null,
+      "error_code": "row_count_mismatch",
+      "error": "Expected 4 data rows; received 0"
+    },
+    {
+      "task_id": "task_48",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 3,
+      "gold_row_count": 3,
+      "prediction_row_count": 414,
+      "column_mapping": null,
+      "error_code": "column_count_mismatch",
+      "error": "Expected 1 columns; received 3"
+    },
+    {
+      "task_id": "task_58",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": true,
+      "gold_column_count": 6,
+      "prediction_column_count": 6,
+      "gold_row_count": 50,
+      "prediction_row_count": 0,
+      "column_mapping": null,
+      "error_code": "row_count_mismatch",
+      "error": "Expected 50 data rows; received 0"
+    },
+    {
+      "task_id": "task_85",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 1,
+      "gold_row_count": 5,
+      "prediction_row_count": 5,
+      "column_mapping": null,
+      "error_code": "relation_mismatch",
+      "error": "Prediction does not equal the gold unordered row multiset"
+    },
+    {
+      "task_id": "task_86",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 3,
+      "prediction_column_count": 3,
+      "gold_row_count": 1,
+      "prediction_row_count": 2,
+      "column_mapping": null,
+      "error_code": "row_count_mismatch",
+      "error": "Expected 1 data rows; received 2"
+    },
+    {
+      "task_id": "task_87",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 2,
+      "gold_row_count": 1,
+      "prediction_row_count": 1,
+      "column_mapping": null,
+      "error_code": "column_count_mismatch",
+      "error": "Expected 1 columns; received 2"
+    },
+    {
+      "task_id": "task_102",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 1,
+      "gold_row_count": 1,
+      "prediction_row_count": 1,
+      "column_mapping": null,
+      "error_code": "relation_mismatch",
+      "error": "Prediction does not equal the gold unordered row multiset"
+    },
+    {
+      "task_id": "task_103",
+      "passed": true,
+      "score": 1,
+      "order_sensitive": true,
+      "gold_column_count": 2,
+      "prediction_column_count": 2,
+      "gold_row_count": 23,
+      "prediction_row_count": 23,
+      "column_mapping": [
+        {
+          "gold_index": 0,
+          "prediction_index": 0
+        },
+        {
+          "gold_index": 1,
+          "prediction_index": 1
+        }
+      ],
+      "error_code": null,
+      "error": null
+    },
+    {
+      "task_id": "task_111",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 2,
+      "prediction_column_count": 2,
+      "gold_row_count": 1,
+      "prediction_row_count": 4,
+      "column_mapping": null,
+      "error_code": "row_count_mismatch",
+      "error": "Expected 1 data rows; received 4"
+    },
+    {
+      "task_id": "task_123",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 1,
+      "gold_row_count": 1,
+      "prediction_row_count": 1,
+      "column_mapping": null,
+      "error_code": "relation_mismatch",
+      "error": "Prediction does not equal the gold unordered row multiset"
+    },
+    {
+      "task_id": "task_127",
+      "passed": true,
+      "score": 1,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 1,
+      "gold_row_count": 1,
+      "prediction_row_count": 1,
+      "column_mapping": [
+        {
+          "gold_index": 0,
+          "prediction_index": 0
+        }
+      ],
+      "error_code": null,
+      "error": null
+    },
+    {
+      "task_id": "task_128",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": true,
+      "gold_column_count": 1,
+      "prediction_column_count": 1,
+      "gold_row_count": 2,
+      "prediction_row_count": 2,
+      "column_mapping": null,
+      "error_code": "relation_mismatch",
+      "error": "Prediction does not equal the gold ordered row sequence"
+    },
+    {
+      "task_id": "task_129",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 2,
+      "prediction_column_count": 2,
+      "gold_row_count": 4,
+      "prediction_row_count": 5,
+      "column_mapping": null,
+      "error_code": "row_count_mismatch",
+      "error": "Expected 4 data rows; received 5"
+    },
+    {
+      "task_id": "task_133",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 1,
+      "gold_row_count": 1,
+      "prediction_row_count": 0,
+      "column_mapping": null,
+      "error_code": "row_count_mismatch",
+      "error": "Expected 1 data rows; received 0"
+    },
+    {
+      "task_id": "task_140",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 1,
+      "gold_row_count": 1,
+      "prediction_row_count": 1,
+      "column_mapping": null,
+      "error_code": "relation_mismatch",
+      "error": "Prediction does not equal the gold unordered row multiset"
+    },
+    {
+      "task_id": "task_159",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 1,
+      "gold_row_count": 1,
+      "prediction_row_count": 1,
+      "column_mapping": null,
+      "error_code": "relation_mismatch",
+      "error": "Prediction does not equal the gold unordered row multiset"
+    },
+    {
+      "task_id": "task_166",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 1,
+      "gold_row_count": 1,
+      "prediction_row_count": 1,
+      "column_mapping": null,
+      "error_code": "relation_mismatch",
+      "error": "Prediction does not equal the gold unordered row multiset"
+    },
+    {
+      "task_id": "task_168",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": true,
+      "gold_column_count": 1,
+      "prediction_column_count": 1,
+      "gold_row_count": 30,
+      "prediction_row_count": 7,
+      "column_mapping": null,
+      "error_code": "row_count_mismatch",
+      "error": "Expected 30 data rows; received 7"
+    },
+    {
+      "task_id": "task_182",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 2,
+      "prediction_column_count": 6,
+      "gold_row_count": 12,
+      "prediction_row_count": 0,
+      "column_mapping": null,
+      "error_code": "column_count_mismatch",
+      "error": "Expected 2 columns; received 6"
+    },
+    {
+      "task_id": "task_184",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 2,
+      "prediction_column_count": 2,
+      "gold_row_count": 374,
+      "prediction_row_count": 374,
+      "column_mapping": null,
+      "error_code": "relation_mismatch",
+      "error": "Prediction does not equal the gold unordered row multiset"
+    },
+    {
+      "task_id": "task_196",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 4,
+      "gold_row_count": 47,
+      "prediction_row_count": 47,
+      "column_mapping": null,
+      "error_code": "column_count_mismatch",
+      "error": "Expected 1 columns; received 4"
+    },
+    {
+      "task_id": "task_199",
+      "passed": true,
+      "score": 1,
+      "order_sensitive": false,
+      "gold_column_count": 4,
+      "prediction_column_count": 4,
+      "gold_row_count": 2,
+      "prediction_row_count": 2,
+      "column_mapping": [
+        {
+          "gold_index": 0,
+          "prediction_index": 0
+        },
+        {
+          "gold_index": 1,
+          "prediction_index": 1
+        },
+        {
+          "gold_index": 2,
+          "prediction_index": 2
+        },
+        {
+          "gold_index": 3,
+          "prediction_index": 3
+        }
+      ],
+      "error_code": null,
+      "error": null
+    },
+    {
+      "task_id": "task_200",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 4,
+      "gold_row_count": 9,
+      "prediction_row_count": 71,
+      "column_mapping": null,
+      "error_code": "column_count_mismatch",
+      "error": "Expected 1 columns; received 4"
+    },
+    {
+      "task_id": "task_208",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 2,
+      "prediction_column_count": 1,
+      "gold_row_count": 1,
+      "prediction_row_count": 0,
+      "column_mapping": null,
+      "error_code": "column_count_mismatch",
+      "error": "Expected 2 columns; received 1"
+    },
+    {
+      "task_id": "task_215",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": true,
+      "gold_column_count": 2,
+      "prediction_column_count": 2,
+      "gold_row_count": 10,
+      "prediction_row_count": 0,
+      "column_mapping": null,
+      "error_code": "row_count_mismatch",
+      "error": "Expected 10 data rows; received 0"
+    },
+    {
+      "task_id": "task_257",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 2,
+      "prediction_column_count": 2,
+      "gold_row_count": 17,
+      "prediction_row_count": 1075,
+      "column_mapping": null,
+      "error_code": "row_count_mismatch",
+      "error": "Expected 17 data rows; received 1075"
+    },
+    {
+      "task_id": "task_259",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 2,
+      "prediction_column_count": 2,
+      "gold_row_count": 12962,
+      "prediction_row_count": 9719,
+      "column_mapping": null,
+      "error_code": "row_count_mismatch",
+      "error": "Expected 12962 data rows; received 9719"
+    },
+    {
+      "task_id": "task_263",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 6,
+      "gold_row_count": 306,
+      "prediction_row_count": 306,
+      "column_mapping": null,
+      "error_code": "column_count_mismatch",
+      "error": "Expected 1 columns; received 6"
+    },
+    {
+      "task_id": "task_264",
+      "passed": true,
+      "score": 1,
+      "order_sensitive": false,
+      "gold_column_count": 3,
+      "prediction_column_count": 3,
+      "gold_row_count": 35,
+      "prediction_row_count": 35,
+      "column_mapping": [
+        {
+          "gold_index": 0,
+          "prediction_index": 0
+        },
+        {
+          "gold_index": 1,
+          "prediction_index": 1
+        },
+        {
+          "gold_index": 2,
+          "prediction_index": 2
+        }
+      ],
+      "error_code": null,
+      "error": null
+    },
+    {
+      "task_id": "task_267",
+      "passed": true,
+      "score": 1,
+      "order_sensitive": false,
+      "gold_column_count": 4,
+      "prediction_column_count": 4,
+      "gold_row_count": 10,
+      "prediction_row_count": 10,
+      "column_mapping": [
+        {
+          "gold_index": 0,
+          "prediction_index": 0
+        },
+        {
+          "gold_index": 1,
+          "prediction_index": 1
+        },
+        {
+          "gold_index": 2,
+          "prediction_index": 2
+        },
+        {
+          "gold_index": 3,
+          "prediction_index": 3
+        }
+      ],
+      "error_code": null,
+      "error": null
+    },
+    {
+      "task_id": "task_269",
+      "passed": true,
+      "score": 1,
+      "order_sensitive": false,
+      "gold_column_count": 3,
+      "prediction_column_count": 3,
+      "gold_row_count": 2,
+      "prediction_row_count": 2,
+      "column_mapping": [
+        {
+          "gold_index": 0,
+          "prediction_index": 0
+        },
+        {
+          "gold_index": 1,
+          "prediction_index": 1
+        },
+        {
+          "gold_index": 2,
+          "prediction_index": 2
+        }
+      ],
+      "error_code": null,
+      "error": null
+    },
+    {
+      "task_id": "task_279",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 2,
+      "prediction_column_count": 6,
+      "gold_row_count": 1,
+      "prediction_row_count": 1,
+      "column_mapping": null,
+      "error_code": "column_count_mismatch",
+      "error": "Expected 2 columns; received 6"
+    },
+    {
+      "task_id": "task_285",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 1,
+      "gold_row_count": 1,
+      "prediction_row_count": 1,
+      "column_mapping": null,
+      "error_code": "relation_mismatch",
+      "error": "Prediction does not equal the gold unordered row multiset"
+    },
+    {
+      "task_id": "task_298",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 1,
+      "gold_row_count": 1,
+      "prediction_row_count": 1,
+      "column_mapping": null,
+      "error_code": "relation_mismatch",
+      "error": "Prediction does not equal the gold unordered row multiset"
+    },
+    {
+      "task_id": "task_300",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": true,
+      "gold_column_count": 1,
+      "prediction_column_count": 1,
+      "gold_row_count": 50,
+      "prediction_row_count": 931,
+      "column_mapping": null,
+      "error_code": "row_count_mismatch",
+      "error": "Expected 50 data rows; received 931"
+    },
+    {
+      "task_id": "task_312",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 3,
+      "prediction_column_count": 3,
+      "gold_row_count": 242,
+      "prediction_row_count": 139,
+      "column_mapping": null,
+      "error_code": "row_count_mismatch",
+      "error": "Expected 242 data rows; received 139"
+    },
+    {
+      "task_id": "task_322",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 2,
+      "prediction_column_count": 5,
+      "gold_row_count": 331,
+      "prediction_row_count": 0,
+      "column_mapping": null,
+      "error_code": "column_count_mismatch",
+      "error": "Expected 2 columns; received 5"
+    },
+    {
+      "task_id": "task_326",
+      "passed": true,
+      "score": 1,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 1,
+      "gold_row_count": 1,
+      "prediction_row_count": 1,
+      "column_mapping": [
+        {
+          "gold_index": 0,
+          "prediction_index": 0
+        }
+      ],
+      "error_code": null,
+      "error": null
+    },
+    {
+      "task_id": "task_328",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 3,
+      "prediction_column_count": 1,
+      "gold_row_count": 4,
+      "prediction_row_count": 0,
+      "column_mapping": null,
+      "error_code": "column_count_mismatch",
+      "error": "Expected 3 columns; received 1"
+    },
+    {
+      "task_id": "task_329",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 2,
+      "gold_row_count": 1,
+      "prediction_row_count": 1,
+      "column_mapping": null,
+      "error_code": "column_count_mismatch",
+      "error": "Expected 1 columns; received 2"
+    },
+    {
+      "task_id": "task_336",
+      "passed": true,
+      "score": 1,
+      "order_sensitive": false,
+      "gold_column_count": 4,
+      "prediction_column_count": 4,
+      "gold_row_count": 1,
+      "prediction_row_count": 1,
+      "column_mapping": [
+        {
+          "gold_index": 0,
+          "prediction_index": 0
+        },
+        {
+          "gold_index": 1,
+          "prediction_index": 1
+        },
+        {
+          "gold_index": 2,
+          "prediction_index": 2
+        },
+        {
+          "gold_index": 3,
+          "prediction_index": 3
+        }
+      ],
+      "error_code": null,
+      "error": null
+    },
+    {
+      "task_id": "task_337",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 1,
+      "gold_row_count": 1,
+      "prediction_row_count": 0,
+      "column_mapping": null,
+      "error_code": "row_count_mismatch",
+      "error": "Expected 1 data rows; received 0"
+    },
+    {
+      "task_id": "task_361",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 1,
+      "gold_row_count": 1,
+      "prediction_row_count": 1,
+      "column_mapping": null,
+      "error_code": "relation_mismatch",
+      "error": "Prediction does not equal the gold unordered row multiset"
+    },
+    {
+      "task_id": "task_362",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 6,
+      "gold_row_count": 306,
+      "prediction_row_count": 306,
+      "column_mapping": null,
+      "error_code": "column_count_mismatch",
+      "error": "Expected 1 columns; received 6"
+    },
+    {
+      "task_id": "task_371",
+      "passed": true,
+      "score": 1,
+      "order_sensitive": false,
+      "gold_column_count": 2,
+      "prediction_column_count": 2,
+      "gold_row_count": 12962,
+      "prediction_row_count": 12962,
+      "column_mapping": [
+        {
+          "gold_index": 0,
+          "prediction_index": 0
+        },
+        {
+          "gold_index": 1,
+          "prediction_index": 1
+        }
+      ],
+      "error_code": null,
+      "error": null
+    },
+    {
+      "task_id": "task_378",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 1,
+      "gold_row_count": 1,
+      "prediction_row_count": 1,
+      "column_mapping": null,
+      "error_code": "relation_mismatch",
+      "error": "Prediction does not equal the gold unordered row multiset"
+    },
+    {
+      "task_id": "task_380",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 1,
+      "gold_row_count": 1,
+      "prediction_row_count": 514,
+      "column_mapping": null,
+      "error_code": "row_count_mismatch",
+      "error": "Expected 1 data rows; received 514"
+    },
+    {
+      "task_id": "task_382",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 1,
+      "gold_row_count": 1,
+      "prediction_row_count": 0,
+      "column_mapping": null,
+      "error_code": "row_count_mismatch",
+      "error": "Expected 1 data rows; received 0"
+    },
+    {
+      "task_id": "task_389",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": true,
+      "gold_column_count": 3,
+      "prediction_column_count": 3,
+      "gold_row_count": 50,
+      "prediction_row_count": 294,
+      "column_mapping": null,
+      "error_code": "row_count_mismatch",
+      "error": "Expected 50 data rows; received 294"
+    },
+    {
+      "task_id": "task_391",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 5,
+      "prediction_column_count": 4,
+      "gold_row_count": 1,
+      "prediction_row_count": 1,
+      "column_mapping": null,
+      "error_code": "column_count_mismatch",
+      "error": "Expected 5 columns; received 4"
+    },
+    {
+      "task_id": "task_398",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 2,
+      "prediction_column_count": 2,
+      "gold_row_count": 18,
+      "prediction_row_count": 64,
+      "column_mapping": null,
+      "error_code": "row_count_mismatch",
+      "error": "Expected 18 data rows; received 64"
+    },
+    {
+      "task_id": "task_402",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 3,
+      "prediction_column_count": 3,
+      "gold_row_count": 1,
+      "prediction_row_count": 15,
+      "column_mapping": null,
+      "error_code": "row_count_mismatch",
+      "error": "Expected 1 data rows; received 15"
+    },
+    {
+      "task_id": "task_409",
+      "passed": false,
+      "score": 0,
+      "order_sensitive": false,
+      "gold_column_count": 1,
+      "prediction_column_count": 1,
+      "gold_row_count": 1,
+      "prediction_row_count": 0,
+      "column_mapping": null,
+      "error_code": "row_count_mismatch",
+      "error": "Expected 1 data rows; received 0"
+    }
+  ]
+}

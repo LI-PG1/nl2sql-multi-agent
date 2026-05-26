@@ -1,0 +1,130 @@
+text
+"### **Clinical Admission Registry: Patient Identification and System Stay Correlation**
+
+This document provides a detailed summary of patient identification data for a cohort of individuals admitted to the Intensive Care Unit. Each entry serves to bind the specific ICU stay event to the patient's permanent, system-wide identifiers, ensuring continuity of care and accurate record-keeping.
+
+The case corresponding to patient unit stay **1053709** is linked to an individual whose unique patient identifier is **008-186**. The patient's broader admission into the health system, which encompasses all departmental transfers, is tracked under patient health system stay ID **780725**. This patient's file also notes a recent update to their preferred pharmacy, a detail logged for prescription discharge planning. Establishing this link is the foundational step for aggregating clinical data from various sources into a single, cohesive patient record. The seamless integration of these identifiers is critical for longitudinal studies and multi-visit analyses."
+"Next, the admission event logged as patient unit stay **1185837** involves the patient with the unique identifier **011-14590**. This individual's comprehensive hospital stay is cataloged under the patient health system stay ID **885462**. The patient's dietary preferences were recently updated in their electronic health record following a consultation with a nutritionist. This ensures that all care provided during this specific ICU admission is correctly attributed to the patient's lifelong medical history. Proper attribution is crucial for avoiding medical errors and ensuring accurate billing.
+
+Regarding patient unit stay **914290**, the associated unique patient ID is **006-137705**. The corresponding patient health system stay ID for this admission is **679089**. This patient had previously participated in a voluntary hospital feedback survey two years prior. The correlation between the unit-specific ID and the system-wide ID allows for a holistic view of the patient's journey, from initial emergency department contact to eventual discharge."
+"This section transitions from patient location to the critical anthropometric measurements recorded during their ICU stay. A patient's height and weight are foundational data points, essential for calculating medication dosages, determining ventilator settings, assessing nutritional needs, and monitoring fluid balance. The dynamics of weight change between admission and discharge often serve as a key indicator of clinical progress or decline.
+
+For the patient in unit stay **1053709**, the recorded **admission height** was **168.00 cm**. His **admission weight** was documented at **103.7 kg**, a figure used to calculate the initial loading doses for his antibiotic regimen. A **discharge weight** was not recorded for this ICU stay, as the patient was transferred to another unit for continued care.
+
+The patient associated with unit stay **1185837** had a standing **admission height** of **180.30 cm**. However, due to the emergent nature of his admission, the patient's **admission weight was not recorded** in the chart. Consequently, data regarding his **dischargeweight** is also unavailable. His family mentioned that he had recently purchased new running shoes.
+
+The individual admitted under patient unit stay **914290** has a recorded **admission height** of **162.00 cm**. Her **admission weight** was measured at a frail **44.5 kg**. This low body mass was a central concern for the nutritional support team. A final weight upon discharge from the unit was not documented."
+"The case for patient unit stay **224990** provides a complete dataset. The patient's **admission height** was **167.60 cm**, and her initial weight was **78.6 kg**. Throughout her stay, she was on a strict fluid monitoring protocol. Upon discharge from the ICU, she showed a net gain of 0.8 kg, resulting in a final **dischargeweight** of **79.40 kg**, likely attributable to fluid shifts.
+
+Regarding patient unit stay **907359**, the patient's **admission height** was measured at **157.20 cm**. Data regarding the patient's **admission weight** and **dischargeweight** are currently unavailable for review in the electronic health record. The patient's roommate had brought her a 'get well soon' card that was taped to the monitor.
+
+The patient linked to unit stay **222421** had his height initially estimated at 190.0 cm by the transport team; however, a formal measurement upon admission corrected this to **190.50 cm**. His **admission weight** was not documented, but his **dischargeweight** was recorded as **121.80 kg**. This final weight was used to adjust his diuretic medication prior to transfer.
+
+The admission for patient unit stay **1288927** notes an **admission height** of **167.60 cm**. Her **admission weight** was **83.2 kg**. This patient's weight at the time of discharge from the ICU remains undocumented. She frequently requested that the television in her room be tuned to a 24-hour news channel."
+"The patient corresponding to unit stay **1260355** had a recorded **admission height** of **190.50 cm** and an **admission weight** of **108.5 kg**. His clinical course was marked by stable fluid balance, as his **dischargeweight** showed no net change, remaining stable at **108.50 kg**. This stability was seen as a positive prognostic indicator by the clinical team.
+
+The individual for patient unit stay **2717914** was measured with an **admission height** of **163.00 cm**. Her **admission weight** was **51.7 kg**. A **dischargeweight** was not captured for this particular ICU stay. The physical therapy team performed a baseline mobility assessment on her second day.
+
+The case for patient unit stay **1653802**, with an **admission height** of **157.00 cm**, presented a significant clinical challenge related to fluid management. Her **admission weight** was **115.2 kg**. While a mid-stay weight estimate was logged at 150 kg, her final **dischargeweight** was a substantially higher **166.50 kg**, a finding indicative of severe fluid retention requiring aggressive diuretic therapy.
+
+For patient unit stay **2859742**, the patient's **admission height** was **180.00 cm**. His weight was recorded in two stages by the nursing staff: a baseline bed scale reading of 105.0 kg, with an additional 1.8 kg manually added to account for attached lines and splints, for a total official **admission weight** of **106.8 kg**. A **dischargeweight** measurement is not available in his chart."
+"The patient in case **2488126** had an **admission height** of **180.30 cm** and an **admission weight** of **79.3 kg**. Following nutritional intervention, his **dischargeweight** was recorded at **83.00 kg**. This weight gain was considered a positive outcome of the implemented feeding protocol.
+
+The admission for patient unit stay **1062407** notes an **admission height** of **160.00 cm** and an **admission weight** of **63.0 kg**. No **dischargeweight** was documented upon her transfer from the unit. Her family provided the staff with a list of her favorite songs.
+
+The patient corresponding to unit stay **214419** was recorded with an **admission height** of **177.80 cm**. An **admission weight** was not obtained. While the clinical team had set a target discharge weight of 95.0 kg as part of his re-feeding plan, the final measured **dischargeweight** just prior to transfer was **94.20 kg**.
+
+The individual in case **3344456** had an **admission height** of **185.40 cm** and an **admission weight** of **92.2 kg**. His **dischargeweight** was **94.10 kg**, a slight increase attributed to intravenous fluid administration. This was closely monitored via daily weight checks.
+
+For patient unit stay **881961**, the **admission height** was measured at **177.80 cm**. However, records for both **admission weight** and **dischargeweight** are not available for this patient. The patient's chart did note a history of seasonal allergies."
+"The case for patient unit stay **1161456** involves a patient with an **admission height** of **190.50 cm**. While the initial bed scale reading indicated a weight of 115.0 kg, a subsequent calibration of the device by biomedical engineering confirmed the official **admission weight** to be **113.3 kg**. A **dischargeweight** was not recorded.
+
+The patient in unit stay **1553094** had an **admission height** of **160.00 cm** and an **admission weight** of **91.5 kg**. Her ICU course was complicated by catabolism, resulting in a **dischargeweight** of **89.27 kg**. This muscle wasting prompted a consultation with the physical and occupational therapy departments.
+
+Regarding patient unit stay **235086**, the patient's **admission height** was **166.40 cm**. An **admission weight** was not documented, but her **dischargeweight** was recorded at a very low **46.20 kg**. This was a key factor in the decision to place a feeding tube for nutritional support.
+
+The admission for patient unit stay **1357092** involved a patient with an **admission height** of **157.50 cm**. While her family reported her weight was 'around 88 kg', the calibrated scale confirmed an official **admission weight** of **90.3 kg**. She experienced a dramatic and clinically concerning weight loss during her stay, with a **dischargeweight** of only **42.20 kg**."
+"The patient in case **1124672** had an **admission height** of **175.00 cm** and an **admission weight** of **90.7 kg**. A weight at the time of discharge from the ICU was not documented in the record. He had a notable collection of classic novels on his bedside table.
+
+For patient unit stay **602146**, data regarding the **admission height** is not available in the record. His **admission weight** was **90.5 kg**. During his stay, he experienced a net loss of 11.0 kg, resulting in a final **dischargeweight** of **79.50 kg**, a change attributed to diuresis and a catabolic state.
+
+The patient corresponding to unit stay **1570565** had a recorded **admission height** of **180.30 cm** and an **admission weight** of **70.5 kg**. His weight remained perfectly stable, with a **dischargeweight** of **70.50 kg**. This stability was unusual given the severity of his condition.
+
+The individual in case **2126956** was measured at an **admission height** of **172.00 cm** with an **admission weight** of **70.7 kg**. His **dischargeweight** was **76.50 kg**, with the gain attributed to necessary fluid resuscitation. He was kept on a strict input and output monitoring chart.
+
+The patient associated with unit stay **1659199** had an **admission height** of **168.00 cm**. His weight was documented as an initial 65.0 kg plus 1.8 kg for attached orthopedic hardware, totaling an official **admission weight** of **66.8 kg**. His **dischargeweight** was **71.80 kg**."
+"The admission for patient unit stay **2145585** notes an **admission height** of **180.30 cm** and an **admission weight** of **82.7 kg**. His **dischargeweight** was recorded at **85.70 kg**. The 3 kg gain was consistent with the volume of intravenous fluids administered.
+
+The patient in case **1595130** had an **admission height** of **163.00 cm** and an **admission weight** of **65.8 kg**. Her weight was stable throughout her stay, with a **dischargeweight** of **65.80 kg**. Her family commented on her consistent appetite despite her illness.
+
+The individual for patient unit stay **1453110** had an **admission height** of **173.00 cm** and an **admission weight** of **75.6 kg**. She had a minor weight loss, with a **dischargeweight** of **75.43 kg**. This was considered a clinically insignificant fluctuation.
+
+The patient associated with unit stay **868068** had an **admission height** of **162.00 cm** and an **admission weight** of **55.0 kg**. Her weight showed no change, with a **dischargeweight** of **55.00 kg**. This stability was a focus of the daily multidisciplinary rounds.
+
+Finally, the patient corresponding to unit stay **2632624** had an **admission height** of **172.72 cm** and an **admission weight** of **63.5 kg**. She was noted to have a positive fluid balance, reflected in a **dischargeweight** of **68.40 kg**. The nursing staff educated her on the importance of continuing to monitor for swelling after discharge."
+"The patient for unit stay **1659199** was admitted through the **emergency department** at **15:34:00 on October 9th, 2103**. His **unitadmittime** was shortly thereafter at **16:32:00**.
+
+The admission for patient unit stay **2145585** began in the **emergency department** at **06:45:00 on December 15th, 2104**. He was moved to the ICU later that morning at **11:57:00**.
+
+The patient in case **1595130** arrived at the **emergency department** at **23:05:00 on April 5th, 2103**. She was transferred to the ICU just over an hour later, with a **unitadmittime** of **00:22:00 on April 6th, 2103**.
+
+The individual for patient unit stay **1453110** presented to the **emergency department** at **11:59:00 on November 13th, 2103**, and was in the ICU within two minutes, with a **unitadmittime** of **12:01:00**. The triage nurse was commended for recognizing the severity of the case so quickly.
+
+The patient associated with unit stay **868068** was a **direct admit**, with a **hospitaladmittime** of **16:28:00 on September 23rd, 2104**. The **unitadmittime** followed swiftly at **16:56:00**.
+
+Finally, the patient corresponding to unit stay **2632624** arrived at the **emergency department** at **22:28:00 on March 11th, 2101**. Her **unitadmittime** was logged about an hour later at **23:37:00**.
+
+### **Section VI: Discharge Timeline and Final Disposition**"
+"The patient associated with unit stay **914290** was transferred from the ICU at **21:21:00 on September 28th, 2102**. She continued to improve on the general medical floor and was discharged from the hospital at **00:30:00 on September 30th, 2102**. Her final **hospitaldischargestatus** was **alive**.
+
+The individual in case **224990** was transferred from the ICU in the early morning of **December 29th, 2103, at 06:43:00**. Her full hospital course concluded after the new year, with a **hospitaldischargetime** in the late afternoon of **January 2nd, 2104, at 17:02:00**. She survived the admission, with a final status of **alive**. A social worker assisted with arranging her transition to a skilled nursing facility.
+
+Regarding patient unit stay **907359**, her ICU stay concluded with a **unitdischargetime** of **04:47:00 on February 9th, 2104**. She remained hospitalized for another week, with a final **hospitaldischargetime** of **01:15:00 on February 17th, 2104**, and was discharged **alive**.
+
+The patient in case **222421** had a discharge from the ICU that was initially planned for 18:00, but a delay in securing a bed on the step-down unit pushed the final **unitdischargetime** to **18:22:00 on July 4th, 2103**. His complete hospital stay ended with a discharge at **20:31:00 on July 9th, 2103**, with a final status of **alive**. The patient expressed his gratitude to the nursing staff before leaving."
+"For patient unit stay **1288927**, the clinical record is incomplete regarding her departure. The fields for both **unitdischargetime** and **hospitaldischargetime** are currently unavailable for review. However, the summary disposition notes a **hospitaldischargestatus** of **alive**, indicating a positive outcome despite the missing temporal data.
+
+The patient corresponding to unit stay **1260355** was transferred from the ICU at **10:32:57 on May 25th, 2103**. He was discharged directly from the step-down unit shortly thereafter, with a **hospitaldischargetime** of **10:50:57** the same day. The final **hospitaldischargestatus**, however, was not officially recorded in the file, representing a data gap in the patient's record.
+
+The admission for patient unit stay **2717914** concluded with a **unitdischargetime** of **21:11:00 on May 3rd, 2105**. She was subsequently discharged from the hospital at **21:37:00 on May 9th, 2105**, with a status of **alive**. She was provided with a prescription for a common pain reliever.
+
+The individual in unit stay **1653802** had a brief but intense ICU course, ending with a **unitdischargetime** of **13:36:00 on December 16th, 2103**. She was discharged from the hospital the next day at **17:17:00 on December 17th, 2103**, with a final disposition of **alive**."
+"The patient in case **2859742** was transferred from the ICU at **05:15:00 on December 11th, 2104**. He was initially cleared for hospital discharge at midnight on the 14th, but the final **hospitaldischargetime** was logged at **01:17:00 on December 14th, 2104**, due to a delay in arranging transport. The patient's final status was **alive**.
+
+For patient unit stay **2488126**, the entire hospital course was extraordinarily brief. Following a rapid ICU stay, the **unitdischargetime** was **18:49:36 on March 5th, 2103**. Exactly one minute later, he was discharged from the hospital, with a **hospitaldischargetime** of **18:50:36** and a status of **alive**, suggesting a brief observation that did not require a prolonged stay.
+
+The admission for patient unit stay **1062407** concluded with a **unitdischargetime** of **19:04:00 on May 16th, 2100**. She was discharged from the hospital at **21:52:00 on May 19th, 2100**, with a status of **alive**. Her family received a pamphlet on post-ICU care.
+
+The patient corresponding to unit stay **214419** was transferred from the ICU in the late afternoon of **March 7th, 2103, at 17:14:00**. He had a lengthy hospital stay for rehabilitation, with a final **hospitaldischargetime** late in the evening on **March 27th, 23:18:00**. He was discharged **alive**."
+"The individual in case **3344456** was discharged from the ICU at **01:47:00 on August 25th, 2102**. His hospital stay ended with a discharge at **23:43:00 on August 31st, 2102**, with a final status of **alive**. He was reminded to schedule a follow-up appointment with his primary care physician.
+
+The patient associated with unit stay **881961** had an ICU stay of just over two hours, with a **unitdischargetime** of **23:40:00 on July 14th, 2103**. He was discharged from the hospital the following evening at **19:59:00 on July 15th, 2103**, with a status of **alive**.
+
+The case for patient unit stay **1161456** concluded with a **unitdischargetime** of **21:49:00 on January 31st, 2105**. He was discharged from the hospital at **23:35:00 on February 6th, 2105**, having survived the admission (**alive**). The patient's discharge paperwork was co-signed by the attending physician, Dr. Roberts.
+
+The patient in unit stay **1553094** was scheduled for a unit transfer at 02:30, but this was updated to a final **unitdischargetime** of **02:49:00 on April 26th, 2103**. The hospital discharge occurred at **21:15:00 on April 27th, 2103**, with a disposition of **alive**.
+
+Regarding patient unit stay **235086**, the **unitdischargetime** was **01:23:00 on June 17th, 2101**. She was discharged from the hospital the next day at **21:43:00 on June 18th, 2101**, with a final status of **alive**."
+"The admission for patient unit stay **1357092** had a tragic conclusion. The patient was transferred from the ICU at **13:37:22 on February 3rd, 2104**. However, her condition subsequently deteriorated, and the hospital stay concluded with a fatal outcome; the **hospitaldischargetime** is recorded at **18:51:22** that same day, with a status of **expired**.
+
+The patient in case **1124672** was discharged from the ICU at **14:40:00 on May 13th, 2103**. He was discharged home at **19:56:00 on May 18th, 2103**, with a final status of **alive**. He was given literature about his condition before he left.
+
+For patient unit stay **602146**, the patient was transferred from the ICU on Christmas Day, with a **unitdischargetime** of **16:55:00 on December 25th, 2105**. While the final **hospitaldischargestatus** is noted as **alive**, the specific time of hospital discharge is not documented in this record.
+
+The patient in case **1570565** had a very rapid and unfortunate course. After being admitted to the ICU, he was transferred out at **08:12:00 on October 4th, 2101**. He succumbed to his illness shortly thereafter, with a **hospitaldischargetime** of **12:44:00** the same day and a final status of **expired**.
+
+The individual for unit stay **2126956** was discharged from the ICU at **13:23:00 on October 27th, 2103**. His hospital stay ended at **17:40:00 on October 29th, 2103**, with a disposition of **alive**."
+"The patient for unit stay **1659199** was transferred from the ICU at **16:37:00 on October 11th, 2103**. While a draft summary noted the hospital discharge status as 'pending transfer', the final, signed-off record confirms the patient was **alive** upon leaving the facility at **20:00:00 on October 12th, 2103**.
+
+The admission for patient unit stay **2145585** had a **unitdischargetime** of **06:38:00 on December 16th, 2104**. He was discharged from the hospital that same night at **22:00:00**, with a final status of **alive**.
+
+The patient in case **1595130** was transferred from the ICU at **18:44:00 on April 6th, 2103**. She had a longer recovery period, with a final **hospitaldischargetime** of **17:52:00 on April 16th, 2103**, and was discharged **alive**.
+
+The individual for patient unit stay **1453110** had an ICU stay of just under 11 hours, with a **unitdischargetime** of **23:05:00 on November 13th, 2103**. She was discharged from the hospital the following afternoon at **14:35:00 on November 14th, 2103**, with a status of **alive**.
+
+The patient associated with unit stay **868068** was discharged from the ICU at **00:39:00 on September 24th, 2104**. Her hospital course concluded with a discharge at **07:23:00 on September 26th, 2104**, with a disposition of **alive**."
+"Finally, the patient corresponding to unit stay **2632624** was transferred from the ICU at **00:22:00 on March 13th, 2101**. She was discharged home the following day at **19:00:00 on March 14th, 2101**, with a final **hospitaldischargestatus** of **alive**.
+
+This comprehensive review, integrating patient identifiers, demographics, location, anthropometrics, and admission/discharge timelines, provides a complete administrative and clinical picture of each patient's ICU stay. This structured data is invaluable for ongoing quality assurance, clinical research, and operational management within the health system.
+
+---"
