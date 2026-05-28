@@ -1,0 +1,69 @@
+[kdd] 公测任务 60 条｜模型 qwen3-coder-next｜重试上限 2｜守卫 LIMIT 20000｜解读阶段 开
+[01/60] task_10 OK         A:  242行 B:242行     2668ms 尝试2 请按报告期从早到晚列出货币当局资产负债表中总资产金额非空的记录，返回报告
+[02/60] task_18 OK         A:   27行 B:3行       5813ms 尝试2 请按资料中的记录顺序，列出有十年累计回报率记录的基金简称及十年累计回报率
+[03/60] task_23 OK         A:    1行 B:回退A     12659ms 尝试1 [视频]According to the rights issue review
+[04/60] task_24 OK         A:    1行 B:1行      10175ms 尝试2 [视频]根据视频中展示的评奖看板所定义的基金公司持续回报评选口径，统计该奖项的历
+[05/60] task_33 OK         A: 1025行 B:回退A      1980ms 尝试1 请按基金代码升序列出各基金的基金代码、基金简称及今年以来回报率；同一基金
+[06/60] task_35 EMPTY      A:    0行 B:回退A     28297ms 尝试3 根据文档，中国金融机构人民币信贷收支表中 2004 年已披露的单位存款/
+[07/60] task_43 OK         A:   10行 B:10行      1703ms 尝试1 请按本周以来基金基准增长幅度从高到低列出排名前10的基金及其投资目标；若
+[08/60] task_44 RETRY-FAIL A:    0行 B:回退A     20948ms 尝试3 What procedures did patient 025-4484  ← exec:no_such_table: no such table: patient
+提示：该名称不在本库真实表/列中。请核对 [可用表与字
+[09/60] task_48 OK         A:    2行 B:1行      18779ms 尝试1 [视频]According to the cohort stratificati
+[10/60] task_58 OK         A: 2020行 B:回退A      8800ms 尝试2 请按资料中的记录顺序，列出各地区、各报告期披露的地区生产总值（GDP）及
+[11/60] task_85 OK         A:    5行 B:5行       4380ms 尝试1 [视频]根据视频中展示的各公司A股流通股本（AFloats）记录，按流通股本从高
+[12/60] task_86 OK         A:    2行 B:2行       1358ms 尝试1 在最新报告日，人民币新增贷款的当月金额和期末累计金额分别是多少？请同时给
+[13/60] task_87 OK         A:    1行 B:1行      18894ms 尝试1 For patient 031-3355, was the collec
+[14/60] task_102 OK         A:   13行 B:回退A      7170ms 尝试1 [视频]根据视频中展示的公募基金奖项记录，共有多少家不同的基金公司曾获得过奖项？
+[15/60] task_103 OK         A:   23行 B:回退A      4219ms 尝试1 [视频]For the 2021 batch shown in the vide
+[16/60] task_111 OK         A:    5行 B:5行      11297ms 尝试3 [视频]在当前资料中，哪些基金既能确定基金类别，又满足视频绩效看板所定义的设立以
+[17/60] task_123 OK         A:    1行 B:1行       4327ms 尝试1 [视频]请问发生过募集金额超过100亿的股票配售记录吗？总共有几次
+[18/60] task_127 OK         A:    1行 B:1行       1308ms 尝试1 What was the maximum recorded respir
+[19/60] task_128 OK         A:    2行 B:2行      13400ms 尝试1 [视频]Which distinct companies had at leas
+[20/60] task_129 OK         A:   10行 B:17行     35305ms 尝试1 在已给出注册地信息的样本公司中，统计未流通A股股数超过2亿的股本结构变动
+[21/60] task_133 OK         A:   15行 B:1行        878ms 尝试1 [视频]What is the full term for screening 
+[22/60] task_140 OK         A:    1行 B:1行       2238ms 尝试1 Do you have information on the numbe
+[23/60] task_159 OK         A:    1行 B:1行       9174ms 尝试2 [视频]According to the buyback review cycl
+[24/60] task_166 OK         A:    5行 B:1行       9390ms 尝试1 How many fund managers have a QDII m
+[25/60] task_168 OK         A:    1行 B:1行      38783ms 尝试1 Please list the reserve assets amoun
+[26/60] task_182 OK         A:    1行 B:1行     347816ms 尝试1 For the funds that have archive note
+[27/60] task_184 OK         A:  374行 B:回退A      2206ms 尝试1 [视频]What are the funds and fund investme
+[28/60] task_196 OK         A:   47行 B:47行      3185ms 尝试1 Among funds with a recorded initial 
+[29/60] task_199 OK         A:    2行 B:2行       2614ms 尝试1 [视频]In the fund-manager tenure records, 
+[30/60] task_200 EMPTY      A:    0行 B:回退A      4411ms 尝试3 List the companies with a free float
+[31/60] task_208 OK         A:    1行 B:2行      20353ms 尝试1 Please list the available records th
+[32/60] task_215 RETRY-FAIL A:    0行 B:回退A     76940ms 尝试3 [视频]在这份基金基准增长率资料里，按一年基金基准增长率从高到低排，前十名基金及  ← exec:other: ambiguous column name: ChiName
+[33/60] task_257 OK         A: 8056行 B:回退A     28628ms 尝试1 嗨，能展示一下哪些基金获得过奖项吗，并列一下是谁颁发的
+[34/60] task_259 OK         A:12962行 B:回退A     16432ms 尝试1 这批基金净值表现记录里，各基金简称对应的设立以来回报率分别是多少？
+[35/60] task_263 OK         A:  306行 B:306行     1618ms 尝试1 [视频]Find funds whose three-year benchmar
+[36/60] task_264 OK         A:   35行 B:35行      2678ms 尝试1 Show me the pre-2000 currency and ba
+[37/60] task_267 OK         A:   10行 B:10行      1656ms 尝试1 From the fund-manager performance an
+[38/60] task_269 OK         A:    2行 B:2行       4094ms 尝试1 What are the actual and expected num
+[39/60] task_279 EMPTY      A:    0行 B:回退A     23220ms 尝试3 [视频]我想了解一下数据情况。持仓债券种类最多的基金和经理
+[40/60] task_285 OK         A:    1行 B:1行       1627ms 尝试1 统计一下科思股份有多少个交易日成交总金额超1亿元
+[41/60] task_298 OK         A:    1行 B:1行       1545ms 尝试1 [视频]How many companies in Jiangsu Provin
+[42/60] task_300 OK         A:   37行 B:回退A     33112ms 尝试2 [视频]根据视频中系统配置的本日基准增长率准入线，筛选满足条件的基金，并按本日基
+[43/60] task_312 OK         A:  242行 B:242行    20485ms 尝试2 [视频]根据视频中货币当局资产负债表系统展示的总资产准入阈值，查询满足该准入条件
+[44/60] task_322 OK         A:    1行 B:6行      18617ms 尝试1 哥，看下LOF基金本周以来基金基准增长率情况
+[45/60] task_326 OK         A:    1行 B:1行       4788ms 尝试1 我想了解一下，按公司主营业务所属行业口径，计算机、通信和其他电子设备制造
+[46/60] task_328 OK         A:   48行 B:48行     32281ms 尝试3 [视频]按视频里那个纵向分析批次的口径，找出其中国外净资产和国内信贷都给出明确数
+[47/60] task_329 OK         A:    2行 B:2行      22683ms 尝试2 I would like to know the daily maxim
+[48/60] task_336 OK         A:    1行 B:1行       1418ms 尝试1 [视频]Show the data and find the maximum a
+[49/60] task_337 OK         A:    3行 B:3行      11687ms 尝试1 Siri, in the A-share seasoned new-is
+[50/60] task_361 OK         A:    1行 B:1行      10052ms 尝试1 [视频]在江苏省中，自由流通比重为100%的上市公司有多少家？
+[51/60] task_362 OK         A:  306行 B:306行     5853ms 尝试1 [视频]找下三年基金基准增长幅度为正的基金
+[52/60] task_371 OK         A:12962行 B:回退A      1256ms 尝试1 Engineer Li is comparing funds. For 
+[53/60] task_378 OK         A:    1行 B:1行       9968ms 尝试1 [视频]According to the industry sector sco
+[54/60] task_380 OK         A:  514行 B:514行     1067ms 尝试1 Find all non-Chinese fund managers.
+[55/60] task_382 OK         A:    1行 B:1行      15873ms 尝试1 [视频]嘿，计算出哪种基金运作方式对应的日回报率均值最大
+[56/60] task_389 OK         A:    1行 B:1行      26680ms 尝试1 [视频]In the balance sheet data of other d
+[57/60] task_391 OK         A:    1行 B:1行       1330ms 尝试1 Show the latest record in the balanc
+[58/60] task_398 OK         A:   64行 B:64行     22524ms 尝试2 [视频]According to the circulating-share f
+[59/60] task_402 EMPTY      A:    0行 B:回退A     12444ms 尝试3 [视频]Among the 2021 stockholding records,
+[60/60] task_409 OK         A:   17行 B:1行      49831ms 尝试1 For patient 008-186's first ICU stay
+
+[kdd] 作答完成｜耗时 26.3 min｜预测 → eval\kdd_pred / eval\kdd_pred_interpret
+[kdd] 官方评测器判分（kdd_pred）...
+[kdd] kdd_pred Task Accuracy 14/60 = 23.3%
+[kdd] 官方评测器判分（kdd_pred_interpret）...
+[kdd] kdd_pred_interpret Task Accuracy 12/60 = 20.0%
+[kdd] 报告 → eval\report_kdd.md
