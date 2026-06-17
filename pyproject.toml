@@ -1,0 +1,26 @@
+[project]
+name = "nl2sql-multi-agent"
+version = "0.2.0"
+description = "NL2SQL 多智能体数据分析助手：口径澄清、多步编排与可复现评测"
+requires-python = ">=3.12"
+
+[project.optional-dependencies]
+dev = ["pytest==9.1.1", "ruff==0.11.13"]
+
+[tool.ruff]
+line-length = 100
+extend-exclude = [
+    "eval/bfcl_multi_exec",
+    "eval/kdd_evaluator",
+    "eval/archive",
+    ".venv",
+]
+
+[tool.ruff.lint]
+# 对齐公开冠军仓的配置：默认规则集（E4/E7/E9/F），仅统一行宽
+select = ["E4", "E7", "E9", "F"]
+ignore = []
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
